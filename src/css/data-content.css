@@ -1,0 +1,171 @@
+.data_content
+{
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    overflow: auto;
+}
+
+.data_img
+{
+    position: relative;
+    background-color: var(--color3-6);
+    width: 100%;
+    height: 20rem;
+    box-sizing:border-box;
+}
+
+.data_basic
+{
+    background-color: var(--color3-6);
+    width: 100%;
+    margin-top: 0.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    flex-direction:column;
+}
+
+.list_view,
+.list_img,
+.list_pdf
+{
+    margin-top:0.5rem;
+    background-color: var(--color3-2);
+    width: 100%;
+    max-height: 10rem;
+    min-height: 10rem;
+
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    flex-direction:column;
+}
+
+.list_img
+{
+
+    min-height: 30rem;
+    max-height: 30rem;
+}
+
+.data_basic_item_text,
+.view_item_text
+{
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+
+    padding-left: 0.5rem;
+    height: 100%;
+    flex-grow: 10;
+}
+
+.content_view
+{
+    padding: 0.2rem;
+    width: 100%;
+    height: 3rem;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;    
+
+    background-color: var(--color3-5);
+    border-bottom: 1px solid var(--color3-2);
+}
+
+.content_view_detail
+{
+    display: flex;
+    align-items:flex-start;
+    justify-content: center;   
+
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+.content_view_btn
+{
+    display: flex;
+    align-items:center;
+    justify-content: center; 
+
+    width:5rem;
+    height: 100%;
+}
+
+.data_basic_item:nth-child(1),
+.list_view_item:nth-child(1)
+{
+    width: 100%;
+    height: 2.3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+
+    border-bottom: 0.15rem solid var(--color3-1);
+}
+
+.list_view_item:nth-child(2)
+{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 1rem;
+    flex-grow: 10;
+
+    overflow: auto;
+}
+
+.data_basic_item:nth-child(2)
+{
+    display: block;
+    width: 100%;
+}
+
+.data_basic_item .textArea_simple
+{
+    resize: none;
+    max-height: 7rem;
+    min-height: 7rem;
+}
+
+#file_pdf
+{
+    cursor: pointer;
+}
+
+.btn_delete_file
+{
+    z-index: 100;
+    position: absolute;
+    top: 2.5rem;
+    right: 0.25rem;
+}
+
+.data_basic_item_btn
+{
+    cursor: pointer;
+}
+
+.image_logo
+{
+    background-size:contain;
+    background-position: center;
+    background-repeat:no-repeat;
+    width: 100%;
+    height: 17rem;
+}
+
+.clientContent
+{
+    width: 100%;
+    margin-top: 0.25rem;
+}
+
+/*----------------------------------------------------------*/

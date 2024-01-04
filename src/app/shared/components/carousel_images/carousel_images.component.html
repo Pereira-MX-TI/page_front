@@ -1,0 +1,15 @@
+<div class="container">
+    <ngx-slick-carousel class="container__carousel" #slickModal="slick-carousel" [config]="slideConfig">
+        <img alt="imagen carrusel" ngxSlickItem 
+             *ngFor="let slide of dataSlides;" 
+            class="container__carousel__slide"
+            [src]="pipeProduct.transform(slide,0,'image2')"/>
+    </ngx-slick-carousel>
+
+    <button class="container__btn" mat-fab aria-label="Before"  (click)="slickModal.slickNext()">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+    <button class="container__btn" mat-fab aria-label="Before"  (click)="slickModal.slickPrev()">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+</div>

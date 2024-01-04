@@ -1,0 +1,45 @@
+<div [ngSwitch]="case">
+    <div class="container_confirm" *ngSwitchCase="0">
+        <div class="title">
+            <label class="title_text">{{listMessage[0]}}</label>
+            <button mat-icon-button mat-dialog-close><mat-icon>close</mat-icon></button>
+        </div>
+        <div class="form">
+            {{listMessage[1]}}
+        </div>
+        <div class="modal_btn">
+            <button mat-flat-button class="btn_cancel"  mat-dialog-close>Cancelar</button>
+            <button mat-flat-button class="btn_register" [style.background-color]="listMessage[3]" (click)="setResponse()">{{listMessage[2]}}</button>
+        </div>
+    </div>
+
+    <div class="container_search" *ngSwitchCase="1">
+        <mat-icon  mat-dialog-close>keyboard_backspace</mat-icon>
+        <input type="search" placeholder="Buscar" [formControl]="formControl" class="input_search" (ngModelChange)="autoCompleted()"  (search)="setResponse()" [matAutocomplete]="auto">
+
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let data of listObservable" [value]="data" [title]="data" (click)="setResponse()">{{data}}</mat-option>
+        </mat-autocomplete>
+    </div>
+
+    <div class="container_publicity" *ngSwitchCase="2">
+        <div class="title">
+            <label class="space"></label>
+            <button mat-icon-button mat-dialog-close><mat-icon>close</mat-icon></button>
+        </div>
+        <div class="form"></div>
+    </div>
+
+    <div class="container_done" *ngSwitchCase="3">
+        <div class="title">
+            <label class="space"></label>
+            <button mat-icon-button mat-dialog-close><mat-icon>close</mat-icon></button>
+        </div>
+        <div class="form">
+            <img class="imgDone">
+            <div class="textDone">{{message}}</div>
+        </div>
+    </div>
+</div>
+
+

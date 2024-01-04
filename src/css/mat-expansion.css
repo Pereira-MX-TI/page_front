@@ -1,0 +1,50 @@
+@import './colors.css';
+
+::ng-deep mat-expansion-panel 
+{
+    color:var(--color1-2) !important;
+    box-shadow: none !important;
+    width: 100%;
+    outline: none !important;
+
+    border:solid 1px var(--color4-3) !important;
+    border-radius: 0.25rem !important;
+    box-sizing: border-box !important;
+}
+
+::ng-deep mat-expansion-panel-header
+{
+    font-size: 0.9rem !important;
+    padding: 0 0.5rem !important;
+}
+
+::ng-deep mat-expansion-panel
+{
+    padding: 0 !important;
+    margin: 0 !important;
+    outline: 0 !important;
+}
+
+::ng-deep mat-expansion-panel-header > .mat-expansion-indicator:after 
+{
+    color: var(--color1-2) !important;
+}
+
+.header_text
+{
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.expansion_item
+{
+    color:black;
+    cursor: pointer;
+}
+
+.expansion_item:hover
+{
+    background-color: var(--color4-4);
+}

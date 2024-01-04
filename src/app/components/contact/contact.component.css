@@ -1,0 +1,137 @@
+@import './../../../css/colors.css';
+@import './../../../css/panel.css';
+
+.container
+{
+    flex-direction: column;
+    width: 100vw;
+}
+
+.image_background
+{
+    background-image: url(../../../assets/contact_us.jpg);
+    background-size: cover;
+    background-position:center;
+
+    width: 100%;
+    height: 15rem;
+    z-index: 100;
+}
+
+.content
+{    
+    z-index: 180;
+    position: relative;
+    top: -1.5rem;
+
+    display: flex;
+    justify-content: space-around;
+
+    margin: 0;
+    width: 100%;
+    height:70vh;
+    padding-bottom: 0.25rem;
+    background-color: transparent;
+}
+
+.map_contact,
+.data_contact
+{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    border-radius: 0.5rem;
+    box-shadow: .1rem .1rem .1rem .1rem var(--color4-3);
+    padding:1rem;
+
+    width:43%;
+    height:100%; 
+    background-color: var(--color3-1);
+}
+
+.map_item
+{
+    border:0;
+    width:100%;
+    flex-grow: 10;
+}
+
+.map_text
+{
+    display: flex;
+    align-items:flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+.map_text_item
+{
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+    width: 100%;
+    font-size: .75rem;
+    margin-top: 1rem;
+}
+
+.map_text_icon
+{
+    color:var(--color1-3);
+    margin-right: 0.5rem;
+    height:100%;
+}
+
+.social_networks
+{
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+
+    width:80%;
+    border-top: 1px solid var(--color4-3);
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+}
+
+.social_networks_item
+{
+    cursor: pointer;
+    color:var(--color1-3);
+    font-size:1.75rem;
+}
+
+.title_contact
+{
+    font-size:2rem;
+    color:var(--color1-3);
+    margin-bottom: 2rem;
+}
+
+@media screen and (max-width:767px)
+{
+    .content
+    {
+        top: -2.5rem;
+        height:85vh;
+        align-items:center;
+        flex-direction: column;
+    }
+
+    .map_contact,
+    .data_contact
+    {
+        width:95%;
+        height:50%; 
+    }
+
+    .map_contact
+    {
+        margin-bottom: 1rem;
+    }
+}

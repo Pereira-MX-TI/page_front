@@ -1,0 +1,310 @@
+@import './../../../../css/colors.css';
+@import './../../../../css/panel.css';
+@import './../../../../css/form-control.css';
+@import './../../../../css/snack_bar.css';
+
+.container
+{
+    width: 100vw;
+    flex-direction: column;
+    padding: 1rem 3rem;
+}
+
+.listInteresting,
+.listReturn,
+.cardData
+{
+    
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.itemInterest,
+.itemReturn
+{
+    font-size:0.75rem;
+}
+
+.iconReturn
+{
+    font-size:0.8rem;
+    width:0;
+    height:0;
+    padding:0;
+    margin:0;
+}
+
+.itemReturn
+{
+    margin-top: 1rem;
+}
+
+.itemInterest:nth-child(1),
+.itemReturn:nth-child(1)
+{
+    margin-right: 0.5rem;
+    font-weight: bolder;
+}
+
+.itemInterest:nth-child(2),
+.itemInterest:nth-child(3),
+.itemInterest:nth-child(4)
+{
+    cursor: pointer;
+}
+
+.itemInterest:nth-child(2)::after,
+.itemInterest:nth-child(3)::after
+{
+    content:"\00a0\00a0>\00a0\00a0";
+}
+
+.itemReturn:nth-child(2),
+.itemReturn:nth-child(3),
+.itemReturn:nth-child(4),
+.itemReturn:nth-child(6)
+{
+    cursor: pointer;
+    margin-right: 0.5rem;
+    color: var(--color6-1);
+}
+
+
+.cardData
+{
+    padding: 0.5rem;
+    margin-top:1rem;
+    border-radius: 0.3rem;
+    background-color: var(--color3-1);
+    box-sizing: border-box;
+}
+
+.carousel_web,
+.details,
+.operation
+{
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.carousel_web,
+.listImg,
+.visorImage,
+.details_title,
+.details_characteristic,
+.operation,
+.extra_info
+{
+    display:flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.listImg
+{
+    min-width:7.5rem;
+    height:100%;
+    flex-direction: column;
+}
+
+.itrImg,
+.itrImgVisor
+{
+    cursor: pointer;
+    margin-bottom: 0.25rem;
+    object-fit: contain;
+    width: 100%;
+    max-height:5rem;
+}
+
+.itrImgVisor
+{
+    margin:0;
+    max-height:15rem;
+}
+
+.visorImage
+{
+    align-items: center;
+    justify-content: center;
+    flex-grow: 10;
+    height: 100%;
+}
+
+.carousel_movil
+{
+    width: 100%;
+}
+
+.details
+{
+    padding: 0.5rem;
+    width: 25%;
+    box-sizing: border-box;
+}
+
+.details_title
+{
+    text-align:center;
+    font-size:bolder;
+    font-size:1.25rem;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.details_characteristic
+{
+    font-size:.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.characteristic_title
+{
+    font-size:.8rem;
+    width:100%;
+    font-weight:bolder;
+    color:var(--color6-1);
+    margin:1rem 0;
+    padding: 1rem 0;
+}
+
+.characteristic_text
+{
+    width: 4.2rem;
+    font-weight:bolder;
+}
+
+.operation
+{
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1rem;
+    border:1px solid var(--color4-3);
+    width: 25%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+.anotherProduct
+{
+    border-radius: 0.3rem;
+    box-sizing: border-box;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    width: 100%;
+
+    background-color: var(--color3-1);
+}
+
+.anotherProduct_text
+{
+    color:var(--color4-7);
+    font-weight: bolder;
+    font-size:1rem;
+    margin-bottom: 1rem;
+}
+
+.publicity
+{
+    margin-top: 1rem;
+    height: 15rem;
+    width: 100%;
+}
+
+.extra_info
+{
+    align-items:center;
+    width: 95%;
+    height: 3rem;
+    background-color: var(--color3-1);
+}
+
+.img_extra
+{
+    width:2rem;
+    height:2rem;
+    object-fit: contain;
+}
+
+.text_extra
+{
+    margin-left: 1rem;
+    text-align: start;
+    font-size:0.7rem;
+}
+
+.extra_info_list
+{
+    font-size: 0.8rem;
+    width: 100%;
+    height:5rem;
+}
+
+.extra_info_list > li
+{
+    list-style:circle;
+    color:var(--color6-1);
+    margin: 0.5rem 0;
+}
+
+.btn_now,
+.btn_add
+{
+    width: 100%;
+    margin-top:1rem;
+    color:var(--color6-1);
+}
+
+.btn_now
+{
+    color:var(--color3-1);
+    background-color:var(--color6-1);
+}
+
+.operation .form
+{
+    flex-grow: 0;
+}
+
+@media screen and (max-width:767px)
+{
+    .container
+    {
+        padding: 0;
+    }
+
+    .cardData
+    {
+        margin-top:0;
+        flex-direction: column;
+    }
+
+    .details,
+    .operation
+    {
+        width: 100%;
+    }
+
+    .carousel_web,
+    .listInteresting,
+    .listReturn
+    {
+        display:none;
+    }
+
+    .anotherProduct,
+    .publicity
+    {
+        border-radius: 0;
+    }
+}
+
+@media screen and (min-width:768px)
+{
+    .carousel_movil
+    {
+        display:none;
+    }
+}

@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="help__question">
+        <h2>¿En que podemos ayudarte?</h2>
+    </div>
+    <div class="help__content">
+        <div class="help__content__item" *ngFor="let itrMenu of menuList">
+            <label class="help__content__item__text">{{itrMenu.title}}</label>
+            <mat-icon class="help__content__item__icon">keyboard_arrow_right</mat-icon>
+        </div>
+    </div>
+</div>                        
+

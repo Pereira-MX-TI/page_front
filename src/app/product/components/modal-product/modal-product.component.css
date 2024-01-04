@@ -1,0 +1,104 @@
+
+@import './../../../../css/form-control.css';
+@import './../../../../css/table.css';
+@import './../../../../css/movil.css';
+@import './../../../../css/panel.css';
+@import './../../../../css/colors.css';
+
+.container
+{
+    width: 100%;
+    height: 100%;
+}
+
+.filters,
+.filters_movil,
+.registerQuotation
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content:flex-start;
+    box-sizing: border-box;
+    height:25rem;
+    width: 30rem;
+}
+
+.registerQuotation
+{
+    width: 25rem;
+    height:31rem;
+}
+
+.filters_movil
+{
+    width: 100% !important;
+    height: 100vh !important;
+
+    border-radius: 0 !important;
+}
+
+.btn_filer_movil
+{
+    color:var(--color6-1);
+    height:50%;
+    width: 100%;
+}
+
+.filters .form,
+.filters_movil .form
+{
+    overflow: auto;
+}
+
+.grid_container
+{
+    width:100%;
+    height:100%;
+}
+
+.item_grid
+{
+    font-size: 0.75rem;
+    cursor: pointer;
+    text-align:center;
+}
+
+.item_grid:hover
+{
+    background-color: var(--color2-1);
+}
+
+.itemFilter
+{
+    width: 100%;
+    margin-top: 0.75rem;
+}
+
+@media screen and (max-width:767px)
+{
+    .filters
+    {
+        width: 80vw;
+    }
+
+    .registerQuotation
+    {
+        width: 100%;
+    }
+
+    .btn_cancel
+    {
+        display: none;
+    }
+
+    .btn_register
+    {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:768px)
+{
+
+}

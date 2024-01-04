@@ -1,0 +1,335 @@
+@import './../../../css/colors.css';
+@import './../../../css/panel.css';
+@import './../../../css/mat-tab.css';
+
+
+mat-toolbar
+{
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    width: 100%;
+}
+
+.container
+{
+    padding: 0;
+    flex-direction: column;
+}
+
+.container_toolbar
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.container_toolbar:nth-child(1)
+{
+    align-items: center;
+    height: 3.5rem;
+    background-color: var(--color1-2);
+}
+
+.container_toolbar:nth-child(2)
+{
+    height: 2rem;
+    box-sizing: border-box;
+    background-color: var(--color1-3);
+}
+
+.container_toolbar_item
+{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.container_toolbar_item:nth-child(1)
+{
+    justify-content: left;
+    height: 100%;
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+}
+
+.container_toolbar_item:nth-child(2)
+{
+    height: 100%;
+}
+
+.btn_select
+{
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--color3-1);
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    background-color: var(--color5-1);
+}
+
+.btn_unselect
+{
+    cursor: pointer;
+    color: var(--color3-1);
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    background-color: var(--color1-3);
+}
+
+.btn_unselect:hover
+{
+    color: var(--color5-1);
+}
+
+.img_logo
+{
+    cursor: pointer;
+    background-image: url("./../../../assets/logo_hidraulicas_sin_marco_blanco.svg");
+    background-size:contain;
+    background-position: center;
+    background-repeat:no-repeat;
+}
+
+.input_search
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.input_search_input
+{
+    height: 2rem;
+    width: 100%;
+    padding: 0 1rem;
+    /*border-radius: 1rem 0 0 1rem;*/
+
+    font-size: 1rem;
+    text-align: left;
+    color: var(--color4-1);
+    background-color: var(--color3-1);
+    margin: 0;
+    border: none;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+.input_search_btn
+{
+    height: 2rem;
+    width: 10%;
+    outline: 0;
+    padding: 0;
+    border-radius:0;
+    /*border-radius: 0 1rem 1rem 0;*/
+    background-color: var(--color5-1);
+    box-sizing: border-box;
+}
+
+.btn_search,
+.btn_menu
+{
+    display: none;
+    margin-right: 0.5rem;
+    color:var(--color3-1);
+}
+
+.mat-icon
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: inherit;
+}
+
+.mat-menu 
+{
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0;
+    background-color: var(--color3-1);
+}
+
+::ng-deep .search .mat-dialog-container {
+    border-radius: 0 !important;
+}
+
+.btn_quotation,
+.btn_shop
+{
+    height:100%;
+    color:var(--color3-1);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    padding:0.5rem;
+}
+
+.sizeIcon
+{
+    margin-top: 1.2rem;
+    font-size:1.2rem;
+    height:0;
+}
+
+@media screen and (max-width:479px)
+{
+    mat-toolbar
+    {
+        height: 3.5rem;
+    }
+
+    .img_logo,
+    .input_search,
+    .container_toolbar:nth-child(2)
+    {
+        height: 0;
+        display: none;
+    }
+
+    .container_toolbar_item:nth-child(1)
+    {
+        flex-grow: 10; 
+    }
+
+    .btn_search,
+    .btn_menu
+    {
+        display: block;
+    }
+
+    .img_logo
+    {
+        width: 3rem;
+        height: 3rem;
+        background-image: url("./../../../assets/logo_hidraulicas_movil.svg");
+    }
+
+    .mat-icon
+    {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (min-width:480px) and (max-width:767px)
+{
+    mat-toolbar
+    {
+        height: 3.5rem;
+    }
+
+    .img_logo,
+    .input_search,
+    .container_toolbar:nth-child(2)
+    {
+        height: 0;
+        display: none;
+    }
+
+    .container_toolbar_item:nth-child(1)
+    {
+        flex-grow: 10; 
+    }
+
+    .btn_search,
+    .btn_menu    
+    {
+        display: block;
+    }
+
+    .img_logo
+    {
+        width: 12rem;
+        height: 4rem;
+        background-image: url("./../../../assets/logo_hidraulicas_sin_marco_blanco.svg");
+    }
+
+    .mat-icon
+    {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:1023px)
+{
+    mat-toolbar
+    {
+        height: 5.5rem;
+    }
+
+    .container_toolbar_item:nth-child(1)
+    {
+        width: 50%;  
+    }
+
+    .container_toolbar_item:nth-child(2)
+    {
+        width: 50%;
+        padding: 0 0.5rem;
+        box-sizing: border-box;
+    }
+
+    .input_search
+    {
+        width: 100%;
+    }
+
+    .img_logo
+    {
+        width: 12rem;
+        height: 4rem;
+        background-image: url("./../../../assets/logo_hidraulicas_sin_marco_blanco.svg");
+    }
+
+    .mat-icon
+    {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (min-width:1024px)
+{
+    mat-toolbar
+    {
+        height: 5.5rem;
+    }
+
+    .container_toolbar_item:nth-child(1)
+    {
+        width: 55%;  
+    }
+
+    .container_toolbar_item:nth-child(2)
+    {
+        width: 45%;
+        padding: 0 0.5rem;
+        box-sizing: border-box;
+    }
+
+    .input_search
+    {
+        width: 100%;
+    }
+
+    .img_logo
+    {
+        width: 12rem;
+        height: 4rem;
+        background-image: url("./../../../assets/logo_hidraulicas_sin_marco_blanco.svg");
+    }
+}

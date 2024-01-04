@@ -1,0 +1,154 @@
+@import './../css/colors.css';
+@import './../css/mat-tab.css';
+@import './../css/panel.css';
+
+::ng-deep .mat-dialog-container
+{
+    padding: 0 !important;
+    margin: 0 !important;
+    outline: 0 !important;
+}
+
+.container_dashBoard
+{
+    overflow: hidden;
+    width:100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: initial;
+    justify-content: initial;
+    box-sizing: border-box;
+}
+
+.container
+{
+    flex-direction: column;
+    background-color: var(--color2-1);
+}
+
+.barNav,
+.footer
+{
+    z-index: 10;
+    width: 100%;
+}
+
+.footer
+{
+    height:3rem;
+}
+
+.content
+{
+    width: 100%;
+    height: 100%;
+}
+
+.sideNav,
+.container_img
+{
+    display: flex;
+    align-items:center;
+    justify-content:flex-start;
+    flex-direction: column;
+    width:14rem;
+    height: 100vh;
+}
+
+.container_img
+{
+    justify-content:center;
+    width: 100%;
+    height:4rem;
+    background-color: var(--color1-3);
+}
+
+.img_logo
+{
+    height:90%;
+    width: 90%;
+
+    background-image: url("./../assets/logo_hidraulicas_movil_letras.png");
+    background-size:contain;
+    background-position: center;
+    background-repeat:no-repeat;
+}
+
+.list_li
+{
+    list-style: none;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    padding-left: 1rem;
+}
+
+.li_select,
+.li_unselect
+{
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    padding: 1rem 0;
+    box-sizing: border-box;
+
+    color: var(--color1-3);
+    fill: var(--color1-3);
+    background-color: var(--color2-1);
+}
+
+.li_unselect
+{
+    text-decoration: none;
+    color: var(--color4-7);
+    fill: var(--color4-7);
+    background-color: var(--color3-1);
+}
+
+.li_img
+{
+    display: inline-block;
+    width: 2rem;
+    margin-right: 0.5rem;
+}
+
+@media screen and (max-width:1023px)
+{
+
+}
+
+@media screen and (min-width:1024px)
+{
+
+}
+/*
+
+@media screen and (max-width:319px)
+{
+   
+}
+
+@media screen and (min-width:320px) and (max-width:479px)
+{
+
+}
+
+@media screen and (min-width:480px) and (max-width:767px)
+{
+
+}
+
+@media screen and (min-width:768px) and (max-width:1023px)
+{
+ 
+}
+
+@media screen and (min-width:1024px)
+{
+
+}
+
+*/

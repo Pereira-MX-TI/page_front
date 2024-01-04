@@ -1,0 +1,238 @@
+@import './../../../../css/colors.css';
+@import './../../../../css/panel.css';
+@import './../../../../css/table.css';
+@import './../../../../css/form-control.css';
+@import './../../../../css/snack_bar.css';
+
+.container
+{
+    width: 100%;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.partData,
+.imgService,
+.imgService_title,
+.informationService,
+.form_part,
+.form_part_recaptcha
+{
+    display:flex;
+    align-items:flex-start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+}
+
+.partData
+{
+    width: 100%;
+    background-color:var(--color3-1);
+}
+
+.partData:nth-child(1)
+{
+    height: 20rem;
+}
+
+.partData:nth-child(2)
+{
+    height: 20rem;
+    align-items:center;
+    justify-content: center;
+}
+
+.partData:nth-child(3)
+{
+    height: 20rem;
+}
+
+.partData:nth-child(4)
+{
+    height: 20rem;
+    background-color:var(--color2-1);
+    padding:0.5rem;
+}
+
+.partData:nth-child(4) .form
+{
+    height:100%;
+    flex-direction: row;
+}
+
+.form_part
+{
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    padding:0 0.5rem;
+}
+
+.imgService
+{
+    align-items:center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.imgService_title
+{
+    text-align: center;
+    align-items:center;
+    justify-content: center;
+
+    background-color: var(--color4-6);
+    width: 100%;
+    height: 100%;
+
+    font-size:1rem;
+    color:var(--color3-1);
+}
+
+.informationService
+{
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: justify;
+
+    width: 50%;
+    height: 100%;
+    padding:0.5rem;
+}
+
+.partData:nth-child(2) .imgService,
+.partData:nth-child(2) .informationService
+{
+    width: 100%;
+    height: 100%;
+}
+
+.partData:nth-child(2) .informationService
+{
+    background-color: var(--color4-6);
+    color:var(--color3-1);
+}
+
+.partData:nth-child(2) .imgService_title
+{
+    font-size:0.8rem;
+}
+
+.partData:nth-child(3) .imgService_title
+{
+    background-color: transparent;
+}
+
+.partData:nth-child(3) .imgService
+{
+    background-size: contain;
+}
+
+.descriptionS
+{
+    width: 80%;
+    font-size:0.85rem;
+}
+
+.partData:nth-child(3) .listInfo
+{
+    width: 100%;
+    padding:1rem;
+    box-sizing: border-box;
+}  
+
+.li_characteristic
+{
+    margin-bottom:0.5rem;
+}
+
+.form_item,
+.form_textArea
+{
+    background-color:var(--color3-1);
+}
+
+.recaptcha
+{
+    width: auto;
+}
+
+.form_part_recaptcha
+{
+    width: 100%;
+    justify-content:space-around;
+    align-items:center;
+}
+
+.btn_send
+{
+    width: 10rem;
+    background-color:var(--color6-1);
+    color:var(--color3-1);
+}
+
+@media screen and (max-width:767px)
+{
+    .partData
+    {
+        width: 100%;
+        flex-direction:column;
+    }
+
+    .imgService,
+    .informationService
+    {
+        width: 100%;
+    }
+
+    .partData:nth-child(1)
+    {
+        height: 40rem;
+    }
+
+    .partData:nth-child(3) .imgService
+    {
+        min-height: 10rem;
+    }
+
+    .partData:nth-child(3)
+    {
+        height: 40rem;
+    }
+
+    .partData:nth-child(4)
+    {
+        height: 40rem;
+    }
+
+
+    .form_part_recaptcha,
+    .partData:nth-child(4) .form
+    {
+        flex-direction: column;
+    }
+
+    .form_part
+    {
+        width: 100%;
+        height: 50%;
+    }
+
+    .recaptcha
+    {
+        width: 100%;
+    }
+
+    .btn_send
+    {
+        margin-top:1rem;
+        width:100%;
+    }
+}

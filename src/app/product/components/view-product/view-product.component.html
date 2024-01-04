@@ -1,0 +1,94 @@
+<div class="container">
+    <div class="listInteresting">
+        <label class="itemInterest">Tambien puede ser de tu interes: </label>
+        <label *ngFor="let itrIterest of publicity[0]" (click)="viewAnotherProduct(itrIterest)" class="itemInterest">{{itrIterest.nombre}}</label>
+    </div>
+
+    <div class="listReturn">
+        <label class="itemReturn">Regresar a lista&nbsp;&nbsp;|</label>
+        <label class="itemReturn">Productos&nbsp;&nbsp;&nbsp;></label>
+        <label class="itemReturn">{{currentProduct.category.nombre}}&nbsp;&nbsp;&nbsp;></label>
+        <label class="itemReturn">{{currentProduct.nombre}}</label>
+        <label class="space"></label>
+        
+        <label class="itemReturn">Compartir&nbsp;<mat-icon class="iconReturn">share</mat-icon></label>
+
+    </div>
+
+    <div class="cardData">
+        <div class="carousel_web">
+            <div class="listImg">
+                <img alt="imagen de producto mini" class="itrImg" onerror="this.onerror=null;this.src='./../../../../assets/default.jpg';" (click)="viewCurrentImg=pipeProduct.transform(itrFile,0,'image2')" *ngFor="let itrFile of currentProduct.files | slice:0:5;" [src]="pipeProduct.transform(itrFile,0,'image2')" />
+            </div>
+            <div class="visorImage">
+                <img alt="imagen de producto grande" class="itrImgVisor" onerror="this.onerror=null;this.src='./../../../../assets/default.jpg';" [src]="viewCurrentImg"/>
+            </div>
+        </div>
+        <div class="carousel_movil">
+            <carousel_images [dataSlides]="currentProduct.files" [autoplay]="false"></carousel_images>
+        </div>
+
+        <div class="details">
+            <div class="details_title">{{currentProduct.nombre}}</div>
+            <div class="characteristic_title">Caracteristicas</div>
+
+            <div class="details_characteristic">
+                <label class="characteristic_text">Clave: </label>{{currentProduct.clave}}
+            </div>
+            <div class="details_characteristic">
+                <label class="characteristic_text">Proveedor: </label>Soluciones CHP
+            </div>
+            <div class="details_characteristic">
+                <label class="characteristic_text">Material: </label>{{currentProduct.material.nombre}}
+            </div>
+
+            <div class="characteristic_title">Descripcion</div>
+            <div class="details_characteristic">
+                {{currentProduct.description.detalle}}
+            </div>
+        </div>
+
+        <div class="operation">
+            <div class="extra_info">
+                <img alt="Envio de medidor de agua" class="img_extra" src="./../../../../assets/delivery_icon.jpg" />
+                <label class="text_extra">Envios desde $99.00 pesos</label>
+            </div>
+
+            <div class="extra_info">
+                <img alt="Compra de medidor de agua" class="img_extra" src="./../../../../assets/segure_icon.jpg" />
+                <label class="text_extra">Compras 100% seguras</label>
+            </div>
+
+            <label class="space"></label>
+            <form  [formGroup]="formGroup" (submit)="false" class="form">
+                <mat-form-field appearance="none" class="form_item">
+                    <mat-label>Cantidad</mat-label>
+                    <input  type="number" matInput  formControlName="quantity" [errorStateMatcher]="matcher"  min="1">
+                    <mat-error *ngIf="formGroup.invalid">Cantidad no valida</mat-error>
+                </mat-form-field>
+                <button type="button" mat-flat-button class="btn_now" (click)="requestQuotation()">Cotizar ahora</button>
+                <button type="button" mat-stroked-button class="btn_add" (click)="addProduct()">Agregar al carrito de cotizacion</button>
+            </form>
+            <label class="space"></label>
+
+            <ul class="extra_info_list">
+                <li>Precio unico de distribudor</li>
+                <li>Distintos medios de pago</li>
+                <li>Facturacion</li>
+                <li>Garantia</li>
+            </ul>
+                                
+            <label class="space"></label>
+        </div>
+
+    </div>
+
+    <div class="anotherProduct" *ngIf="publicity[1].length == 0?false:true">
+        <div class="anotherProduct_text">Productos del mismo proveedor</div>
+        <carousel-cards [dataSlides]="publicity[1]"></carousel-cards>
+    </div>
+
+    <div class="publicity">
+        <publicity-card></publicity-card>
+    </div>
+</div>

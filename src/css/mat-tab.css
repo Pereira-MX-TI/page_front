@@ -1,0 +1,49 @@
+@import './colors.css';
+
+:host /deep/ mat-tab-group .mat-tab-header
+{
+    display: none ;
+}
+
+::ng-deep .mat-tab-label
+{
+    padding-left: 0;
+    padding-right: 0;
+    min-width:7rem;
+    margin: 0 1rem;
+
+    color:var(--color3-1);
+}
+
+::ng-deep .mat-tab-group 
+{
+    width: 100%;
+    height: 100%;    
+}
+
+::ng-deep .mat-tab-body-wrapper
+{
+    height: 100%;
+    width: 100%;
+}
+
+::ng-deep .mat-tab-labels
+{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+}
+
+::ng-deep .mat-ink-bar
+{
+    background-color: var(--warning) !important;
+}
+
+@media screen and (max-width:767px)
+{
+    ::ng-deep .mat-ink-bar
+    {
+        transition:none !important;
+    }
+}
+

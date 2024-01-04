@@ -1,0 +1,43 @@
+
+@import './colors.css';
+
+
+::ng-deep .snackBar_error
+{
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: 10rem;
+    background: var(--color8-1);
+    color: var(--color3-1);
+    width: 100% !important;
+}
+
+::ng-deep .snackBar_success
+{
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: 10rem;
+    background-color: var(--color7-1);
+    color: var(--color3-1);
+    width: 100% !important;
+}
+
+::ng-deep .snackBar_warning
+{
+    font-weight: bolder;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: 10rem;
+    background: var(--color5-1);
+    color: var(--color4-1);
+    width: 100% !important;
+}
+
