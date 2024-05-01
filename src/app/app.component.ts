@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 import { NavegationService } from './services/navegation.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CryptoService } from './services/crypto.service';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { ModalDialogComponent } from './shared/components/modal-dialog/modal-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Title, Meta } from '@angular/platform-browser';
@@ -34,7 +34,7 @@ export class AppComponent implements OnInit,OnDestroy {
   matTabMenu:number;
   viewMenu:boolean;
   listSubscription:Subscription[];
-  formControl:FormControl;
+  formControl:UntypedFormControl;
 
   constructor(
     private title: Title, private meta: Meta,
@@ -48,7 +48,7 @@ export class AppComponent implements OnInit,OnDestroy {
     private objNavegationService:NavegationService,
     private objShareInformationService:ShareInformationService)
   { 
-    this.formControl = new FormControl(); 
+    this.formControl = new UntypedFormControl(); 
     this.formControl.setValue("");
     this.matTabMenu=0;
     this.sideNavMenu=false;

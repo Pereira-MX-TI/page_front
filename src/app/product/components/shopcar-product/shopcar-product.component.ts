@@ -1,5 +1,5 @@
 import { Component, OnInit,AfterViewInit,Renderer2,ViewChild,AfterContentInit, OnDestroy, ElementRef} from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
@@ -31,7 +31,7 @@ export class ShopCarProductComponent implements OnInit {
   shoppingCar:any[];
   displayedColumns:string[];
   listColumns:any;
-  formGroup: FormGroup[];
+  formGroup: UntypedFormGroup[];
 
   constructor(
     private objPdfService:PdfService,
@@ -66,8 +66,8 @@ export class ShopCarProductComponent implements OnInit {
       this.dataSourceFilter = new MatTableDataSource<any>(this.objCryptoService.decrypted(this.objLocalStorageService.view("shCa"))); 
       
       this.shoppingCar.forEach(itrData => {
-        this.formGroup.push(new FormGroup({
-          quantity:new FormControl(itrData.quantity,[Validators.required,Validators.min(1)])
+        this.formGroup.push(new UntypedFormGroup({
+          quantity:new UntypedFormControl(itrData.quantity,[Validators.required,Validators.min(1)])
         }));
       });
     }

@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ShareInformationService } from 'src/app/services/share-information.service';
 import { ModalDialogComponent } from 'src/app/shared/components/modal-dialog/modal-dialog.component';
@@ -14,7 +14,7 @@ export class ModalProductComponent implements OnInit {
   case:number;
   titleFilter:string;
   listFilter:any[];
-  formGroup: FormGroup;
+  formGroup: UntypedFormGroup;
   siteKey:string;
 
   constructor(
@@ -65,12 +65,12 @@ export class ModalProductComponent implements OnInit {
       case 2:
       {
         this.siteKey = "6Ldh7AIgAAAAAEacOyipXcnaEqTDDKJW6yxlRoiF";
-        this.formGroup =  new FormGroup({
-          name: new FormControl('', [Validators.required]),
-          email:new FormControl('', [Validators.required]),
-          phone:new FormControl(''),
-          cp:   new FormControl('', [Validators.required]),
-          recaptcha: new FormControl('', [Validators.required])
+        this.formGroup =  new UntypedFormGroup({
+          name: new UntypedFormControl('', [Validators.required]),
+          email:new UntypedFormControl('', [Validators.required]),
+          phone:new UntypedFormControl(''),
+          cp:   new UntypedFormControl('', [Validators.required]),
+          recaptcha: new UntypedFormControl('', [Validators.required])
         });
       }break;
     }

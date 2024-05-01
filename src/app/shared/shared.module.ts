@@ -18,38 +18,37 @@ import { CarouselCardsComponent } from './components/carousel-cards/carousel-car
 import { PublicityCardComponent } from './components/publicity-card/publicity-card.component';
 
 @NgModule({
-  declarations: [
-    LoadingComponent,
-    ModalDialogComponent,
-    MessageEmptyComponent,
-    MessagePipe,
-    PageErrorComponent,
-    CarouselComponent,
-    CarouselCardsComponent,
-    PublicityCardComponent,
-  ],
-  exports: [
-    LoadingComponent,
-    ModalDialogComponent,
-    MessageEmptyComponent,
-    MessagePipe,
-    CarouselComponent,
-    CarouselCardsComponent,
-    PublicityCardComponent
-  ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatCarouselModule.forRoot(),
-    SlickCarouselModule
-  ],
-  entryComponents: [ModalDialogComponent],
-  providers:[
-    HttpService,
-    LocalStorageService,
-    WindowSizeService
-  ]
+    declarations: [
+        LoadingComponent,
+        ModalDialogComponent,
+        MessageEmptyComponent,
+        MessagePipe,
+        PageErrorComponent,
+        CarouselComponent,
+        CarouselCardsComponent,
+        PublicityCardComponent,
+    ],
+    exports: [
+        LoadingComponent,
+        ModalDialogComponent,
+        MessageEmptyComponent,
+        MessagePipe,
+        CarouselComponent,
+        CarouselCardsComponent,
+        PublicityCardComponent
+    ],
+    imports: [
+        CommonModule,
+        MaterialModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatCarouselModule.forRoot(),
+        SlickCarouselModule
+    ],
+    providers: [
+        HttpService,
+        LocalStorageService,
+        WindowSizeService
+    ]
 })
 export class SharedModule { }

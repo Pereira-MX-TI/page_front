@@ -1,5 +1,5 @@
 import { Component, OnInit,AfterViewInit,OnDestroy, ElementRef} from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -29,7 +29,7 @@ export class ViewProductComponent implements OnInit,AfterViewInit,OnDestroy {
   publicity:any;
   pipeProduct:ProductPipe;
   viewCurrentImg:string;
-  formGroup: FormGroup;
+  formGroup: UntypedFormGroup;
   matcher:customErrorStateMatcher;
 
   constructor(
@@ -56,8 +56,8 @@ export class ViewProductComponent implements OnInit,AfterViewInit,OnDestroy {
         
     this.viewCurrentImg = './../../../../assets/default.jpg';
 
-    this.formGroup =  new FormGroup({
-        quantity:new FormControl(1,[Validators.required,Validators.min(1)])
+    this.formGroup =  new UntypedFormGroup({
+        quantity:new UntypedFormControl(1,[Validators.required,Validators.min(1)])
       });
 
     this.objNavegationService.setPositionScrooll(0);

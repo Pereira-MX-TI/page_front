@@ -1,5 +1,5 @@
 import { Component, OnInit,AfterViewInit,OnDestroy, ElementRef} from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -23,7 +23,7 @@ import { ModalDialogComponent } from 'src/app/shared/components/modal-dialog/mod
 export class ViewServiceComponent implements OnInit,AfterViewInit,OnDestroy {
 
   listSubscription:Subscription[];
-  formGroup: FormGroup;
+  formGroup: UntypedFormGroup;
 
   listPart:any;
   currentService:any;
@@ -140,13 +140,13 @@ export class ViewServiceComponent implements OnInit,AfterViewInit,OnDestroy {
     this.currentPart = this.listPart[this.currentService.opc];
 
     this.siteKey = "6Ldh7AIgAAAAAEacOyipXcnaEqTDDKJW6yxlRoiF";
-    this.formGroup =  new FormGroup({
-      name: new FormControl('', [Validators.required]),
-      email:new FormControl('', [Validators.required]),
-      phone:new FormControl(''),
-      cp:   new FormControl('', [Validators.required]),
-      description:   new FormControl('', [Validators.required]),
-      recaptcha: new FormControl('', [Validators.required])
+    this.formGroup =  new UntypedFormGroup({
+      name: new UntypedFormControl('', [Validators.required]),
+      email:new UntypedFormControl('', [Validators.required]),
+      phone:new UntypedFormControl(''),
+      cp:   new UntypedFormControl('', [Validators.required]),
+      description:   new UntypedFormControl('', [Validators.required]),
+      recaptcha: new UntypedFormControl('', [Validators.required])
     });
   }
 

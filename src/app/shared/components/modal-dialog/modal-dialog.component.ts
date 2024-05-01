@@ -1,5 +1,5 @@
 import { Component, OnInit,Inject, ViewChild, OnDestroy} from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { MAT_DIALOG_DATA,MatDialogRef} from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
@@ -18,7 +18,7 @@ export class ModalDialogComponent implements OnInit,OnDestroy {
   case:number;
   matcher:customErrorStateMatcher;
 
-  formControl:FormControl;
+  formControl:UntypedFormControl;
   listObservable:any;
   listSubscription:Subscription[];
   message:string;
@@ -42,7 +42,7 @@ export class ModalDialogComponent implements OnInit,OnDestroy {
 
       case 1:
       {
-        this.formControl = new FormControl();   
+        this.formControl = new UntypedFormControl();   
         this.formControl.setValue("");
         this.listObservable = [];
       }break;

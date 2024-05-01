@@ -13,23 +13,22 @@ import { ShopCarProductComponent } from './components/shopcar-product/shopcar-pr
 import { NgxCaptchaModule } from 'ngx-captcha';
 
 @NgModule({
-  declarations: [
-    ListProductComponent,
-    ViewProductComponent,
-    ModalProductComponent,
-    ShopCarProductComponent,
-    ProductPipe
-  ],
-  entryComponents: [ModalProductComponent],
-  imports: [
-    ReactiveFormsModule,
-    CommonModule,
-    MaterialModule,
-    SharedModule,
-    FormsModule,
-    ProductRoutingModule,
-    SlickCarouselModule,
-    NgxCaptchaModule
-  ]
+    declarations: [
+        ListProductComponent,
+        ViewProductComponent,
+        ModalProductComponent,
+        ShopCarProductComponent,
+        ProductPipe
+    ],
+    imports: [
+        ReactiveFormsModule,
+        CommonModule,
+        MaterialModule,
+        SharedModule,
+        FormsModule,
+        ProductRoutingModule,
+        SlickCarouselModule,
+        NgxCaptchaModule
+    ]
 })
 export class ProductModule { }

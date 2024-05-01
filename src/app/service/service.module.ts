@@ -12,19 +12,18 @@ import { NgxCaptchaModule } from 'ngx-captcha';
 
 
 @NgModule({
-  declarations: [
-    ListServiceComponent,
-    ViewServiceComponent
-  ],
-  entryComponents: [],
-  imports: [
-    ReactiveFormsModule,
-    CommonModule,
-    MaterialModule,
-    SharedModule,
-    FormsModule,
-    ServiceRoutingModule,
-    NgxCaptchaModule
-  ]
+    declarations: [
+        ListServiceComponent,
+        ViewServiceComponent
+    ],
+    imports: [
+        ReactiveFormsModule,
+        CommonModule,
+        MaterialModule,
+        SharedModule,
+        FormsModule,
+        ServiceRoutingModule,
+        NgxCaptchaModule
+    ]
 })
 export class ServiceModule { }

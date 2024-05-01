@@ -27,31 +27,30 @@ import { SharedModule } from './shared/shared.module';
 import { ProductModule } from './product/product.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavBarComponent,
-    FooterComponent,
-    HomeComponent,
-    ContactComponent,
-    AboutUsComponent,
-    HelpSearchComponent,
-    HelpMenuComponent,
-    HelpQuestionComponent   
-  ],
-  entryComponents: [],
-  imports: [
-    ProductModule,
-    BrowserModule,
-    routingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MaterialModule,
-    SharedModule,
-    BrowserAnimationsModule,
-    LayoutModule,
-    HttpClientModule
-  ],
-  providers: [HttpService,WindowSizeService,LocalStorageService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavBarComponent,
+        FooterComponent,
+        HomeComponent,
+        ContactComponent,
+        AboutUsComponent,
+        HelpSearchComponent,
+        HelpMenuComponent,
+        HelpQuestionComponent
+    ],
+    imports: [
+        ProductModule,
+        BrowserModule,
+        routingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MaterialModule,
+        SharedModule,
+        BrowserAnimationsModule,
+        LayoutModule,
+        HttpClientModule
+    ],
+    providers: [HttpService, WindowSizeService, LocalStorageService],
+    bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -7,7 +7,7 @@ import { MatMenuTrigger }from "@angular/material/menu"
 
 import { ActivatedRoute, Router } from "@angular/router";
 import { MatButton } from '@angular/material/button';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { WindowSizeService } from 'src/app/services/window-size.service';
 import { NavegationService } from 'src/app/services/navegation.service';
@@ -41,7 +41,7 @@ export class NavBarComponent implements OnInit,OnDestroy {
   title:string;
   icon:string;
   viewBtn:boolean[];
-  formControl:FormControl;
+  formControl:UntypedFormControl;
   listObservable:any;
   listSubscription:Subscription[];
   shoppingCar:any[];
@@ -61,7 +61,7 @@ export class NavBarComponent implements OnInit,OnDestroy {
     this.keyword="";
     this.viewMenu = [false,false];
     this.viewBtn = [false,false];
-    this.formControl = new FormControl();   
+    this.formControl = new UntypedFormControl();   
 
     this.formControl.setValue("");
     this.listObservable = [];
