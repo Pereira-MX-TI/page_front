@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { routingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -50,7 +50,7 @@ import { ProductModule } from './product/product.module';
         LayoutModule,
         HttpClientModule
     ],
-    providers: [HttpService, WindowSizeService, LocalStorageService],
+    providers: [HttpService, WindowSizeService, LocalStorageService, provideClientHydration()],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

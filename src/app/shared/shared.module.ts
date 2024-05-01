@@ -11,7 +11,7 @@ import { WindowSizeService } from '../services/window-size.service';
 import { HttpService } from '../services/http.service';
 import { MessageEmptyComponent } from './components/message-empty/message-empty.component';
 import { PageErrorComponent } from './components/page-error/page-error.component';
-import { MatCarouselModule } from '@ngmodule/material-carousel';
+// import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { SlickCarouselModule } from "node_modules/ngx-slick-carousel";
 import { CarouselComponent } from './components/carousel_images/carousel_images.component';
 import { CarouselCardsComponent } from './components/carousel-cards/carousel-cards.component';
@@ -42,7 +42,7 @@ import { PublicityCardComponent } from './components/publicity-card/publicity-ca
         MaterialModule,
         FormsModule,
         ReactiveFormsModule,
-        MatCarouselModule.forRoot(),
+        // MatCarouselModule.forRoot(),
         SlickCarouselModule
     ],
     providers: [

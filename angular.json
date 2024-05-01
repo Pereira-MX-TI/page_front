@@ -16,10 +16,10 @@
             "allowedCommonJsDependencies": [
               "crypto-js"
            ],
-            "outputPath": "dist/soluciones",
+            "outputPath": "dist/soluciones/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills":["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
@@ -129,6 +129,64 @@
               "devServerTarget": "soluciones:serve:production"
             }
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/soluciones/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "buildOptimizer": true,
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "sourceMap": false,
+              "extractLicenses": true,
+              "vendorChunk": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@angular-devkit/build-angular:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "soluciones:build:development",
+              "serverTarget": "soluciones:server:development"
+            },
+            "production": {
+              "browserTarget": "soluciones:build:production",
+              "serverTarget": "soluciones:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@angular-devkit/build-angular:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "soluciones:build:production",
+              "serverTarget": "soluciones:server:production"
+            },
+            "development": {
+              "browserTarget": "soluciones:build:development",
+              "serverTarget": "soluciones:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
