@@ -25,15 +25,23 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/sitemap.xml"
+              {
+                "glob": "robots.txt",
+                "input": "src/assets",
+                "output": "/"
+              },
+              {
+                "glob": "sitemap.xml",
+                "input": "src/assets",
+                "output": "/"
+              }
             ],
             "styles": [
               "node_modules/normalize.css/normalize.css",
               "node_modules/slick-carousel/slick/slick.scss",
               "node_modules/slick-carousel/slick/slick-theme.scss",
               "node_modules/font-awesome/css/font-awesome.css",
-              "node_modules/aos/dist/aos.css",
-              "src/mytheme.scss"
+              "node_modules/aos/dist/aos.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
