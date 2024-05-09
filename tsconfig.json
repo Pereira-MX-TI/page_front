@@ -16,6 +16,9 @@
       "es2018",
       "dom"
     ],
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    "paths": {
+      "@services/*": ["src/app/services/*"],
+    }
   }
 }
