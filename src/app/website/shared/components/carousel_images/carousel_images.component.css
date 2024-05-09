@@ -1,0 +1,89 @@
+@import '../../../../../css/panel.css';
+@import '../../../../../css/colors.css';
+
+.container
+{
+    justify-content:space-around;
+    align-items: center;
+    min-height:20rem;
+}
+
+.container__carousel
+{
+    width: 100%;
+    height: 100%;
+    display:inline-block;
+}
+
+.container__carousel__slide
+{
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: var(--color3-1);
+}
+
+.container__btn
+{
+    visibility: hidden;
+    position:absolute;
+    display:inline;
+    z-index: 100;
+    background-color: var(--color5-1);
+}
+
+.container__btn:nth-child(3)
+{
+    left:1rem;
+}
+
+.container__btn:nth-child(2)
+{
+    right:2rem;
+}
+
+.container:hover > .container__btn
+{
+    visibility: visible ;
+}
+
+.ng-star-inserted
+{
+    outline: none;
+}
+
+@media screen and (max-width:479px)
+{
+    .container__btn
+    {
+        display: none;
+    }
+}
+
+@media screen and (min-width:480px) and (max-width:767px)
+{
+    .container,
+    .container__carousel__slide
+    {
+        height: 22.5rem;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:1023px)
+{
+    .container,
+    .container__carousel__slide
+    {
+        height: 25rem;
+    }
+}
+
+@media screen and (min-width:1024px)
+{
+    .container,
+    .container__carousel__slide
+    {
+        height: 25rem;
+    }
+}

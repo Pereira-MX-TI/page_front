@@ -1,0 +1,133 @@
+@import '../../../../../css/form-control.css';
+@import '../../../../../css/table.css';
+@import '../../../../../css/movil.css';
+@import '../../../../../css/panel.css';
+@import '../../../../../css/colors.css';
+
+.container_confirm,
+.container_search,
+.container_publicity,
+.container_done,
+.textDone
+{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.container_confirm
+{
+    width: 20rem;
+    height: 11rem;
+}
+
+.container_confirm .form
+{
+    align-items: center;
+    justify-content: center;
+}
+
+.container_search
+{
+    width: 100% !important;
+    border-radius: 0 !important;
+    height:4rem;
+    background-color:transparent;
+    flex-direction: row;
+    align-items: center;
+
+    padding:0.25rem;
+}
+
+.container_publicity
+{
+    width: 35rem;
+    height: 35rem;
+
+    background-image: url('../../../../../assets/telemetria_modal.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;
+}
+
+.container_publicity .title
+{
+    border:0;
+}
+
+.container_publicity .form
+{
+    cursor: pointer;
+    width:100%;
+    background-color: transparent;
+}
+
+.container_done
+{
+    width: 20rem;
+    height: 20rem;
+}
+
+.container_done .form
+{
+    align-items: center;
+}
+
+.imgDone
+{
+    margin-top: 0.5rem;
+    width: 10rem;
+    height: 10rem;
+    object-fit:contain;
+    content: url("../../../../../assets/done_icon.jpg");
+}
+
+.textDone
+{
+    font-weight: bolder;
+    width: 100%;
+    flex-grow: 10;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_done .title
+{
+    border-bottom: 0;
+}
+
+.input_search
+{
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: var(--color3-2);
+    flex-grow: 10;
+}
+
+@media screen and (max-width:767px)
+{
+    .container_publicity,
+    .container_confirm,
+    .container_done
+    {
+        width: 80vw;
+    }
+
+    .container_publicity
+    {
+        height: 20rem;
+    }
+}
+
+@media screen and (min-width:1024px)
+{
+
+}
+
+@media screen and (max-height:500px) and (max-width:1023px) and (orientation: landscape)
+{
+
+}

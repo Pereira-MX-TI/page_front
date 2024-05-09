@@ -18,7 +18,9 @@
     ],
     "useDefineForClassFields": false,
     "paths": {
-      "@services/*": ["src/app/services/*"],
+      "@core/*": ["src/app/core/*"],
+      "@website/*": ["src/app/website/*"],
+      "@material/*": ["src/app/material/*"],
     }
   }
 }

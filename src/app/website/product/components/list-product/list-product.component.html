@@ -1,0 +1,103 @@
+<div class="container">
+  <div class="panel_left">
+    <div class="title_left">Catalogo de Productos</div>
+    <label class="count_left">{{'Resultados: '+length}}</label>
+
+    <div class="extra_information">
+      <div class="extra_item">
+        <img alt="Envio de medidor de agua" class="img_extra" src="../../../../../assets/delivery_icon.jpg" />
+        <label class="text_extra">Envios desde $99.00 pesos</label>
+      </div>
+
+      <div class="extra_item">
+        <img alt="Compra segura de medidor de agua" class="img_extra" src="../../../../../assets/segure_icon.jpg" />
+        <label class="text_extra">Compras 100% seguras</label>
+      </div>
+    </div>
+    <div class="filter_left">
+
+      <label class="title_filter">Categoria</label>
+      <label (click)="filterProduct(3,itrCategory)" *ngFor="let itrCategory of filters.categories | slice:0:15; let index=index;" class="opc_filter">
+          {{itrCategory.nombre}}
+      </label>
+      <label (click)="viewMoreFilter(3)" *ngIf="filters.categories.length>15" class="more_filter">Mostrar mas</label>
+
+      <!--
+      <label class="title_filter">Marca</label>
+      <label *ngFor="let itrBrand of filters.brands | slice:0:15; let index=index;" class="opc_filter" (click)="filterProduct(5,itrBrand)">
+          {{itrBrand.nombre}}
+      </label>-->
+      <label (click)="viewMoreFilter(5)" *ngIf="filters.brands.length>15"  class="more_filter">Mostrar mas</label>
+
+      <label class="title_filter">Material</label>
+      <label (click)="filterProduct(7,itrMaterial)" *ngFor="let itrMaterial of filters.materials | slice:0:15; let index=index;" class="opc_filter">
+          {{itrMaterial.nombre}}
+      </label>
+      <label (click)="viewMoreFilter(7)" *ngIf="filters.materials.length>15" class="more_filter">Mostrar mas</label>
+
+    </div>
+
+  </div>
+  <div class="panel_rigth">
+
+    <div class="filter_rigth_web">
+      <label *ngIf="dataSearch!=''" class="filter_title">Productos > {{dataSearch}}<mat-icon (click)="refresh()" class="filter_icon">cancel</mat-icon></label>
+      <label class="space"></label>
+      <button (click)="orderByProduct()" mat-button style="font-weight:bolder;">
+        {{'Orden  '+(orderby=='ASC'?'A-Z':'Z-A')}}
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </button>
+    </div>
+
+    <div class="filter_rigth_movil">
+      <div class="btn_filter_content">
+        <button (click)="orderByProduct()" class="btn_item_movil" mat-button>
+          {{'Orden  '+(orderby=='ASC'?'A-Z':'Z-A')}}
+          <mat-icon>import_export</mat-icon>
+        </button>
+        <button (click)="filterProductModal()" class="btn_item_movil" mat-button>
+          Filtrar
+          <mat-icon>dns</mat-icon>
+        </button>
+      </div>
+      <div *ngIf="dataSearch!=''" class="filter_text_movil">
+        Productos > {{dataSearch}}<mat-icon (click)="refresh()" class="filter_icon">cancel</mat-icon>
+      </div>
+    </div>
+
+    <table [dataSource]="dataSourceFilter" class="table" mat-table multiTemplateDataRows>
+
+      <ng-container *ngFor="let column of displayedColumns;let index = index;" matColumnDef="{{column}}">
+        <th *matHeaderCellDef class="table_th" mat-header-cell> {{listColumns[column]}} </th>
+        <td (click)="viewProduct(element)" *matCellDef="let element" class="table_td" mat-cell>
+          <div class="table_td_content">
+            <ng-template [ngIf]="index==0">
+              <img [src]="pipeProduct.transform(element,0,'image1')" alt="Image de producto" class="img_td" onerror="this.onerror=null;this.src='./../../../../assets/default.jpg';" />
+            </ng-template>
+            <ng-template [ngIf]="index==1">
+              <div class="info_content">
+                <label class="title_product">{{element | product:0:'name'}}</label>
+                <label class="characteristic">{{'Material: '+ (element | product:0:'material')}}</label>
+                <label class="characteristic">Proveedor: Soluciones CHP</label>
+                <label class="characteristic">{{element | product:0:'descriptionL'}}</label>
+              </div>
+            </ng-template>
+          </div>
+        </td>
+      </ng-container>
+      <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns" mat-row></tr>
+
+    </table>
+
+    <div *ngIf="dataSourceFilter.filteredData.length==0?true:false" class="panel_empty">
+      <message-empty [nameRegister]="'productos'"></message-empty>
+    </div>
+
+    <div class="panel_bottom">
+      <label class="space"></label>
+      <mat-paginator #pagGeneral (page)="changePagination($event)" [length]="length"></mat-paginator>
+    </div>
+
+  </div>
+</div>

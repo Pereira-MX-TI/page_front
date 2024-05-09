@@ -1,0 +1,49 @@
+@import '../../../../../css/colors.css';
+@import '../../../../../css/panel.css';
+
+.container
+{
+    flex-direction: column;
+    width: 100vw;
+}
+
+.help__question
+{
+    width: 100%;
+    background-color:var(--color3-1);
+    box-sizing: border-box;
+    margin-bottom: 0.75rem;
+}
+
+.help__content
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.help__content__item
+{
+    margin-bottom: 0.75rem;
+    width: 80%;
+    height: 4rem;
+    background-color:var(--color3-1);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.help__content__item__text
+{
+    flex-grow: 10;
+}
+
+.help__content__item__icon
+{
+   color:var(--color4-5);
+}

@@ -1,0 +1,305 @@
+@import '../../../../../css/colors.css';
+@import '../../../../../css/panel.css';
+@import '../../../../../css/table.css';
+
+
+.container
+{
+    width: 100vw;
+    min-height:100vh;
+}
+
+.panel_left
+{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    max-width: 15rem;
+    min-width: 15rem;
+    min-height: 100vh;
+}
+
+.panel_rigth
+{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    flex-grow: 10;
+    min-height: 100vh;
+    padding-right: 2rem;
+    border-radius: 0.3rem;
+    box-sizing: border-box;
+}
+
+.table_td_content
+{
+    height: 10rem;
+}
+
+.panel_empty
+{
+    position: relative;
+    width: 100%;
+    flex-grow: 10;
+    background-color: var(--color3-1);
+}
+
+.extra_information
+{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    margin-top: 1rem;
+    width: 100%;
+    padding:0 1rem;
+    box-sizing: border-box;
+}
+
+.extra_item
+{
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+
+    width: 100%;
+    height: 4rem;
+
+    border: solid 0.1rem var(--color3-2);
+    background-color: var(--color3-1);
+    border-radius: 0.3rem;
+}
+
+.img_extra
+{
+    width:2rem;
+    height:2rem;
+    object-fit: contain;
+}
+
+.text_extra
+{
+    margin-left: 1rem;
+    text-align: start;
+    font-size:0.7rem;
+}
+
+.filter_rigth_web
+{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    box-sizing: border-box;
+
+    padding:1rem 0;
+    width: 100%;
+    height:5rem;
+}
+
+.filter_left
+{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding:1rem;
+    width: 100%;
+    min-height:40rem;
+}
+
+.table_cell:nth-child(1),.table_th:nth-child(1),.table_td:nth-child(1)
+{
+    width:10rem;
+    padding: 0;
+}
+
+.table_cell:nth-child(2),.table_th:nth-child(2),.table_td:nth-child(2)
+{
+    width: 70%;
+    padding: 0;
+}
+
+.mat-header-row
+{
+    display: none;
+}
+
+.panel_bottom
+{
+    width: 100%;
+}
+
+.info_content
+{
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.title_product,
+.title_filter
+{
+    padding: 0 0.5rem;
+    cursor: pointer;
+    font-size:1rem;
+    font-weight: bold;
+    margin-bottom:.9rem;
+    box-sizing: border-box;
+}
+
+.title_filter
+{
+    margin-top:2rem;
+    cursor: default;
+    padding: 0;
+}
+
+.opc_filter,
+.more_filter
+{
+    cursor: pointer;
+    font-size: 0.75rem;
+    margin-bottom:0.5rem;
+}
+
+.more_filter
+{
+    color:var(--color6-1);
+    font-size: 0.8rem;
+}
+
+.characteristic
+{
+    text-align: justify;
+    padding: 0 0.5rem;
+    cursor: pointer;
+    font-size:0.75rem;
+    margin-bottom:1rem;
+    box-sizing: border-box;
+}
+
+.title_left
+{
+    font-weight: bolder;
+    color:var(--color4-7);
+    text-align: center;
+    font-size:1.5rem;
+    margin: 1rem 0.5rem;
+    box-sizing: border-box;
+}
+
+.filter_title
+{
+    cursor: default;
+    font-size:0.75rem;
+}
+
+.filter_icon
+{
+    font-size:1.3rem;
+    color: var(--color8-1);
+    cursor: pointer;
+}
+
+.count_left
+{
+    font-size:.75rem;
+}
+
+.filter_rigth_movil,
+.btn_filter_content
+{
+    display:flex;
+    align-items:flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+.btn_filter_content
+{
+    height:3rem;
+    flex-direction: row;
+    border-bottom: 1px solid var(--color4-3);
+    margin-bottom:0.1rem;
+}
+
+.btn_item_movil
+{
+    border-radius: 0;
+    width:50%;
+    height:100%;
+    color: var(--color6-1);
+    background-color: var(--color3-1);
+}
+
+.filter_text_movil
+{
+    padding:0.5rem;
+    text-align: start;
+    line-height:3rem;
+    width:100%;
+    height:3rem;
+    background-color: var(--color2-1);
+}
+
+::ng-deep .filter .mat-dialog-container {
+    border-radius: 0 !important;
+}
+
+.img_td
+{
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width:767px)
+{
+    .title_product,
+    .characteristic
+    {
+        margin-bottom:.5rem;
+    }
+
+    .panel_left,
+    .filter_rigth_web
+    {
+        display:none;
+    }
+
+    .table
+    {
+        padding:0 0.5rem;
+    }
+
+    .panel_rigth
+    {
+        border-radius: 0;
+        padding-right:0;
+    }
+}
+
+@media screen and (min-width:1024px)
+{
+    .filter_rigth_movil
+    {
+        display:none;
+    }
+}
+
+@media screen and (max-height:500px) and (max-width:1023px) and (orientation: landscape)
+{
+
+}

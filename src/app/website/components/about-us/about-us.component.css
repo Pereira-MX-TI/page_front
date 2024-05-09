@@ -1,0 +1,102 @@
+@import '../../../../css/colors.css';
+@import '../../../../css/panel.css';
+@import '../../../../css/mat-tab.css';
+
+.container
+{
+    background-color:var(--color3-1);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    width: 100vw;
+}
+
+.img_title
+{
+    background-image: url(../../../../assets/about_us.jpg);
+    background-size: cover;
+    background-position:center;
+
+    width: 100%;
+    height: 15rem;
+
+    margin-bottom:1px;
+    background-color: white;
+    z-index: 90;
+}
+
+.content_web,
+.content_movil
+{
+    width: 100%;
+    height:45vh;
+    margin-bottom: 1rem;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content:flex-start;
+}
+
+.content_movil
+{
+    margin-top: 1rem;
+    min-height:65vh;
+    text-align:justify;
+}
+
+.menu_item_select,
+.menu_item_unselect
+{
+    width:100%;
+    height:5rem;
+    cursor: pointer;
+    background-color: var(--color3-1);
+}
+
+.menu_item_select
+{
+    font-weight: bolder;
+    background-color: var(--color2-1);
+}
+
+.content
+{
+    width: 80%;
+    background-color: white;
+}
+
+.content__item
+{
+    text-align:justify;
+    width: 100%;
+    height:100%;
+    padding: 2rem;
+    box-sizing: border-box;
+    background-color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+@media screen and (max-width:767px)
+{
+    .img_title
+    {
+        height:10rem;
+    }
+
+    .content_web
+    {
+        display: none;
+    }
+}
+
+@media screen and (min-width:768px)
+{
+    .content_movil
+    {
+        display: none;
+    }
+}

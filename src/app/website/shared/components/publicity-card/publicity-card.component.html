@@ -1,0 +1,20 @@
+<div class="publicity">
+    <div class="imageData">
+      <label class="dataText">Telemetría</label>
+      <div class="dataIcon">
+          <img alt="imagen ecologico" class="iconItem" src="../../../../../assets/ecologic_icon.png"/>
+          <img alt="imagen velocidad" class="iconItem" src="../../../../../assets/fast_icon.png"/>
+          <img alt="imagen cantidad" class="iconItem" src="../../../../../assets/quality_icon.png"/>
+      </div>
+      <button (click)="objNavegationService.navegatePage('/Service/List')" class="btn_view" mat-raised-button>Ver mas</button>
+    </div>
+    <div class="imageInfo">
+        <div class="infoText">
+            <ul>
+                <li *ngFor="let itrPount of listPount">
+                  {{itrPount}}
+                </li>
+            </ul>
+        </div>
+    </div>
+  </div>
