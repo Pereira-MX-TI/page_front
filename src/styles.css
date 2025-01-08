@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./assets/css/snack_bar.css";
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+:root {
+  --color1-1: #1d3764;
+  --color1-2: #12274b;
+  --color1-3: rgb(29, 55, 100, 0.8);
+
+  --color3-1: #ffffff;
+  --color3-2: #ebebeb;
+
+  --color4-1: rgb(0, 0, 0);
+  --color4-2: rgb(25, 25, 25);
+
+  --color5-1: #a8d8ea;
+  --color5-2: rgb(168, 216, 234, 0.6);
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

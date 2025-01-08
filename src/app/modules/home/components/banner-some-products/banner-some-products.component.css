@@ -1,0 +1,124 @@
+::ng-deep app-banner-some-products {
+  width: 100%;
+}
+
+.some_products {
+  background: -webkit-linear-gradient(
+    90deg,
+    #12274b,
+    #12274b,
+    #ffffff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    90deg,
+    #12274b,
+    #12274b,
+    #ffffff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  width: 100%;
+  border-top: solid 2rem var(--color3-2);
+  border-bottom: solid 2rem var(--color3-2);
+  display: flex;
+}
+
+.some_products .container {
+  flex-grow: 10;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.some_products h2 {
+  font-weight: bold;
+  color: var(--color3-2);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.some_products .list_products {
+  width: 100%;
+  flex-grow: 10;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+}
+
+.some_products ul {
+  margin: 0;
+  max-height: 100% !important;
+  color: var(--color3-2);
+  padding: 1rem;
+}
+
+.some_products img {
+  object-fit: cover;
+  border-bottom-left-radius: 100%;
+  width: 100%;
+  max-width: 40rem;
+  max-height: 20rem;
+
+  -webkit-box-shadow: -37px 6px 58px -22px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -37px 6px 58px -22px rgba(0, 0, 0, 0.75);
+  box-shadow: -37px 6px 58px -22px rgba(0, 0, 0, 0.75);
+}
+
+@media screen and (max-width: 549px) {
+  .some_products {
+    flex-direction: column-reverse;
+
+    background: -webkit-linear-gradient(
+      10deg,
+      #12274b,
+      #12274b,
+      #ffffff
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      10deg,
+      #12274b,
+      #12274b,
+      #ffffff
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+}
+
+@media screen and (min-width: 550px) and (max-width: 767px) {
+  .some_products {
+    flex-direction: column-reverse;
+    height: 40rem;
+
+    background: -webkit-linear-gradient(
+      10deg,
+      #12274b,
+      #12274b,
+      #ffffff
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      10deg,
+      #12274b,
+      #12274b,
+      #ffffff
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .some_products {
+    height: 30rem;
+  }
+
+  .some_products .list_products {
+    max-width: 50rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .some_products {
+    height: 20rem;
+  }
+
+  .some_products .list_products {
+    max-width: 60rem;
+  }
+}

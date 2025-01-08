@@ -1,172 +1,84 @@
-import { Component, OnInit,AfterViewInit,Renderer2,ViewChild,AfterContentInit, ElementRef, OnDestroy} from '@angular/core';
-import { HttpService } from "./services/http.service";
-import { LocalStorageService } from "./services/local-storage.service";
-import { ShareInformationService } from "./services/share-information.service";
-import { Router,NavigationEnd} from "@angular/router";
-import { CheckReloadService } from "./services/check-reload.service";
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  OnDestroy,
+  AfterViewInit,
+} from '@angular/core';
+import { HttpService } from './services/http.service';
+import { LocalStorageService } from './services/local-storage.service';
+import { ShareInformationService } from './services/share-information.service';
 
-import {debounceTime, filter, finalize, switchMap, tap} from 'rxjs/operators';
 import { Subscription } from 'rxjs';
-import { NavegationService } from './services/navegation.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { CryptoService } from './services/crypto.service';
-import { FormControl } from '@angular/forms';
-import { ModalDialogComponent } from './shared/components/modal-dialog/modal-dialog.component';
-import { MatDialog } from '@angular/material/dialog';
-import { Title, Meta } from '@angular/platform-browser';
-import { environment } from 'src/environments/environment';
+import { NavigationEnd, Router } from '@angular/router';
+import { checkOptionCurrentNav } from './functions/check_option_current_nav.function';
+import { SelectOptionNavObservable } from './observables/select_option_nav.observable';
 
-declare var gtag:any;
+declare let gtag: any;
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit,OnDestroy {
+export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
+  @ViewChild('sideNav', { static: true }) sideNav: any;
 
-  @ViewChild('tabSearch',{static: true}) tabSearch:any;
-  @ViewChild('sideNav',{static: true}) sideNav:any;
-  @ViewChild('contGeneral') container!: ElementRef;
-
-  listOption:boolean[];
-  sideNavMenu:boolean;
-  matTabMenu:number;
-  viewMenu:boolean;
-  listSubscription:Subscription[];
-  formControl:FormControl;
+  sideNavStatus: boolean = false;
+  listSubscription: Subscription[];
+  currentYear: number = new Date().getFullYear();
 
   constructor(
-    private title: Title, private meta: Meta,
-    private objRouter:Router,
-    public  dialog:MatDialog,
-    private objSnackBar: MatSnackBar,
-    private objHttpService:HttpService,
-    private objCheckReloadService:CheckReloadService,
-    private objLocalStorageService:LocalStorageService,
-    private objCryptoService:CryptoService,
-    private objNavegationService:NavegationService,
-    private objShareInformationService:ShareInformationService)
-  { 
-    this.formControl = new FormControl(); 
-    this.formControl.setValue("");
-    this.matTabMenu=0;
-    this.sideNavMenu=false;
-    this.objCheckReloadService.check();
-    this.listOption=this.objNavegationService.listSelectMenu(this.objRouter.url)[0];
-    this.listSubscription = [new Subscription,new Subscription,new Subscription,new Subscription];
+    private router: Router,
+    private httpService: HttpService,
+    private localStorageService: LocalStorageService,
+    private shareInformationService: ShareInformationService,
+    private selectOptionNavObservable: SelectOptionNavObservable
+  ) {
+    this.listSubscription = [new Subscription()];
+  }
 
-    //    ;
+  ngOnInit(): void {
+    // this.getIpAddress();
 
-    const navEvents$ = this.objRouter.events.pipe(filter(event => event instanceof NavigationEnd));
+    this.subscriptionSideNav();
+    this.subscribeNavigation();
+  }
 
-    navEvents$.subscribe((event: NavigationEnd) =>{
-      gtag('config', 'UA-175222693-1',{
-        'page_path':event.urlAfterRedirects
-      });
+  ngOnDestroy() {
+    this.listSubscription.forEach((itrSub) => {
+      itrSub.unsubscribe();
     });
   }
 
-  ngOnInit(): void 
-  {
-    this.title.setTitle('SCHP | Medidores para agua');
-    this.meta.updateTag({name: "title", content: "Medidores de agua"});
-    this.meta.updateTag({name: "description", content: "medidores de agua, como instalar medidores de agua, medidores de agua precio, medidores de agua potable, medidores de agua internos, medidor para agua Puebla, instalacion de medidor para agua Puebla, Venta de medidor para agua Puebla, Accesorios para medidor para agua Puebla, telemetria para medidor para agua, instalacion de medidores de agua en edificios, soluciones jmpf, instalacion de medidores de agua potable, costo instalacion de medidor de agua, proyecto de instalacion de medidores de agua, conexion para medidor de agua, cuadro de medidor de agua, programa de instalacion de medidores de agua, norma de instalacion de medidores de agua, instalar medidores de agua, instalacion de medidores de agua, costo por instalacion de medidor de agua, instalacion de medidor de flujo de agua, precio de instalacion de medidor de agua, instalacion del medidor de agua, normas para la instalacion de medidores de agua, cuanto cuesta la instalacion de un medidor de agua"});
-    this.meta.updateTag({name: "keywords", content: "medidores de agua, como instalar medidores de agua, medidores de agua precio, medidores de agua potable, medidores de agua internos, medidor para agua Puebla, instalacion de medidor para agua Puebla, Venta de medidor para agua Puebla, Accesorios para medidor para agua Puebla, telemetria para medidor para agua, instalacion de medidores de agua en edificios, soluciones jmpf, instalacion de medidores de agua potable, costo instalacion de medidor de agua, proyecto de instalacion de medidores de agua, conexion para medidor de agua, cuadro de medidor de agua, programa de instalacion de medidores de agua, norma de instalacion de medidores de agua, instalar medidores de agua, instalacion de medidores de agua, costo por instalacion de medidor de agua, instalacion de medidor de flujo de agua, precio de instalacion de medidor de agua, instalacion del medidor de agua, normas para la instalacion de medidores de agua, cuanto cuesta la instalacion de un medidor de agua"});
-    this.meta.updateTag({name: "site", content: "https://solucionesjmpf.com"});
-    
-    this.listSubscription[0] = this.objShareInformationService.viewSideNav$.subscribe((status:boolean)=>{this.sideNavMenu=status;});
-    this.listSubscription[1] = this.objShareInformationService.selectMenuMovil$.subscribe( (response:boolean[]) => {this.listOption=response;});
+  ngAfterViewInit(): void {}
 
-    this.listSubscription[3] = this.objShareInformationService.search1$.subscribe((response:string)=>{
-      this.formControl.setValue(response);
-    });
-
-    this.formControl.valueChanges
-    .pipe(debounceTime(300),tap(() => {}),
-    switchMap(value =>this.objHttpService.autoCompletedProduct({word:value==""?'~':value,opc:0})
-    .pipe(finalize(() => {}),))).subscribe(
-    res => {
-      if(res["data"])
-      {
-        let data:any=this.objCryptoService.decrypted(res["data"]).list;
-        let listAutocompleted:string[] = Object.keys(data).map(function(itr){return data[itr];});
-        this.objShareInformationService.search2$.emit(listAutocompleted);
-      }
-    });
-
-    this.getIpAddress();
-    // this.getAccountVisit();
-
-
-    setTimeout(() =>{
-
-      if(this.objLocalStorageService.exist("vieMoPub"))
-      {
-        let datePublicity:Date = new Date(this.objCryptoService.decrypted(this.objLocalStorageService.view('vieMoPub')));
-        datePublicity.setHours(datePublicity.getHours()+1);
-        
-        if(datePublicity.getTime() < (new Date()).getTime())
-        {
-          this.objLocalStorageService.save("vieMoPub",this.objCryptoService.encrypted(new Date()));
-          this.dialog.open(ModalDialogComponent,{closeOnNavigation:true,autoFocus: false,data:{opcView:2}});
-        }
-      }
-      else
-      {
-        this.objLocalStorageService.save("vieMoPub",this.objCryptoService.encrypted(new Date()));
-        this.dialog.open(ModalDialogComponent,{closeOnNavigation:true,autoFocus: false,data:{opcView:2}});  
-      }
-    }, 2000);
-  }
-
-  ngOnDestroy()
-  {
-    this.listSubscription.forEach(itrSub => { itrSub.unsubscribe();});
-  }
-
-  changeViewMenuMovil(opcTabMenu:number):void
-  {
-    this.matTabMenu=opcTabMenu;
-    this.tabSearch._indexToSelect=this.matTabMenu;
-  }
-
-  changeStatusSideNav(status:boolean):void
-  {
-    this.sideNavMenu=status;
-  }
-
-  navegate(url:string)
-  {
-    this.objNavegationService.viewSideNav(false);
-    this.objNavegationService.navegatePage(url);
-  }
-
-  getAccountVisit():void
-  {
-    this.objHttpService.getLogin({
-      email:environment.USEREMAIL,
-      password:environment.USERPASS,
-      device:navigator.userAgent
-    }).subscribe(
-      res=>
-      {
-        // console.log(this.objCryptoService.decrypted(res["data"]));
-      },
-      err=>{
-        this.objSnackBar.open("Error en token",null,{duration: 2500,panelClass: ['snackBar_error']});
-      }
+  private subscriptionSideNav(): void {
+    this.listSubscription[0] = this.shareInformationService.sideNav$.subscribe(
+      () => (this.sideNavStatus = !this.sideNavStatus)
     );
   }
 
-  getIpAddress():void
-  {
-    this.objHttpService.getIpAddress().subscribe(
-      res=>
-      {
-        this.objLocalStorageService.save("adip",this.objCryptoService.encrypted(res));
+  private subscribeNavigation(): void {
+    this.listSubscription[1] = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.selectOptionNavObservable.updateData(
+          checkOptionCurrentNav(this.router.url)
+        );
+      }
+    });
+  }
+
+  private getIpAddress(): void {
+    this.httpService.getIpAddress().subscribe(
+      (res) => {
+        this.localStorageService.save('adip', res);
       },
-      err=>{}
+      (err) => {}
     );
+  }
+
+  openPdfPrivacy(): void {
+    window.open('./../../../../../assets/privacidad.pdf', '_blank');
   }
 }

@@ -1,0 +1,98 @@
+::ng-deep app-banner-telemetry {
+  width: 100%;
+}
+
+.telemetria_info {
+  width: 100%;
+  padding: 1rem;
+  background-color: white;
+  border-bottom: solid 2rem var(--color3-2);
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+  box-sizing: border-box;
+}
+
+.telemetria_info img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.telemetria_info .description {
+  padding: 1rem;
+  font-size: 0.75rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.telemetria_info h2 {
+  text-align: center;
+  color: var(--color1-2);
+  font-size: 1.25rem;
+}
+
+.telemetria_info li strong {
+  font-size: 1rem;
+}
+
+.telemetria_info button {
+  margin-top: 2rem;
+  color: var(--color1-2);
+  font-size: 1rem;
+}
+
+ul.checklist {
+  list-style-type: none;
+  padding-left: 0;
+  text-align: start;
+}
+
+ul.checklist li {
+  position: relative;
+  padding-left: 20px;
+  margin-top: 1rem;
+}
+
+ul.checklist li::before {
+  content: "✔"; /* Agrega la palomita antes de cada ítem */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: green; /* Color de la palomita */
+}
+
+@media screen and (max-width: 549px) {
+  .telemetria_info {
+    grid-template-columns: 6fr;
+    grid-template-rows: 1fr;
+    padding: 0 0 1rem 0;
+  }
+}
+
+@media screen and (min-width: 550px) and (max-width: 767px) {
+  .telemetria_info {
+    grid-template-columns: 6fr;
+    grid-template-rows: 1fr;
+    padding: 0 0 1rem 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .telemetria_info {
+    grid-template-columns: 6fr;
+    grid-template-rows: 1fr;
+  }
+
+  .telemetria_info .description {
+    min-width: 35rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .telemetria_info .description {
+    min-width: 35rem;
+  }
+}

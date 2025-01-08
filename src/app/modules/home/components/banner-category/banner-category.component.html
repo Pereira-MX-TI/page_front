@@ -1,0 +1,16 @@
+<div class="categories">
+  <div class="item_category" *ngFor="let itrCategory of categories">
+    <div class="card_category">
+      <h3>
+        <strong>{{ itrCategory.name }}</strong>
+      </h3>
+
+      <img
+        loading="lazy"
+        [title]="itrCategory.title"
+        [src]="itrCategory.url_img"
+      />
+      <button mat-stroked-button>Ver mas</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<nav class="movil">
+  <button mat-icon-button aria-label="Menu" (click)="clickSideNav()">
+    <img
+      loading="lazy"
+      fetchpriority="low"
+      src="./../../../../../assets/icons/burger_icon.svg"
+      alt="Menu"
+    />
+  </button>
+  <img
+    loading="lazy"
+    src="./../../../../../assets/logos/movil_schp.svg"
+    class="logo_general"
+    alt="logo_schp_movil"
+  />
+  <div class="space"></div>
+
+  <button mat-icon-button aria-label="Búsqueda" (click)="applySearch()">
+    <img
+      loading="lazy"
+      src="./../../../../../assets/icons/search-icon.svg"
+      alt="Buscar"
+    />
+  </button>
+  <button mat-icon-button aria-label="Carrito de compras">
+    <img
+      loading="lazy"
+      src="./../../../../../assets/icons/carshopping-icon.svg"
+      alt="Carrito compras"
+    />
+  </button>
+</nav>
+
+<div class="tablet">
+  <img
+    loading="lazy"
+    src="./../../../../../assets/logos/movil_schp.svg"
+    class="logo_general"
+    alt="logo_schp_tablet"
+  />
+  <nav>
+    <ul>
+      <li [class]="selectOption.home ? 'li_active' : ''" routerLink="Inicio">
+        Inicio
+      </li>
+      <!-- <li [class]="selectOption.product ? 'li_active' : ''">Productos</li>
+      <li [class]="selectOption.service ? 'li_active' : ''">Servicios</li> -->
+      <li
+        [class]="selectOption.telemetry ? 'li_active' : ''"
+        routerLink="Telemetria"
+      >
+        Telemetría
+      </li>
+      <!-- <li [class]="selectOption.invoice ? 'li_active' : ''">Facturación</li> -->
+      <li
+        [class]="selectOption.contact ? 'li_active' : ''"
+        routerLink="Contacto"
+      >
+        Contacto
+      </li>
+    </ul>
+  </nav>
+  <button mat-icon-button aria-label="Búsqueda">
+    <!--(click)="applySearch()"-->
+    <img
+      loading="lazy"
+      src="./../../../../../assets/icons/search-icon.svg"
+      alt="Buscar"
+    />
+  </button>
+  <button mat-icon-button aria-label="Carrito de compras">
+    <img
+      loading="lazy"
+      src="./../../../../../assets/icons/carshopping-icon.svg"
+      alt="Carrito compras"
+    />
+  </button>
+</div>

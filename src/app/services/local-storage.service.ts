@@ -1,22 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Router } from "@angular/router";
+import { CryptoService } from './crypto.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorageService {
 
-  constructor(private objRouter:Router) { }
+  constructor(private cryptoService:CryptoService) { }
 
-  save(name:string,value:string):void
+  save(name:string,value:any):void
   {
-    localStorage.setItem(name,value);
+    localStorage.setItem(name,this.cryptoService.encrypted(value));
   }
 
-  view(key:string):string
+  view(key:string):any
   {
-    let data:string=localStorage.getItem(key);   
-    return data;
+    return this.cryptoService.decrypted(localStorage.getItem(key));
+  }
+
+  get(key:string):any
+  {
+    return localStorage.getItem(key);
   }
 
   exist(key:string):boolean

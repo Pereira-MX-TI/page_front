@@ -1,29 +1,54 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './components/home/home.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { AboutUsComponent } from './components/about-us/about-us.component';
-import { HelpMenuComponent } from './components/help/help-menu/help-menu.component';
-import { HelpSearchComponent } from './components/help/help-search/help-search.component';
-import { PageErrorComponent } from './shared/components/page-error/page-error.component';
-
-
-
 const routes: Routes = [
-  {path:"",redirectTo:"Home",pathMatch:"full"},
-  {path:"Home",component:HomeComponent},
-  {path:"Product",loadChildren: () => import("./product/product.module").then(m=>m.ProductModule)},
-  {path:"Service",loadChildren: () => import("./service/service.module").then(m=>m.ServiceModule)},
-  {path:"Quotation",component:HelpSearchComponent},
-  {path:"AboutUs",component:AboutUsComponent},
-  {path:"Contact",component:ContactComponent},
-  {path:"Help",component:HelpMenuComponent},
-  { path: '**', pathMatch: 'full', component: PageErrorComponent }
+  { path: '', redirectTo: 'Inicio', pathMatch: 'full' },
+  {
+    path: 'Inicio',
+    loadChildren: () =>
+      import('./modules/home/home.module').then((m) => m.HomeModule),
+  },
+  {
+    path: 'Contacto',
+    loadChildren: () =>
+      import('./modules/contact/contact.module').then((m) => m.ContactModule),
+  },
+  {
+    path: 'Telemetria',
+    loadChildren: () =>
+      import('./modules/telemetry/telemetry.module').then(
+        (m) => m.TelemetryModule
+      ),
+  },
+  // {
+  //   path: 'Product',
+  //   loadChildren: () =>
+  //     import('./modules/product/product.module').then((m) => m.ProductModule),
+  // },
+  // {
+  //   path: 'Service',
+  //   loadChildren: () =>
+  //     import('./modules/service/service.module').then((m) => m.ServiceModule),
+  // },
+
+  // {
+  //   path: 'Help',
+  //   loadChildren: () =>
+  //     import('./modules/help/help.module').then((m) => m.HelpModule),
+  // },
+
+  {
+    path: '**',
+    pathMatch: 'full',
+    loadChildren: () =>
+      import('./modules/error-page/error-page.module').then(
+        (m) => m.ErrorPageModule
+      ),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class routingModule { }
+export class routingModule {}

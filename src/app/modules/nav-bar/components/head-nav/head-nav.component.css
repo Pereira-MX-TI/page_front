@@ -1,0 +1,132 @@
+::ng-deep app-head-nav {
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+
+.movil,
+.tablet {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+}
+
+/* Estilos para movil */
+
+.movil {
+  height: 3rem;
+  background-color: var(--color1-2);
+}
+
+.movil .logo_general {
+  width: 3rem;
+}
+
+/* Estilos para tablet */
+
+.tablet {
+  height: 3rem;
+  background-color: var(--color1-2);
+}
+
+.tablet nav,
+.tablet .logo_general {
+  height: 100%;
+}
+
+.tablet .logo_general {
+  margin: 0 0.75rem;
+  width: 3rem;
+}
+
+.tablet nav {
+  flex-grow: 10;
+  background-color: var(--color1-1);
+}
+
+/* Estilos generales */
+
+ul {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+li {
+  list-style-type: none;
+  flex-grow: 10;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+li:hover {
+  background-color: var(--color5-2);
+}
+
+.li_active {
+  font-weight: bold;
+  color: var(--color4-1);
+  background-color: var(--color5-1);
+}
+
+.logo_general {
+  object-fit: contain;
+  padding: 0.25rem;
+  box-sizing: border-box;
+}
+
+.space {
+  flex-grow: 10;
+}
+
+button img {
+  width: 1.2rem;
+  height: 1.2rem;
+  object-fit: contain;
+  filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(360deg);
+}
+
+@media screen and (max-width: 319px) {
+  .tablet {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 549px) {
+  .tablet {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 550px) and (max-width: 767px) {
+  .movil {
+    display: none;
+  }
+
+  .tablet {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .movil {
+    display: none;
+  }
+
+  .tablet {
+    font-size: 0.85rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .movil {
+    display: none;
+  }
+}

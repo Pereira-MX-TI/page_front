@@ -1,0 +1,23 @@
+<input
+  matInput
+  placeholder="Buscar"
+  [formControl]="formControl"
+  (keyup.enter)="applySearch()"
+  [matAutocomplete]="auto"
+/>
+<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+  <mat-option
+    *ngFor="let data of listObservable"
+    [value]="data"
+    [title]="data"
+    >{{ data }}</mat-option
+  >
+</mat-autocomplete>
+
+<button aria-label="Búsqueda" mat-icon-button>
+  <img
+    loading="lazy"
+    src="./../../../../../assets/icons/search-icon.svg"
+    alt="Buscar"
+  />
+</button>

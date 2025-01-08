@@ -1,0 +1,57 @@
+<section class="container">
+  <div class="background-telemetry">
+    <h2>
+      <strong
+        >Telemetría del Agua: Innovación para una Gestión Eficiente</strong
+      >
+    </h2>
+  </div>
+  <div class="questions">
+    <img alt="pregunta" src="assets/general/question_one.avif" />
+    <div class="info">
+      <h3><strong>¿Que es la Telemetría?</strong></h3>
+      <p>
+        Soluciones Hidráulicas Pereira ofrece una solución avanzada y flexible
+        para la lectura remota de medidores de agua, permitiendo un monitoreo en
+        tiempo real del consumo. Nuestra tecnología se adapta a las necesidades
+        específicas de cada cliente, proporcionando una red de comunicaciones de
+        alto rendimiento que garantiza precisión en la recolección de datos,
+        optimización en la gestión de recursos hídricos y una mayor eficiencia
+        operativa.
+      </p>
+    </div>
+  </div>
+
+  <div class="architecture">
+    <div class="description">
+      <h2>Arquitectura</h2>
+      <p>
+        Ofrecemos una solución robusta, escalable y de bajo consumo energético
+        para la comunicación de dispositivos(medidores de agua) en aplicaciones
+        de largo alcance. Su estructura modular, compuesta por dispositivos
+        Lora, gateways, servidores de red y servidores de aplicación, permite la
+        implementación eficiente de redes de sensores en entornos urbanos,
+        industriales y rurales.
+      </p>
+      <p>
+        Algunos de los aspectos más destacados de la arquitectura es su
+        capacidad para transmitir datos a largas distancias con un consumo de
+        energía mínimo, lo que permite que los dispositivos operen durante años
+        con una sola batería. Además, su modelo de seguridad basado en cifrado
+        AES-128 garantiza la protección de los datos y la autenticación segura
+        de los dispositivos dentro de la red.
+      </p>
+    </div>
+    <img alt="arquitectura" src="assets/general/architecture.avif" />
+  </div>
+
+  <div class="products">
+    <h2><strong>Dispositivos usados en red</strong></h2>
+    <div class="grid_products">
+      <div class="img_container" *ngFor="let itrImg of imgProducts">
+        <p>{{ itrImg.description }}</p>
+        <img [src]="itrImg.url" [alt]="itrImg.alt" />
+      </div>
+    </div>
+  </div>
+</section>

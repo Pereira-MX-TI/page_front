@@ -1,0 +1,69 @@
+::ng-deep app-carousel-products {
+  width: 100%;
+  height: 100%;
+}
+
+section {
+  width: 100%;
+  height: 100%;
+}
+
+::ng-deep .owl-carousel,
+::ng-deep owl-carousel-o {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+::ng-deep owl-stage,
+::ng-deep owl-stage div,
+::ng-deep .owl-carousel .owl-stage-outer {
+  display: block !important;
+  height: 100% !important;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.body-card {
+  width: 90%;
+  height: 90% !important;
+  border-radius: 1rem;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: column;
+  background-color: white;
+
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(212, 205, 212, 1);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(212, 205, 212, 1);
+  box-shadow: 10px 10px 5px 0px rgba(212, 205, 212, 1);
+}
+
+::ng-deep .owl-theme .owl-dots .owl-dot.active span {
+  background-color: var(--color1-2);
+}
+
+.body-card img {
+  width: 90%;
+  height: 60%;
+  object-fit: contain;
+}
+
+.body-card h2 {
+  color: var(--color1-2);
+  font-size: 1rem;
+}
+
+.body-card button {
+  margin-top: 1rem;
+  color: var(--color1-2);
+  font-size: 1rem;
+}

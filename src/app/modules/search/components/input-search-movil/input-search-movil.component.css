@@ -1,0 +1,13 @@
+::ng-deep app-input-search-movil {
+  width: 100vw !important;
+  height: 3rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.section_search {
+  height: 100%;
+  background-color: var(--color3-1);
+  box-sizing: border-box;
+}

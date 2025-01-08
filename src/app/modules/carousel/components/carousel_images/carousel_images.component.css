@@ -1,0 +1,30 @@
+::ng-deep app-carousel-images {
+  width: 100%;
+  height: 100%;
+}
+
+section {
+  width: 100%;
+  height: 100%;
+}
+
+::ng-deep .owl-carousel,
+::ng-deep owl-carousel-o {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+::ng-deep owl-stage,
+::ng-deep owl-stage div,
+::ng-deep .owl-carousel .owl-stage-outer {
+  display: block !important;
+  height: 100% !important;
+}
+
+img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+}

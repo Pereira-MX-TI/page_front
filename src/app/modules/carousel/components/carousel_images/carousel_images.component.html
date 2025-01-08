@@ -1,0 +1,13 @@
+<section>
+  <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide *ngFor="let itrData of list_item">
+      <img
+        loading="lazy"
+        (click)="navigateLink(itrData.link)"
+        [src]="carouselPipe.transform(itrData, 'image-publicity')"
+        [alt]="itrData.id"
+        onerror="this.src='assets/errors/default.avif'"
+      />
+    </ng-template>
+  </owl-carousel-o>
+</section>
