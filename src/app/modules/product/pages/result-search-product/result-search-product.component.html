@@ -1,0 +1,23 @@
+<section class="container">
+  <aside><app-filters-product></app-filters-product></aside>
+  <article>
+    <app-table
+      id="tableProducts"
+      [pipeOpc]="0"
+      (response)="selectColumn($event)"
+      [displayedColumns]="displayedColumns"
+      [btnTable]="[
+        { icon: 'keyboard_arrow_right', column: 2, operation: 'view' }
+      ]"
+      [listColumns]="listColumns"
+      [pipeData]="productPipe"
+    >
+    </app-table>
+
+    <message-empty
+      [nameRegister]="'productos'"
+      *ngIf="dataPage.dataTable.dataSourceFilter.length == 0 ? true : false"
+    >
+    </message-empty>
+  </article>
+</section>

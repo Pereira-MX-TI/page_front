@@ -1,0 +1,64 @@
+<cdk-virtual-scroll-viewport
+  tvsItemSize
+  (scrolledIndexChange)="onScrolledIndexChange()"
+>
+  <table [id]="id" mat-table [dataSource]="rowsTable" multiTemplateDataRows>
+    <ng-container
+      matColumnDef="{{ column }}"
+      *ngFor="let column of displayedColumns; let indexColumn = index"
+    >
+      <th mat-header-cell *matHeaderCellDef class="table_th">
+        {{ listColumns[column] }}
+      </th>
+      <td mat-cell *matCellDef="let element" class="table_td">
+        <ng-container [ngSwitch]="checkViewCell(indexColumn)">
+          <img
+            *ngSwitchCase="'img'"
+            onerror="this.src='assets/default.jpg'"
+            [src]="pipeData.transform(element, pipeOpc, column)"
+            class="img_td"
+          />
+
+          <div class="btn_information" *ngSwitchCase="'btn'">
+            <button
+              type="button"
+              mat-icon-button
+              (click)="sentData(element, itrBtn.operation)"
+              *ngFor="let itrBtn of btnTable"
+            >
+              <mat-icon>{{ itrBtn.icon }}</mat-icon>
+            </button>
+          </div>
+
+          <div *ngSwitchCase="'text'" class="text_cell">
+            <textarea
+              [value]="pipeData.transform(element, pipeOpc, column)"
+              readonly
+            >
+            </textarea>
+          </div>
+
+          <div class="btn_information" *ngSwitchCase="'check'">
+            <mat-checkbox
+              [(ngModel)]="element.select"
+              (click)="sentData(element, 'check')"
+            ></mat-checkbox>
+          </div>
+
+          <div class="btn_information" *ngSwitchCase="'radio'">
+            <mat-slide-toggle
+              [(ngModel)]="element.select"
+              (toggleChange)="sentData(element, 'radio')"
+            ></mat-slide-toggle>
+          </div>
+        </ng-container>
+
+        <div class="numberRow" *ngIf="indexColumn == 0">
+          {{ element.index_row + 1 }}
+        </div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</cdk-virtual-scroll-viewport>

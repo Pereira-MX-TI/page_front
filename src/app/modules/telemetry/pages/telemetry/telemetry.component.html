@@ -50,8 +50,53 @@
     <div class="grid_products">
       <div class="img_container" *ngFor="let itrImg of imgProducts">
         <p>{{ itrImg.description }}</p>
-        <img [src]="itrImg.url" [alt]="itrImg.alt" />
+        <img [alt]="itrImg.description" [src]="itrImg.url" [alt]="itrImg.alt" />
       </div>
+    </div>
+  </div>
+
+  <div class="software">
+    <h2><strong>Software</strong></h2>
+    <div class="description">
+      <img
+        alt="Software para medidores de agua"
+        src="/assets/general/devices_software.jpg"
+      />
+      <ul class="checklist">
+        <li>
+          <strong>Compatible con cualquier dispositivo</strong>
+        </li>
+        <li>
+          <strong>Gráficos de consumo diario</strong>
+        </li>
+        <li>
+          <strong
+            >Detección de fugas, consumos altos, medidor detenido, entre
+            otros.</strong
+          >
+        </li>
+        <li>
+          <strong>Generar recibos simples</strong>
+        </li>
+        <li>
+          <strong>Geolocalización de Dispositivos</strong>
+        </li>
+        <li>
+          <strong>Datos cifrados de extremo a extremo</strong>
+        </li>
+        <li>
+          <strong>Calculo de especifico de consumos</strong>
+        </li>
+        <li>
+          <strong>Visualización de lecturas periódicamente</strong>
+        </li>
+        <li>
+          <strong>Portal para cliente o usuario final</strong>
+        </li>
+        <li>
+          <strong>y mucho mas.</strong>
+        </li>
+      </ul>
     </div>
   </div>
 </section>

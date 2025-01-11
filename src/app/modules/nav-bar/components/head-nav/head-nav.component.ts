@@ -5,6 +5,7 @@ import { SelectOptionNavObservable } from 'src/app/observables/select_option_nav
 import { ShareInformationService } from 'src/app/services/share-information.service';
 import { Dialog } from '@angular/cdk/dialog';
 import { InputSearchMovilComponent } from 'src/app/modules/search/components/input-search-movil/input-search-movil.component';
+import { ShareDataSearchService } from 'src/app/modules/search/services/share-data-search.service';
 
 @Component({
   selector: 'app-head-nav',
@@ -21,16 +22,15 @@ export class HeadNavComponent implements OnInit, OnDestroy {
     contact: false,
   };
 
-  listSubscription: Subscription[];
-  wordSearch: string = '';
+  listSubscription: Subscription[] = [new Subscription(), new Subscription()];
+  viewSearch: boolean = false;
 
   public constructor(
     private dialogModal: Dialog,
     private selectOptionNavObservable: SelectOptionNavObservable,
-    private shareInformationService: ShareInformationService
-  ) {
-    this.listSubscription = [new Subscription(), new Subscription()];
-  }
+    private shareInformationService: ShareInformationService,
+    private shareDataSearchService: ShareDataSearchService
+  ) {}
 
   ngOnInit(): void {
     this.subscriptionSelectOptionNav();
@@ -54,10 +54,10 @@ export class HeadNavComponent implements OnInit, OnDestroy {
   }
 
   private subscriptionSearch(): void {
-    this.listSubscription[1] = this.shareInformationService.search$.subscribe(
-      (res: string) => {
-        this.wordSearch = res;
+    this.listSubscription[1] = this.shareDataSearchService.close$.subscribe(
+      () => {
         this.dialogModal.closeAll();
+        this.viewSearch = false;
       }
     );
   }
@@ -66,9 +66,7 @@ export class HeadNavComponent implements OnInit, OnDestroy {
     this.shareInformationService.sideNav$.emit();
   }
 
-  applySearch(): void {
-    this.dialogModal.open(InputSearchMovilComponent, {
-      data: this.wordSearch,
-    });
+  openModalSearch(): void {
+    this.dialogModal.open(InputSearchMovilComponent);
   }
 }

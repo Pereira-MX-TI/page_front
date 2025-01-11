@@ -14,7 +14,7 @@ export class CarouselPipe implements PipeTransform {
     switch (args[0]) {
       case 'image-publicity':
         {
-          return environment.API_FILE + data.url;
+          return environment.FILE_URI + data.url;
         }
         break;
 
@@ -22,7 +22,7 @@ export class CarouselPipe implements PipeTransform {
         {
           if (data.lenght === 0) return 'assets/errors/default.avif';
 
-          return environment.API_FILE + data[0].direccion.replace('files/', '');
+          return environment.PRODUCT_URI + data[0].direccion;
         }
         break;
 

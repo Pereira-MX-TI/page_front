@@ -1,0 +1,44 @@
+.container {
+  width: 100%;
+  padding: 1rem;
+  background-color: white;
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+aside {
+  grid-column: 1 / 2;
+  width: 100%;
+  min-height: 100vh;
+  border-right: 0.05rem solid var(--color1-3);
+}
+
+article {
+  position: relative;
+
+  grid-column: 2 /6;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 549px) {
+  aside {
+    display: none;
+  }
+
+  article {
+    grid-column: 1/6;
+  }
+}
+
+@media screen and (min-width: 550px) and (max-width: 767px) {
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+}
+
+@media screen and (min-width: 1024px) {
+}

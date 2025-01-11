@@ -1,0 +1,15 @@
+<section class="container">
+  <div class="item" *ngFor="let itrItem of items">
+    <div class="card">
+      <img [alt]="itrItem.title" [src]="itrItem.url" />
+      <div class="description">
+        <h2>
+          <strong> {{ itrItem.title }}</strong>
+        </h2>
+        <ul>
+          <li *ngFor="let itrC of itrItem.list">{{ itrC }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

@@ -61,7 +61,7 @@ ul.checklist li::before {
   position: absolute;
   left: 0;
   top: 0;
-  color: green; /* Color de la palomita */
+  color: var(--color1-2); /* Color de la palomita */
 }
 
 @media screen and (max-width: 549px) {

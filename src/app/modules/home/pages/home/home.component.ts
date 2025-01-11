@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CryptoService } from 'src/app/services/crypto.service';
-import { forkJoin, Subscription, switchMap } from 'rxjs';
+import { forkJoin, Subscription, switchMap, zip } from 'rxjs';
 import { ShareInformationService } from 'src/app/services/share-information.service';
 import { Carousel } from 'src/app/models/carousel.model';
 import { HttpService } from 'src/app/services/http.service';
@@ -20,9 +20,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(
     private seoService: SeoService,
-    private objSnackBar: MatSnackBar,
-    private objHttpService: HttpService,
-    private objShareInformationService: ShareInformationService,
+    private matSnackBar: MatSnackBar,
+    private httpService: HttpService,
+    private shareInformationService: ShareInformationService,
     public navigationService: NavigationService
   ) {
     this.carousels = {
@@ -46,28 +46,28 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private setMetaTags(): void {
     this.seoService.setTitle('Inicio | Medidores de agua');
-    this.seoService.setDescription('pagina inicio');
+    this.seoService.setDescription('Pagina inicio de medidores de agua.');
 
     this.seoService.setIndexingFollower(true);
     this.seoService.setCanonicalURL();
   }
 
   refresh() {
-    this.objShareInformationService.viewLoading$.emit(true);
+    this.shareInformationService.viewLoading$.emit(true);
 
-    forkJoin(
-      this.objHttpService.specificCarousel('publicity'),
-      this.objHttpService.specificCarousel('product')
+    zip(
+      this.httpService.specificCarousel('publicity'),
+      this.httpService.specificCarousel('product')
     ).subscribe(
       (responses) => {
         this.carousels.publicity = responses[0].data;
         this.carousels.products = responses[1].data;
 
-        this.objShareInformationService.viewLoading$.emit(false);
+        this.shareInformationService.viewLoading$.emit(false);
       },
       (err) => {
-        this.objShareInformationService.viewLoading$.emit(false);
-        this.objSnackBar.open('Error obtener carrusel', '', {
+        this.shareInformationService.viewLoading$.emit(false);
+        this.matSnackBar.open('Error obtener carrusel', '', {
           duration: 2500,
           panelClass: ['snackBar_error'],
         });

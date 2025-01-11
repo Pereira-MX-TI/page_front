@@ -93,6 +93,13 @@ button img {
   filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(360deg);
 }
 
+.search {
+  width: 100%;
+  max-width: 40rem;
+  display: flex;
+  align-items: center;
+}
+
 @media screen and (max-width: 319px) {
   .tablet {
     display: none;

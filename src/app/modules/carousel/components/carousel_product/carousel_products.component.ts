@@ -34,7 +34,7 @@ export class CarouselProductsComponent {
     navText: ['', ''],
     responsive: {
       0: {
-        items: 2,
+        items: 1,
       },
       400: {
         items: 2,
@@ -49,7 +49,7 @@ export class CarouselProductsComponent {
     nav: false,
   };
 
-  navigateLink(res: string): void {
+  viewProduct(res: string): void {
     if (res === '') return;
 
     this.navigationService.navigatePage(res);

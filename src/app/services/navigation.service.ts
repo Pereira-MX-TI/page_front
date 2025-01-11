@@ -7,7 +7,11 @@ import { Router } from '@angular/router';
 export class NavigationService {
   constructor(private router: Router) {}
 
-  navigatePage(urlCurrent: string): void {
-    this.router.navigate([urlCurrent]);
+  navigatePage(urlCurrent: string, params?: any): void {
+    if (!params) {
+      this.router.navigateByUrl(urlCurrent);
+      return;
+    }
+    this.router.navigate([urlCurrent], { queryParams: { ...params } });
   }
 }

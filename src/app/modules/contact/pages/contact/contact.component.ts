@@ -16,7 +16,9 @@ export class ContactComponent implements OnInit {
 
   private setMetaTags(): void {
     this.seoService.setTitle('Contacto | Medidores de agua');
-    this.seoService.setDescription('pagina de contacto');
+    this.seoService.setDescription(
+      'Pagina de contacto para medidores de agua.'
+    );
 
     this.seoService.setIndexingFollower(true);
     this.seoService.setCanonicalURL();

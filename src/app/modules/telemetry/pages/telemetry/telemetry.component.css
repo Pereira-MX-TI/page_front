@@ -61,6 +61,7 @@
 }
 
 .questions p {
+  width: 75%;
   font-size: 1rem;
   text-align: justify;
 }
@@ -105,7 +106,7 @@
 .architecture p {
   width: 50%;
   color: white;
-  font-size: 1.25rem;
+  font-size: 1rem;
   text-align: justify;
 }
 
@@ -207,6 +208,57 @@
   grid-row: 1/3;
 }
 
+.software {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.software h2 {
+  font-size: 1.5rem;
+  padding: 2rem;
+  color: var(--color1-2);
+}
+
+.software .description {
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.software img {
+  height: 100%;
+  max-height: 25rem;
+  width: 50%;
+  object-fit: contain;
+}
+
+.software ul {
+  padding: 0 10%;
+  height: 30rem;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+ul.checklist {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+ul.checklist li {
+  position: relative;
+  padding-left: 20px;
+  margin-top: 1rem;
+}
+
+ul.checklist li::before {
+  content: "✔"; /* Agrega la palomita antes de cada ítem */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color1-2); /* Color de la palomita */
+}
+
 @media screen and (max-width: 549px) {
   .architecture,
   .questions {
@@ -256,6 +308,22 @@
 
   .products {
     height: 30rem;
+  }
+
+  .img_container p {
+    font-size: 0.75rem;
+  }
+
+  .software .description {
+    flex-direction: column;
+  }
+
+  .software img {
+    width: 100%;
+  }
+
+  .software ul {
+    width: 100%;
   }
 }
 
@@ -308,9 +376,71 @@
   .products {
     height: 30rem;
   }
+
+  .img_container p {
+    font-size: 0.9rem;
+  }
+
+  .software .description {
+    flex-direction: column;
+  }
+
+  .software img {
+    width: 100%;
+  }
+
+  .software ul {
+    width: 100%;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
+  .architecture {
+    flex-direction: column;
+  }
+
+  .architecture {
+    height: 60rem;
+    background: linear-gradient(to bottom, #12274b 30%, #ffffff 100%);
+  }
+
+  .architecture h2 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .architecture img {
+    border-radius: 10rem 10rem 0 0;
+    object-fit: contain;
+
+    -webkit-box-shadow: -1px -15px 6px -7px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px -15px 6px -7px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px -15px 6px -7px rgba(0, 0, 0, 0.75);
+  }
+
+  .architecture p {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .architecture img,
+  .architecture .description {
+    width: 100%;
+    height: 50%;
+  }
+
+  .software .description {
+    flex-direction: column;
+  }
+
+  .software img {
+    width: 100%;
+  }
+
+  .software ul {
+    width: 100%;
+  }
 }
 
 @media screen and (min-width: 1024px) {

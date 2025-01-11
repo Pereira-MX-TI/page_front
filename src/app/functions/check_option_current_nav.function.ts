@@ -13,5 +13,8 @@ export function checkOptionCurrentNav(url: string): SelectOptionNav {
   if (url.includes('Inicio')) selectOption.home = true;
   else if (url.includes('Telemetria')) selectOption.telemetry = true;
   else if (url.includes('Contacto')) selectOption.contact = true;
+  else if (url.includes('Servicios')) selectOption.service = true;
+  else if (url.includes('Productos')) selectOption.product = true;
+
   return selectOption;
 }

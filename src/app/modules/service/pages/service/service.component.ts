@@ -1,0 +1,94 @@
+import { Component } from '@angular/core';
+import { SeoService } from 'src/app/services/seo.service';
+
+@Component({
+  selector: 'app-service',
+  templateUrl: './service.component.html',
+  styleUrls: ['./service.component.css'],
+})
+export class ServiceComponent {
+  items: { title: string; list: string[]; url: string }[] = [
+    {
+      title: 'Instalación de medidores de agua',
+      list: [
+        'Instalación de micromedidores',
+        'Instalación de macromedidores',
+        'Adecuación de toma',
+        'Reparación de toma',
+        'Y mucho mas',
+      ],
+      url: 'assets/general/water_meter_installation.avif',
+    },
+    {
+      title: 'Prueba de medidores de agua',
+      list: [
+        'Caudal arranque',
+        'Caudal nominal',
+        'Caudal mínimo',
+        'Caudal máximo',
+        'Caudal de transición',
+        'Y mucho mas',
+      ],
+      url: 'assets/general/test_bench.avif',
+    },
+    {
+      title: 'Capacitación',
+      list: [
+        'Toma de lectura',
+        'Instalaciones',
+        'Normas del agua',
+        'Gestión',
+        'Y mucho mas',
+      ],
+      url: 'assets/general/training.avif',
+    },
+    {
+      title: 'Venta de productos hidráulicos',
+      list: [
+        'Medidores de agua',
+        'Válvulas',
+        'Conectores',
+        'Empaques',
+        'Pegamentos',
+        'Y mucho mas',
+      ],
+      url: 'assets/products/products_all.avif',
+    },
+    {
+      title: 'Implementación telemetría',
+      list: [
+        'Pruebas de alcance',
+        'Programación de módulos',
+        'Instalación de antenas',
+        'Configuración de gateways',
+        'Y mucho mas',
+      ],
+      url: 'assets/general/telemetria.avif',
+    },
+    {
+      title: 'Detección de fugas',
+      list: [
+        'Detección de fugas en tuberías',
+        'Pruebas de presión y hermeticidad',
+        'Y muchos mas',
+      ],
+      url: 'assets/general/leakage.avif',
+    },
+  ];
+
+  constructor(private seoService: SeoService) {}
+
+  ngOnInit(): void {
+    this.setMetaTags();
+  }
+
+  private setMetaTags(): void {
+    this.seoService.setTitle('Servicios | Medidores de agua');
+    this.seoService.setDescription(
+      'Pagina de servicios para medidores de agua.'
+    );
+
+    this.seoService.setIndexingFollower(true);
+    this.seoService.setCanonicalURL();
+  }
+}

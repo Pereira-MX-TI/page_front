@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start:build": "http-server ./dist/page_front -p 8585",
-    "start": "ng serve --port=2500 --host=192.168.1.3 --disable-host-check",
+    "start": "ng serve --port=2500 --host=0.0.0.0 --disable-host-check",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -27,9 +27,11 @@
     "crypto-js": "^4.1.1",
     "hammerjs": "^2.0.8",
     "ng-recaptcha": "^12.0.2",
+    "ng-table-virtual-scroll": "^1.6.1",
     "ngx-owl-carousel-o": "^16.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "viewerjs": "^1.11.6",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {

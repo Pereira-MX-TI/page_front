@@ -3,8 +3,8 @@ import { FormControl, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { HttpService } from 'src/app/services/http.service';
-import { CryptoService } from 'src/app/services/crypto.service';
-import { ShareInformationService } from 'src/app/services/share-information.service';
+import { NavigationService } from 'src/app/services/navigation.service';
+import { ShareDataSearchService } from '../../services/share-data-search.service';
 
 @Component({
   selector: 'app-input-search',
@@ -18,13 +18,16 @@ export class InputSearchComponent implements OnInit, OnDestroy {
     this.formControl.setValue(res, { emitEvent: false });
   }
 
-  listObservable: string[] = [];
+  @Input() colorIcon: string = 'black';
+
+  listWords: string[] = [];
   listSubscription: Subscription[] = [];
   formControl: FormControl = new FormControl('', Validators.required);
 
   constructor(
     private httpService: HttpService,
-    private shareInformationService: ShareInformationService
+    private navigationService: NavigationService,
+    private shareDataSearchService: ShareDataSearchService
   ) {
     this.listSubscription = [new Subscription()];
   }
@@ -43,24 +46,22 @@ export class InputSearchComponent implements OnInit, OnDestroy {
     this.listSubscription[0] = this.formControl.valueChanges
       .pipe(debounceTime(500))
       .subscribe((value: string) => {
-        if (!value) this.listObservable = [];
-        else if (value.trim() != '') {
-          this.httpService
-            .autoCompletedProduct({
-              word: value,
-            })
-            .subscribe(({ data }) => {
-              // const {
-              //   data: { list },
-              // }: any = this.cryptoService.decrypted(data);
-              // this.listObservable = Object.values(list);
-            });
-        } else this.listObservable = [];
+        if (!value || value.trim() === '') {
+          this.listWords = [];
+          return;
+        }
+
+        this.httpService.autoCompletedProduct(value).subscribe(({ data }) => {
+          this.listWords = Object.keys(data).map((itr) => data[itr]);
+        });
       });
   }
 
   applySearch(): void {
     if (this.formControl.invalid) return;
-    this.shareInformationService.search$.emit(this.formControl.value.trim());
+
+    const res: string = this.formControl.value.trim();
+    this.navigationService.navigatePage('Productos/Busqueda', { data: res });
+    this.shareDataSearchService.close$.emit();
   }
 }

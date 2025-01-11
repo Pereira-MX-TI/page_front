@@ -63,7 +63,9 @@ export class TelemetryComponent {
 
   private setMetaTags(): void {
     this.seoService.setTitle('Telemetría | Medidores de agua');
-    this.seoService.setDescription('pagina de telemetría');
+    this.seoService.setDescription(
+      'Pagina de telemetría para medidores de agua.'
+    );
 
     this.seoService.setIndexingFollower(true);
     this.seoService.setCanonicalURL();

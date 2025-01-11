@@ -1,0 +1,45 @@
+<section class="container">
+  <aside><app-filters-product></app-filters-product></aside>
+  <article>
+    <h2>
+      <strong>Medidores de agua</strong>
+      <hr />
+    </h2>
+    <div class="carousel">
+      <app-carousel-products [data]="water_meters"></app-carousel-products>
+    </div>
+    <h2>
+      <strong>Válvulas</strong>
+      <hr />
+    </h2>
+    <div class="carousel">
+      <app-carousel-products [data]="valves"></app-carousel-products>
+    </div>
+
+    <h2>
+      <strong>Conexiones</strong>
+      <hr />
+    </h2>
+    <div class="carousel">
+      <app-carousel-products [data]="connections"></app-carousel-products>
+    </div>
+
+    <h2>
+      <strong>Productos Itron(Accell)</strong>
+      <hr />
+    </h2>
+    <div class="carousel">
+      <app-carousel-products
+        [data]="itronAccellProducts"
+      ></app-carousel-products>
+    </div>
+
+    <h2>
+      <strong>Productos Alfa</strong>
+      <hr />
+    </h2>
+    <div class="carousel">
+      <app-carousel-products [data]="alfaProducts"></app-carousel-products>
+    </div>
+  </article>
+</section>

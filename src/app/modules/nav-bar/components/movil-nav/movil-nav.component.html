@@ -3,7 +3,7 @@
     <li
       [class]="selectOption.home ? 'li_active' : ''"
       (click)="shareInformationService.sideNav$.emit()"
-      routerLink="Inicio"
+      routerLink="/Inicio"
     >
       <img
         loading="lazy"
@@ -12,7 +12,7 @@
       />
       <h2>Inicio</h2>
     </li>
-    <!-- <li
+    <li
       [class]="selectOption.product ? 'li_active' : ''"
       (click)="shareInformationService.sideNav$.emit()"
     >
@@ -20,12 +20,14 @@
         loading="lazy"
         src="./../../../../../assets/icons/product_icon.svg"
         alt="productos"
+        routerLink="/Productos"
       />
       <h2>Productos</h2>
     </li>
     <li
       [class]="selectOption.service ? 'li_active' : ''"
       (click)="shareInformationService.sideNav$.emit()"
+      routerLink="/Servicios"
     >
       <img
         loading="lazy"
@@ -33,11 +35,11 @@
         alt="servicios"
       />
       <h2>Servicios</h2>
-    </li> -->
+    </li>
     <li
       [class]="selectOption.telemetry ? 'li_active' : ''"
       (click)="shareInformationService.sideNav$.emit()"
-      routerLink="Telemetria"
+      routerLink="/Telemetria"
     >
       <img
         loading="lazy"
@@ -60,7 +62,7 @@
     <li
       [class]="selectOption.contact ? 'li_active' : ''"
       (click)="shareInformationService.sideNav$.emit()"
-      routerLink="Contacto"
+      routerLink="/Contacto"
     >
       <img
         loading="lazy"

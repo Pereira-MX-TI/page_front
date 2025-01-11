@@ -24,123 +24,63 @@ export class HttpService {
     );
 
     return this.objHttp.get<any>(
-      `${environment.API_URI}common/specificCarousel`,
+      `${environment.API_URI}carousel/specificCarousel`,
       {
         params,
       }
     );
   }
 
-  autoCompletedProduct(data: { word: string }): Observable<any> {
+  autoCompletedProduct(dto: string): Observable<any> {
     let params = new HttpParams();
     params = params.append(
       'data',
-      btoa(this.cryptoService.encrypted(data)).replace(
+      btoa(this.cryptoService.encrypted({ word: dto })).replace(
         new RegExp('/', 'g'),
         '~'
       )
     );
+
     return this.objHttp.get<any>(
-      `${environment.API_URI}common/autoCompletedProduct`,
+      `${environment.API_URI}product/autoCompletedProduct`,
       {
         params,
       }
     );
   }
 
-  getCarousel(data: any): Observable<any> {
+  listProduct(dto: {
+    word: string;
+    totalRecords: number;
+    offset: number;
+    limit: number;
+    orderby: string;
+  }): Observable<any> {
+    console.log(dto);
     let params = new HttpParams();
     params = params.append(
       'data',
-      btoa(this.cryptoService.encrypted(data)).replace(
-        new RegExp('/', 'g'),
-        '~'
-      )
+      btoa(this.cryptoService.encrypted(dto)).replace(new RegExp('/', 'g'), '~')
     );
-    return this.objHttp.get<any>(`${environment.API_URI}common/getCarousel`, {
+
+    return this.objHttp.get<any>(`${environment.API_URI}product/listProduct`, {
       params,
     });
   }
 
-  getListProduct(data: any): Observable<any> {
-    let params = new HttpParams();
-    params = params.append(
-      'data',
-      btoa(this.cryptoService.encrypted(data)).replace(
-        new RegExp('/', 'g'),
-        '~'
-      )
-    );
+  filtersProduct(): Observable<any> {
     return this.objHttp.get<any>(
-      `${environment.API_URI}common/getListProduct`,
-      {
-        params,
-      }
+      `${environment.API_URI}product/filtersProduct`
     );
   }
 
-  searchListProduct(data: any): Observable<any> {
-    let params = new HttpParams();
-    params = params.append(
-      'data',
-      btoa(this.cryptoService.encrypted(data)).replace(
-        new RegExp('/', 'g'),
-        '~'
-      )
-    );
+  waterMeterCarousel(): Observable<any> {
     return this.objHttp.get<any>(
-      `${environment.API_URI}common/searchListProduct`,
-      {
-        params,
-      }
+      `${environment.API_URI}carousel/waterMeterCarousel`
     );
-  }
-
-  getProduct(data: any): Observable<any> {
-    let params = new HttpParams();
-    params = params.append(
-      'data',
-      btoa(this.cryptoService.encrypted(data)).replace(
-        new RegExp('/', 'g'),
-        '~'
-      )
-    );
-    return this.objHttp.get<any>(`${environment.API_URI}common/getProduct`, {
-      params,
-    });
-  }
-
-  getPublicity(data: any): Observable<any> {
-    let params = new HttpParams();
-    params = params.append(
-      'data',
-      btoa(this.cryptoService.encrypted(data)).replace(
-        new RegExp('/', 'g'),
-        '~'
-      )
-    );
-    return this.objHttp.get<any>(`${environment.API_URI}common/getPublicity`, {
-      params,
-    });
   }
 
   getIpAddress(): Observable<any> {
     return this.objHttp.get<any>('https://api.ipify.org/?format=json');
-  }
-
-  registerQuotationWeb(data: any): Observable<any> {
-    const body = { data: this.cryptoService.encrypted(data) };
-    return this.objHttp.post<any>(
-      `${environment.API_URI}common/registerQuotationWeb`,
-      body
-    );
-  }
-
-  registerInfoServiceWeb(data: any): Observable<any> {
-    const body = { data: this.cryptoService.encrypted(data) };
-    return this.objHttp.post<any>(
-      `${environment.API_URI}common/registerInfoServiceWeb`,
-      body
-    );
   }
 }

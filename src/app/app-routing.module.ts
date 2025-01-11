@@ -20,23 +20,16 @@ const routes: Routes = [
         (m) => m.TelemetryModule
       ),
   },
-  // {
-  //   path: 'Product',
-  //   loadChildren: () =>
-  //     import('./modules/product/product.module').then((m) => m.ProductModule),
-  // },
-  // {
-  //   path: 'Service',
-  //   loadChildren: () =>
-  //     import('./modules/service/service.module').then((m) => m.ServiceModule),
-  // },
-
-  // {
-  //   path: 'Help',
-  //   loadChildren: () =>
-  //     import('./modules/help/help.module').then((m) => m.HelpModule),
-  // },
-
+  {
+    path: 'Servicios',
+    loadChildren: () =>
+      import('./modules/service/service.module').then((m) => m.ServiceModule),
+  },
+  {
+    path: 'Productos',
+    loadChildren: () =>
+      import('./modules/product/product.module').then((m) => m.ProductModule),
+  },
   {
     path: '**',
     pathMatch: 'full',

@@ -18,14 +18,12 @@ export class MovilNavComponent implements OnInit, OnDestroy {
     invoice: false,
     contact: false,
   };
-  listSubscription: Subscription[];
+  listSubscription: Subscription[] = [new Subscription()];
 
   constructor(
     private selectOptionNavObservable: SelectOptionNavObservable,
     public shareInformationService: ShareInformationService
-  ) {
-    this.listSubscription = [new Subscription()];
-  }
+  ) {}
 
   ngOnInit(): void {
     this.subscriptionSelectOptionNav();
