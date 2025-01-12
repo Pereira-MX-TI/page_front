@@ -40,7 +40,7 @@ export class ProductPipe implements PipeTransform {
 
       case 'pictureProduct':
         {
-          if (data.files.lenght === 0) return 'assets/errors/default.avif';
+          if (data.files.length === 0) return 'assets/errors/default.avif';
 
           return environment.PRODUCT_URI + data.files[0].direccion;
         }

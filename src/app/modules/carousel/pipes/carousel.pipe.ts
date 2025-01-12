@@ -20,7 +20,7 @@ export class CarouselPipe implements PipeTransform {
 
       case 'image-product':
         {
-          if (data.lenght === 0) return 'assets/errors/default.avif';
+          if (data.length === 0) return 'assets/errors/default.avif';
 
           return environment.PRODUCT_URI + data[0].direccion;
         }

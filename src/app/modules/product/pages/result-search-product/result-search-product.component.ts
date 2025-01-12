@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DataPage } from 'src/app/modules/shared/models/dataPage';
 import { DataPageService } from 'src/app/modules/shared/services/data-page.service';
@@ -7,17 +7,19 @@ import { SeoService } from 'src/app/services/seo.service';
 import { ShareInformationService } from 'src/app/services/share-information.service';
 import { ProductPipe } from '../../pipes/product.pipe';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-result-search-product',
   templateUrl: './result-search-product.component.html',
   styleUrls: ['./result-search-product.component.css'],
 })
-export class ResultSearchProductComponent {
+export class ResultSearchProductComponent implements OnInit, OnDestroy {
   dataPage: DataPage;
   listColumns: any;
   displayedColumns: string[];
   productPipe: ProductPipe = new ProductPipe();
+  listSubscription: Subscription[] = [new Subscription()];
 
   constructor(
     private seoService: SeoService,
@@ -31,13 +33,24 @@ export class ResultSearchProductComponent {
     this.listColumns = { pictureProduct: '', nameProduct: '', btn: '' };
 
     this.dataPage = this.dataPageService.buildDataPage();
-    this.dataPage.dataPaginator.search =
-      this.activatedRoute.snapshot.queryParamMap.get('data')!;
   }
 
   ngOnInit(): void {
-    this.refresh();
     this.setMetaTags();
+    this.subscriptionChangeUrl();
+  }
+
+  ngOnDestroy() {
+    this.listSubscription.forEach((itrSub) => {
+      itrSub.unsubscribe();
+    });
+  }
+
+  private subscriptionChangeUrl(): void {
+    this.activatedRoute.queryParams.subscribe(({ data }) => {
+      this.dataPage.dataPaginator.search = data;
+      this.refresh();
+    });
   }
 
   private setMetaTags(): void {
@@ -79,8 +92,6 @@ export class ResultSearchProductComponent {
       .subscribe(
         ({ data }) => {
           const { list, totalRecords } = data;
-
-          console.log(data);
           this.dataPage.dataPaginator = this.dataPageService.newDataPaginator(
             this.dataPage.dataPaginator,
             totalRecords

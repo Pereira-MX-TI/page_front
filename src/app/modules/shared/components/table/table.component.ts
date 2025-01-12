@@ -45,7 +45,6 @@ export class TableComponent implements OnInit, OnDestroy {
       this.tableInformationService.refreshTable$.subscribe(
         (res: DataTableDTO) => {
           this.rowsTable = res.data.dataSourceFilter;
-          console.log(res);
         }
       );
   }
