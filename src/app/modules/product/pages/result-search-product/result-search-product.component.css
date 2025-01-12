@@ -12,16 +12,29 @@ aside {
   grid-column: 1 / 2;
   width: 100%;
   min-height: 100vh;
-  border-right: 0.05rem solid var(--color1-3);
 }
 
 article {
   position: relative;
-
   grid-column: 2 /6;
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  overflow: hidden;
+}
+
+article h2 {
+  padding: 1rem;
+  margin: 0;
+  color: var(--color1-1);
+}
+
+::ng-deep #tableProduct .table_cell:nth-child(1),
+::ng-deep #tableProduct .table_th:nth-child(1),
+::ng-deep #tableProduct .table_td:nth-child(1),
+::ng-deep #tableProduct .table_cell:nth-child(2),
+::ng-deep #tableProduct .table_th:nth-child(2),
+::ng-deep #tableProduct .table_td:nth-child(2) {
+  padding: 0;
+  width: 40%;
 }
 
 @media screen and (max-width: 549px) {

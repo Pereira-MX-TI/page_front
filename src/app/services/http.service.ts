@@ -56,7 +56,6 @@ export class HttpService {
     limit: number;
     orderby: string;
   }): Observable<any> {
-    console.log(dto);
     let params = new HttpParams();
     params = params.append(
       'data',

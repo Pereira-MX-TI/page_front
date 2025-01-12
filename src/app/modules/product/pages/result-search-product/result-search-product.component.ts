@@ -27,14 +27,12 @@ export class ResultSearchProductComponent {
     private dataPageService: DataPageService,
     private activatedRoute: ActivatedRoute
   ) {
-    this.displayedColumns = ['date', 'quantity', 'btn'];
-    this.listColumns = { date: 'FECHA', quantity: 'CANTIDAD', btn: '' };
+    this.displayedColumns = ['pictureProduct', 'nameProduct', 'btn'];
+    this.listColumns = { pictureProduct: '', nameProduct: '', btn: '' };
 
     this.dataPage = this.dataPageService.buildDataPage();
     this.dataPage.dataPaginator.search =
       this.activatedRoute.snapshot.queryParamMap.get('data')!;
-
-    console.log(this.dataPage.dataPaginator.search);
   }
 
   ngOnInit(): void {
@@ -66,7 +64,7 @@ export class ResultSearchProductComponent {
 
     this.dataPage = this.dataPageService.searchData(
       this.dataPage,
-      'tableProducts',
+      'tableProduct',
       0
     );
 
@@ -83,16 +81,16 @@ export class ResultSearchProductComponent {
           const { list, totalRecords } = data;
 
           console.log(data);
-          // this.dataPage.dataPaginator = this.dataPageService.newDataPaginator(
-          //   this.dataPage.dataPaginator,
-          //   totalRecords
-          // );
-          // this.dataPage = this.dataPageService.dataSourceFill(
-          //   this.dataPage,
-          //   list,
-          //   0,
-          //   'tablePickupH'
-          // );
+          this.dataPage.dataPaginator = this.dataPageService.newDataPaginator(
+            this.dataPage.dataPaginator,
+            totalRecords
+          );
+          this.dataPage = this.dataPageService.dataSourceFill(
+            this.dataPage,
+            list,
+            0,
+            'tableProduct'
+          );
           this.shareInformationService.viewLoading$.emit(false);
         },
         () => {

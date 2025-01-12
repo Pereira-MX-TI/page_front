@@ -1,14 +1,15 @@
 <section class="container">
   <aside><app-filters-product></app-filters-product></aside>
   <article>
+    <h2>
+      <strong>{{ this.dataPage.dataPaginator.search }}</strong>
+    </h2>
     <app-table
-      id="tableProducts"
-      [pipeOpc]="0"
+      id="tableProduct"
+      [imgTable]="[{ column: 0 }]"
       (response)="selectColumn($event)"
       [displayedColumns]="displayedColumns"
-      [btnTable]="[
-        { icon: 'keyboard_arrow_right', column: 2, operation: 'view' }
-      ]"
+      [btnTable]="2"
       [listColumns]="listColumns"
       [pipeData]="productPipe"
     >

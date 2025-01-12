@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { FirstLetterUpperCasePipe } from 'src/app/services/first-letter-upper-case.pipe';
+import { environment } from 'src/environments/environment';
 
 @Pipe({
   name: 'product',
@@ -21,6 +22,27 @@ export class ProductPipe implements PipeTransform {
 
           if (res.length > 20) return `${res.slice(0, 20)}...`;
           return res;
+        }
+        break;
+
+      case 'nameProduct':
+        {
+          const firstLetterUpperCasePipe: FirstLetterUpperCasePipe =
+            new FirstLetterUpperCasePipe();
+          const res: string = firstLetterUpperCasePipe.transform(
+            data.nombre.toLowerCase()
+          );
+
+          if (res.length > 30) return `${res.slice(0, 30)}...`;
+          return res;
+        }
+        break;
+
+      case 'pictureProduct':
+        {
+          if (data.files.lenght === 0) return 'assets/errors/default.avif';
+
+          return environment.PRODUCT_URI + data.files[0].direccion;
         }
         break;
     }
