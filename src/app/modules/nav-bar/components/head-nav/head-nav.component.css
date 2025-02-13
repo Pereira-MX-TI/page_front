@@ -12,6 +12,14 @@
   display: flex;
 }
 
+button {
+  background-color: var(--color1-2);
+  border: none;
+  outline: none;
+  margin: 0 0.5rem;
+  cursor: pointer;
+}
+
 /* Estilos para movil */
 
 .movil {

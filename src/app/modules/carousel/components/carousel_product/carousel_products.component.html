@@ -1,6 +1,8 @@
 <section>
+  @if(platform.isBrowser){
   <owl-carousel-o [options]="customOptions">
-    <ng-template carouselSlide *ngFor="let itrData of list_item">
+    @for (itrData of list_item; track itrData){
+    <ng-template carouselSlide>
       <div class="card">
         <div class="body-card">
           <h2>
@@ -14,9 +16,21 @@
               carouselPipe.transform(itrData.product.files, 'image-product')
             "
           />
-          <button mat-stroked-button>Ver mas</button>
+          <button mat-stroked-button (click)="viewProduct(itrData.product)">
+            Ver mas
+          </button>
         </div>
       </div>
     </ng-template>
+    }
   </owl-carousel-o>
+  }@else {
+  <ul class="text-hidden">
+    @for (itrData of list_item; track itrData){
+    <li>
+      {{ carouselPipe.transform(itrData.product.nombre, "name-product") }}
+    </li>
+    }
+  </ul>
+  }
 </section>

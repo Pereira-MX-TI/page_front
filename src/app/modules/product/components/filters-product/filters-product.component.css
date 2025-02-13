@@ -14,6 +14,7 @@
   width: 100%;
   color: var(--color1-1);
   margin: 0;
+  font-size: max(1rem, 1.5rem);
 }
 
 .container ul {
@@ -27,4 +28,8 @@
   font-weight: 500;
   margin-bottom: 0.25rem;
   cursor: pointer;
+}
+
+.more_items {
+  color: var(--color1-1);
 }

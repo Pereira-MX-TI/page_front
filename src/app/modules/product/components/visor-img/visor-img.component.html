@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="thumbs">
+    @for (itrImg of listImg | slice : 0 : 20; track itrImg){
+    <img [src]="productPipe.transform(itrImg.direccion, 'picture-product')" />
+    }
+  </div>
+  <div class="complete"></div>
+</div>

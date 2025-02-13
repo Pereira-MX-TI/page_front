@@ -6,13 +6,11 @@
   [matAutocomplete]="auto"
 />
 <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-  <mat-option
-    *ngFor="let word of listWords"
-    [value]="word"
-    [title]="word"
-    (click)="applySearch()"
-    >{{ word }}</mat-option
-  >
+  @for (word of listWords; track word){
+  <mat-option [value]="word" [title]="word" (click)="applySearch()">{{
+    word
+  }}</mat-option>
+  }
 </mat-autocomplete>
 
 <button aria-label="Búsqueda" mat-icon-button>

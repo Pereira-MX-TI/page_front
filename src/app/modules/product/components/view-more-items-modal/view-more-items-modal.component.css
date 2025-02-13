@@ -1,0 +1,57 @@
+.container {
+  width: 30rem;
+  height: 30rem;
+}
+
+.head_modal {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.head_modal h2 {
+  text-align: start;
+  flex-grow: 10;
+  margin: 0;
+  font-size: max(1rem, 1.5rem);
+}
+
+.head_modal img {
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: contain;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.body_modal {
+  width: 100%;
+  height: calc(100% - 4rem);
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-auto-rows: 5rem;
+  gap: 0.5rem;
+  overflow: auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.item {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color1-3);
+  color: white;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    width: 80vw;
+  }
+}

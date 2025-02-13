@@ -1,14 +1,21 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { SelectOptionNav } from 'src/app/models/select_option_nav.model';
-import { SelectOptionNavObservable } from 'src/app/observables/select_option_nav.observable';
-import { ShareInformationService } from 'src/app/services/share-information.service';
 import { Dialog } from '@angular/cdk/dialog';
-import { InputSearchMovilComponent } from 'src/app/modules/search/components/input-search-movil/input-search-movil.component';
-import { ShareDataSearchService } from 'src/app/modules/search/services/share-data-search.service';
+import { SelectOptionNav } from '../../../../models/select_option_nav.model';
+import { SelectOptionNavObservable } from '../../../../observables/select_option_nav.observable';
+import { ShareInformationService } from '../../../../services/share-information.service';
+import { ShareDataSearchService } from '../../../search/services/share-data-search.service';
+import { InputSearchMovilComponent } from '../../../search/components/input-search-movil/input-search-movil.component';
+import { InputSearchComponent } from '../../../search/components/input-search/input-search.component';
+import { MaterialComponents } from '../../../material/material.module';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-head-nav',
+  standalone: true,
+
+  imports: [InputSearchComponent, RouterModule, MaterialComponents],
+
   templateUrl: './head-nav.component.html',
   styleUrls: ['./head-nav.component.css'],
 })

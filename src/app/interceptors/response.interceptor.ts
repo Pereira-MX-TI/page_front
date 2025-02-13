@@ -5,28 +5,26 @@ import {
   HttpEvent,
   HttpInterceptor,
   HttpResponse,
+  HttpInterceptorFn,
+  HttpHandlerFn,
 } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { CryptoService } from '../services/crypto.service';
 
-@Injectable()
-export class ResponseInterceptor implements HttpInterceptor {
-  constructor(private cryptoService: CryptoService) {}
-
-  intercept(
-    request: HttpRequest<any>,
-    next: HttpHandler
-  ): Observable<HttpEvent<any>> {
-    return next.handle(request).pipe(
-      map((event: HttpEvent<any>) => {
-        if (event instanceof HttpResponse && event.body && event.body.data) {
-          const decryptedData = this.cryptoService.decrypted(event.body.data);
-          return event.clone({
-            body: { ...event.body, ...decryptedData },
-          });
-        }
-        return event;
-      })
-    );
-  }
-}
+export const ResponseInterceptor: HttpInterceptorFn = (
+  req: HttpRequest<any>,
+  next: HttpHandlerFn
+): Observable<HttpEvent<unknown>> => {
+  const cryptoService = new CryptoService();
+  return next(req).pipe(
+    map((event: HttpEvent<any>) => {
+      if (event instanceof HttpResponse && event.body && event.body.data) {
+        const decryptedData = cryptoService.decrypted(event.body.data);
+        return event.clone({
+          body: { ...event.body, ...decryptedData },
+        });
+      }
+      return event;
+    })
+  );
+};

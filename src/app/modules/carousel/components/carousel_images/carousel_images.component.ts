@@ -1,17 +1,19 @@
 import { Component, Input, inject } from '@angular/core';
-import { OwlOptions } from 'ngx-owl-carousel-o';
-import { Carousel } from 'src/app/models/carousel.model';
 import { CarouselPipe } from '../../pipes/carousel.pipe';
 import { NavigationService } from '../../../../services/navigation.service';
-import { Carousel_item_publicity } from 'src/app/models/carousel_item.model';
+import { Carousel_item_publicity } from '../../../../models/carousel_item.model';
+import { Carousel } from '../../../../models/carousel.model';
+import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { Platform } from '@angular/cdk/platform';
 
 @Component({
   selector: 'app-carousel-images',
+  standalone: true,
+  imports: [CarouselModule],
   templateUrl: './carousel_images.component.html',
   styleUrls: ['./carousel_images.component.css'],
 })
 export class CarouselImagesComponent {
-  navigationService: NavigationService = inject(NavigationService);
   carousel: Carousel | null = null;
   list_item: Carousel_item_publicity[] = [];
   carouselPipe: CarouselPipe = new CarouselPipe();
@@ -21,6 +23,11 @@ export class CarouselImagesComponent {
 
     this.list_item = res.list as Carousel_item_publicity[];
   }
+
+  constructor(
+    public platform: Platform,
+    private navigationService: NavigationService
+  ) {}
 
   customOptions: OwlOptions = {
     lazyLoad: true,

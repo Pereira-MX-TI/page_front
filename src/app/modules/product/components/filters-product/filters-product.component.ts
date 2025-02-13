@@ -1,17 +1,23 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { HttpService } from 'src/app/services/http.service';
-import { ShareInformationService } from 'src/app/services/share-information.service';
 import { ProductPipe } from '../../pipes/product.pipe';
-import { NavigationService } from 'src/app/services/navigation.service';
-import { ShareDataSearchService } from 'src/app/modules/search/services/share-data-search.service';
+import { Filter } from '../../models/filter.model';
+import { MatDialog } from '@angular/material/dialog';
+import { ViewMoreItemsModalComponent } from '../view-more-items-modal/view-more-items-modal.component';
+import { HttpService } from '../../../../services/http.service';
+import { NavigationService } from '../../../../services/navigation.service';
+import { ShareInformationService } from '../../../../services/share-information.service';
+import { ShareDataSearchService } from '../../../search/services/share-data-search.service';
+import { SlicePipe } from '@angular/common';
+import { CookieManageService } from '../../../../services/cookie-manage.service';
+import { Platform } from '@angular/cdk/platform';
+import { CookieService } from 'ngx-cookie-service';
+import { SesionStorageService } from '../../../../services/sesion-storage.service';
 
-interface Filter {
-  id: number;
-  nombre: string;
-}
 @Component({
   selector: 'app-filters-product',
+  standalone: true,
+  imports: [SlicePipe],
   templateUrl: './filters-product.component.html',
   styleUrls: ['./filters-product.component.css'],
 })
@@ -24,10 +30,12 @@ export class FiltersProductComponent {
 
   constructor(
     private matSnackBar: MatSnackBar,
+    private SesionStorageService: SesionStorageService,
     private httpService: HttpService,
     private navigationService: NavigationService,
     private shareInformationService: ShareInformationService,
-    private shareDataSearchService: ShareDataSearchService
+    private shareDataSearchService: ShareDataSearchService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -35,9 +43,22 @@ export class FiltersProductComponent {
   }
 
   refresh(): void {
+    if (this.SesionStorageService.exist('filtersProduct')) {
+      const { brands, categories, materials } =
+        this.SesionStorageService.get('filtersProduct');
+
+      this.brands = brands;
+      this.categories = categories;
+      this.materials = materials;
+
+      return;
+    }
+
     this.httpService.filtersProduct().subscribe(
       ({ data }) => {
         const { brands, categories, materials } = data;
+
+        this.SesionStorageService.set('filtersProduct', data);
 
         this.brands = brands;
         this.categories = categories;
@@ -60,5 +81,24 @@ export class FiltersProductComponent {
     });
 
     this.shareDataSearchService.close$.emit();
+  }
+
+  openModal(list: Filter[], title: string): void {
+    const dialogRef = this.dialog.open(ViewMoreItemsModalComponent, {
+      closeOnNavigation: true,
+      disableClose: true,
+      autoFocus: false,
+      data: { list, title },
+    });
+
+    dialogRef.afterClosed().subscribe((response) => {
+      if (!(response != undefined && response != null && response)) return;
+
+      this.navigationService.navigatePage('Productos/Busqueda', {
+        data: this.productPipe.transform(response.nombre, 'name-filter'),
+      });
+
+      this.shareDataSearchService.close$.emit();
+    });
   }
 }

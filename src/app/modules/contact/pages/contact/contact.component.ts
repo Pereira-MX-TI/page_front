@@ -1,10 +1,21 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { SeoService } from 'src/app/services/seo.service';
+import { SeoService } from '../../../../services/seo.service';
 
 @Component({
   selector: 'app-contact',
+  standalone: true,
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css'],
+  animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('0.5s', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [animate('0.5s', style({ opacity: 0 }))]),
+    ]),
+  ],
 })
 export class ContactComponent implements OnInit {
   email: string = 'solucionescomerciales_jmpf@Outlook.com';

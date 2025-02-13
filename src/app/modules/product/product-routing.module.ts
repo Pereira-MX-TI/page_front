@@ -1,15 +1,20 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { ProductComponent } from './pages/product/product.component';
 import { ResultSearchProductComponent } from './pages/result-search-product/result-search-product.component';
+import { ViewProductComponent } from './pages/view-product/view-product.component';
+import { resultSearchProductGuard } from './guards/result-search-product.guard';
+import { viewProductGuard } from './guards/view-product.guard';
 
-const routes: Routes = [
+export const productRoutes: Routes = [
   { path: '', component: ProductComponent, pathMatch: 'full' },
-  { path: 'Busqueda', component: ResultSearchProductComponent },
+  {
+    path: 'Busqueda',
+    canActivate: [resultSearchProductGuard],
+    component: ResultSearchProductComponent,
+  },
+  {
+    path: 'Vista',
+    canActivate: [viewProductGuard],
+    component: ViewProductComponent,
+  },
 ];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-})
-export class ProductRoutingModule {}

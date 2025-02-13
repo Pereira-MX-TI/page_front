@@ -28,6 +28,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  box-sizing: border-box;
 }
 
 .some_products h2 {
@@ -36,6 +37,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  font-size: max(0.9rem, 1.5rem);
 }
 
 .some_products .list_products {
@@ -87,7 +89,7 @@
 @media screen and (min-width: 550px) and (max-width: 767px) {
   .some_products {
     flex-direction: column-reverse;
-    height: 40rem;
+    height: 45rem;
 
     background: -webkit-linear-gradient(
       10deg,
@@ -106,7 +108,7 @@
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .some_products {
-    height: 30rem;
+    height: 35rem;
   }
 
   .some_products .list_products {
@@ -116,7 +118,7 @@
 
 @media screen and (min-width: 1024px) {
   .some_products {
-    height: 20rem;
+    height: 30rem;
   }
 
   .some_products .list_products {

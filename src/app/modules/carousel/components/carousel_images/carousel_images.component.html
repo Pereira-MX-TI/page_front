@@ -1,6 +1,8 @@
 <section>
+  @if(platform.isBrowser){
   <owl-carousel-o [options]="customOptions">
-    <ng-template carouselSlide *ngFor="let itrData of list_item">
+    @for (itrData of list_item; track itrData){
+    <ng-template carouselSlide>
       <img
         loading="lazy"
         (click)="navigateLink(itrData.link)"
@@ -9,5 +11,13 @@
         onerror="this.src='assets/errors/default.avif'"
       />
     </ng-template>
+    }
   </owl-carousel-o>
+  }@else {
+  <ul>
+    @for (itrData of list_item; track itrData){
+    <li>{{ itrData.link + " " + itrData.url }}</li>
+    }
+  </ul>
+  }
 </section>

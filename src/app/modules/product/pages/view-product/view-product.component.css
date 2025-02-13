@@ -1,0 +1,68 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.categories {
+  width: 100%;
+  overflow-x: auto;
+  display: flex;
+  padding: 0.5rem 0;
+  background-color: var(--color3-1);
+}
+
+.categories span {
+  display: inline;
+  background-color: var(--color5-2);
+  padding: 1rem;
+  margin-right: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.categories label {
+  margin: 0;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.categories span:first-child {
+  margin-left: 1rem;
+}
+
+.datasheet {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0 10%;
+  box-sizing: border-box;
+  background-color: var(--color3-2);
+}
+
+.head {
+  width: 100%;
+  grid-column: 1 / 4;
+  border-bottom: 0.25rem solid var(--color5-2);
+  box-sizing: border-box;
+}
+
+.head h2 {
+  padding: 1rem;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.visor_img {
+  width: 100%;
+  grid-column: 1 / 3;
+  height: 30rem;
+}
+
+.operation {
+  width: 100%;
+  grid-column: 3 / 4;
+  background-color: var(--color3-2);
+}

@@ -15,12 +15,12 @@
     <li
       [class]="selectOption.product ? 'li_active' : ''"
       (click)="shareInformationService.sideNav$.emit()"
+      routerLink="/Productos"
     >
       <img
         loading="lazy"
         src="./../../../../../assets/icons/product_icon.svg"
         alt="productos"
-        routerLink="/Productos"
       />
       <h2>Productos</h2>
     </li>

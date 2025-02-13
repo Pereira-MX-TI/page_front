@@ -1,15 +1,29 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { zip } from 'rxjs';
-import { Carousel } from 'src/app/models/carousel.model';
-import { HttpService } from 'src/app/services/http.service';
-import { SeoService } from 'src/app/services/seo.service';
-import { ShareInformationService } from 'src/app/services/share-information.service';
+import { Carousel } from '../../../../models/carousel.model';
+import { SeoService } from '../../../../services/seo.service';
+import { HttpService } from '../../../../services/http.service';
+import { ShareInformationService } from '../../../../services/share-information.service';
+import { CarouselProductsComponent } from '../../../carousel/components/carousel_product/carousel_products.component';
+import { FiltersProductComponent } from '../../components/filters-product/filters-product.component';
 
 @Component({
   selector: 'app-product',
+  standalone: true,
+  imports: [CarouselProductsComponent, FiltersProductComponent],
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css'],
+  animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('0.5s', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [animate('0.5s', style({ opacity: 0 }))]),
+    ]),
+  ],
 })
 export class ProductComponent {
   water_meters: Carousel | null = null;

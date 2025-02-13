@@ -1,17 +1,14 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-  OnDestroy,
-} from '@angular/core';
-import { debounceTime, Subscription } from 'rxjs';
+import { Component, Input, OnInit, Output, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { DataTableDTO } from '../../models/dataTableDTO';
 import { TableInformationService } from '../../services/table-information.service';
+import { Product } from '../../../../models/carousel_item.model';
+import { MaterialComponents } from '../../../material/material.module';
 
 @Component({
   selector: 'app-table',
+  standalone: true,
+  imports: [MaterialComponents],
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css'],
 })
@@ -22,8 +19,6 @@ export class TableComponent implements OnInit, OnDestroy {
   @Input() pipeData: any;
   @Input() btnTable: number = -1;
   @Input() imgTable: any[] = [];
-
-  @Output() response: EventEmitter<any> = new EventEmitter<any>();
 
   listSubscription: Subscription[] = [new Subscription(), new Subscription()];
   rowsTable: any = [];
@@ -49,8 +44,11 @@ export class TableComponent implements OnInit, OnDestroy {
       );
   }
 
-  sentData(data: any, operation: string): void {
-    this.response.emit({ id: this.id, data, operation });
+  viewProduct(res: Product): void {
+    // this.navigationService.navigatePage('Productos/Vista', {
+    //   data: btoa(String(res.id)),
+    // });
+    // this.shareDataSearchService.close$.emit();
   }
 
   checkImgTable(column: number): boolean {

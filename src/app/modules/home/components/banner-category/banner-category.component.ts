@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
+import { MaterialComponents } from '../../../material/material.module';
 
 @Component({
   selector: 'app-banner-category',
+  standalone: true,
+  imports: [MaterialComponents],
   templateUrl: './banner-category.component.html',
   styleUrls: ['./banner-category.component.css'],
 })

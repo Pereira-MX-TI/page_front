@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { TableInformationService } from './table-information.service';
-import { NavigationService } from 'src/app/services/navigation.service';
-import { ShareInformationService } from 'src/app/services/share-information.service';
 import { DataTable } from '../models/dataTable';
 import { DataPage } from '../models/dataPage';
 import { DataPaginator } from '../models/dataPaginator';

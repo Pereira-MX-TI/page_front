@@ -1,0 +1,15 @@
+<section class="container">
+  <div class="head_modal">
+    <h2>
+      Filtrar por <strong> {{ title }}</strong>
+    </h2>
+    <img src="assets/general/close.avif" mat-dialog-close />
+  </div>
+  <div class="body_modal">
+    @for (itrItems of listItems | slice : 0 : 20; track itrItems){
+    <p class="item" (click)="sendData(itrItems)">
+      {{ itrItems.nombre }}
+    </p>
+    }
+  </div>
+</section>

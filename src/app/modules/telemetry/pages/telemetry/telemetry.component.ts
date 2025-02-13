@@ -1,10 +1,21 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component } from '@angular/core';
-import { SeoService } from 'src/app/services/seo.service';
+import { SeoService } from '../../../../services/seo.service';
 
 @Component({
   selector: 'app-telemetry',
+  standalone: true,
   templateUrl: './telemetry.component.html',
   styleUrls: ['./telemetry.component.css'],
+  animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('0.5s', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [animate('0.5s', style({ opacity: 0 }))]),
+    ]),
+  ],
 })
 export class TelemetryComponent {
   imgProducts: { url: string; alt: string; description: string }[] = [

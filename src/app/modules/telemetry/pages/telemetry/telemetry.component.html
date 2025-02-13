@@ -1,4 +1,4 @@
-<section class="container">
+<section class="container" [@fadeInOut]>
   <div class="background-telemetry">
     <h2>
       <strong
@@ -48,10 +48,12 @@
   <div class="products">
     <h2><strong>Dispositivos usados en red</strong></h2>
     <div class="grid_products">
-      <div class="img_container" *ngFor="let itrImg of imgProducts">
+      @for (itrImg of imgProducts; track itrImg){
+      <div class="img_container">
         <p>{{ itrImg.description }}</p>
         <img [alt]="itrImg.description" [src]="itrImg.url" [alt]="itrImg.alt" />
       </div>
+      }
     </div>
   </div>
 

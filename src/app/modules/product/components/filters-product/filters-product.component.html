@@ -1,28 +1,35 @@
 <section class="container">
   <h2><strong>Categorías</strong></h2>
   <ul>
-    <li
-      *ngFor="let itrCategory of categories"
-      (click)="applySearch(itrCategory)"
-    >
+    @for (itrCategory of categories | slice : 0 : 20; track itrCategory){
+    <li (click)="applySearch(itrCategory)">
       {{ productPipe.transform(itrCategory.nombre, "name-filter") }}
     </li>
+    } @if(categories.length > 20){
+    <li (click)="openModal(categories, 'Categorias')">Ver mas</li>
+
+    }
   </ul>
 
   <h2><strong>Materiales</strong></h2>
   <ul>
-    <li
-      *ngFor="let itrMaterial of materials"
-      (click)="applySearch(itrMaterial)"
-    >
+    @for (itrMaterial of materials | slice : 0 : 20; track itrMaterial){
+    <li (click)="applySearch(itrMaterial)">
       {{ productPipe.transform(itrMaterial.nombre, "name-filter") }}
     </li>
+    } @if(materials.length > 20){
+    <li (click)="openModal(materials, 'Materiales')">Ver mas</li>
+    }
   </ul>
 
   <h2><strong>Marcas</strong></h2>
   <ul>
-    <li *ngFor="let itrBrand of brands" (click)="applySearch(itrBrand)">
+    @for (itrBrand of brands | slice : 0 : 20; track itrBrand){
+    <li (click)="applySearch(itrBrand)">
       {{ productPipe.transform(itrBrand.nombre, "name-filter") }}
     </li>
+    } @if(brands.length > 20){
+    <li class="more_items" (click)="openModal(brands, 'Marcas')">Ver mas</li>
+    }
   </ul>
 </section>

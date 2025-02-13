@@ -1,18 +1,48 @@
-import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CryptoService } from 'src/app/services/crypto.service';
-import { forkJoin, Subscription, switchMap, zip } from 'rxjs';
-import { ShareInformationService } from 'src/app/services/share-information.service';
-import { Carousel } from 'src/app/models/carousel.model';
-import { HttpService } from 'src/app/services/http.service';
-import { NavigationService } from 'src/app/services/navigation.service';
-import { SeoService } from 'src/app/services/seo.service';
+import { Subscription, zip } from 'rxjs';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { Carousel } from '../../../../models/carousel.model';
+import { SeoService } from '../../../../services/seo.service';
+import { HttpService } from '../../../../services/http.service';
+import { ShareInformationService } from '../../../../services/share-information.service';
+import { NavigationService } from '../../../../services/navigation.service';
+import { CarouselImagesComponent } from '../../../carousel/components/carousel_images/carousel_images.component';
+import { BannerBrandsComponent } from '../../components/banner-brands/banner-brands.component';
+import { QuestionProductComponent } from '../../components/question-product/question-product.component';
+import { CarouselProductsComponent } from '../../../carousel/components/carousel_product/carousel_products.component';
+import { BannerTelemetryComponent } from '../../components/banner-telemetry/banner-telemetry.component';
+import { BannerCategoryComponent } from '../../components/banner-category/banner-category.component';
+import { BannerQuotationComponent } from '../../components/banner-quotation/banner-quotation.component';
+import { BannerTypeWatermeterComponent } from '../../components/banner-type-watermeter/banner-type-watermeter.component';
+import { BannerSomeProductsComponent } from '../../components/banner-some-products/banner-some-products.component';
 
 @Component({
   selector: 'home',
+  standalone: true,
+  imports: [
+    CarouselImagesComponent,
+    BannerBrandsComponent,
+    QuestionProductComponent,
+    CarouselProductsComponent,
+    BannerTelemetryComponent,
+    BannerCategoryComponent,
+    BannerQuotationComponent,
+    BannerTypeWatermeterComponent,
+    BannerSomeProductsComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
+  animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('0.5s', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [animate('0.5s', style({ opacity: 0 }))]),
+    ]),
+  ],
 })
 export class HomeComponent implements OnInit, OnDestroy {
   carousels: { publicity: Carousel | null; products: Carousel | null };

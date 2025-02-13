@@ -1,13 +1,21 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
-import { HttpService } from 'src/app/services/http.service';
-import { NavigationService } from 'src/app/services/navigation.service';
 import { ShareDataSearchService } from '../../services/share-data-search.service';
+import { HttpService } from '../../../../services/http.service';
+import { NavigationService } from '../../../../services/navigation.service';
+import { MaterialComponents } from '../../../material/material.module';
 
 @Component({
   selector: 'app-input-search',
+  standalone: true,
+  imports: [ReactiveFormsModule, FormsModule, MaterialComponents],
   templateUrl: './input-search.component.html',
   styleUrls: ['./input-search.component.css'],
 })

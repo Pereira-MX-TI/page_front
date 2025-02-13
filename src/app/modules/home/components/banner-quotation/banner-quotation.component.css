@@ -16,6 +16,7 @@
   padding: 1rem;
   text-align: center;
   color: var(--color1-2);
+  font-size: max(0.9rem, 1.5rem);
 }
 
 .quotation img {

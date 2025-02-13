@@ -1,18 +1,33 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { DataPage } from 'src/app/modules/shared/models/dataPage';
-import { DataPageService } from 'src/app/modules/shared/services/data-page.service';
-import { HttpService } from 'src/app/services/http.service';
-import { SeoService } from 'src/app/services/seo.service';
-import { ShareInformationService } from 'src/app/services/share-information.service';
 import { ProductPipe } from '../../pipes/product.pipe';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { DataPage } from '../../../shared/models/dataPage';
+import { SeoService } from '../../../../services/seo.service';
+import { HttpService } from '../../../../services/http.service';
+import { ShareInformationService } from '../../../../services/share-information.service';
+import { DataPageService } from '../../../shared/services/data-page.service';
+import { FiltersProductComponent } from '../../components/filters-product/filters-product.component';
+import { TableComponent } from '../../../shared/components/table/table.component';
+import { MessageEmptyComponent } from '../../../shared/components/message-empty/message-empty.component';
 
 @Component({
   selector: 'app-result-search-product',
+  standalone: true,
+  imports: [FiltersProductComponent, TableComponent, MessageEmptyComponent],
   templateUrl: './result-search-product.component.html',
   styleUrls: ['./result-search-product.component.css'],
+  animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('0.5s', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [animate('0.5s', style({ opacity: 0 }))]),
+    ]),
+  ],
 })
 export class ResultSearchProductComponent implements OnInit, OnDestroy {
   dataPage: DataPage;
@@ -59,17 +74,6 @@ export class ResultSearchProductComponent implements OnInit, OnDestroy {
 
     this.seoService.setIndexingFollower(true);
     this.seoService.setCanonicalURL();
-  }
-
-  selectColumn({ data, operation }: any): void {
-    if (operation !== 'view') return;
-    // this.navigationService.navigatePage(
-    //   '/DashBoard/Pickup/Detail/' +
-    //     btoa(this.cryptoService.encrypted(data)).replace(
-    //       new RegExp('/', 'g'),
-    //       '~'
-    //     )
-    // );
   }
 
   refresh(): void {

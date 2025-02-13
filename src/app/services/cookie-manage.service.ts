@@ -11,24 +11,19 @@ export class CookieManageService {
     private cryptoService: CryptoService
   ) {}
 
-  set(time: number, type: 'min' | 'hr', data: any) {
-    const currentTime = new Date();
+  set(name: string, time: number, type: 'min' | 'hr', data: any) {
+    let expirationInDays = 0; // Debe ser un número
 
-    if (type === 'hr') currentTime.setHours(currentTime.getHours() + time);
-    else if (type === 'min')
-      currentTime.setMinutes(currentTime.getMinutes() + time);
+    if (type === 'hr') expirationInDays = time / 24;
+    else if (type === 'min') expirationInDays = time / 1440;
 
-    this.cookieService.set(
-      'check',
-      this.cryptoService.encrypted(data),
-      currentTime
-    );
+    this.cookieService.set(name, data, expirationInDays, '/');
   }
 
   get(name: string): any {
     const cookieValue = this.cookieService.get(name);
 
-    if (cookieValue) return this.cryptoService.decrypted(cookieValue);
+    if (cookieValue) return cookieValue;
 
     return null;
   }

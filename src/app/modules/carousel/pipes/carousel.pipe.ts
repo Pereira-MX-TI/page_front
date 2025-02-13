@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { FirstLetterUpperCasePipe } from 'src/app/services/first-letter-upper-case.pipe';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../environments/environment';
+import { FirstLetterUpperCasePipe } from '../../../services/first-letter-upper-case.pipe';
 
 @Pipe({
   name: 'carousel',

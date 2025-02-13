@@ -50,6 +50,7 @@ img {
   color: white;
   box-sizing: border-box;
   background-color: var(--color1-1);
+  font-size: max(1rem, 1.5rem);
 }
 
 .description ul {

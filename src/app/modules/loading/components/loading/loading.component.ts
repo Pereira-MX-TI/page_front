@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ShareInformationService } from 'src/app/services/share-information.service';
+import { ShareInformationService } from '../../../../services/share-information.service';
 
 @Component({
   selector: 'app-loading',
+  standalone: true,
   templateUrl: './loading.component.html',
   styleUrls: ['./loading.component.css'],
 })

@@ -2,15 +2,13 @@ import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'message-empty',
+  standalone: true,
   templateUrl: './message-empty.component.html',
-  styleUrls: ['./message-empty.component.css']
+  styleUrls: ['./message-empty.component.css'],
 })
 export class MessageEmptyComponent implements OnInit {
-
   @Input() nameRegister = '';
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

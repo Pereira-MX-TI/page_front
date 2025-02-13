@@ -1,0 +1,19 @@
+<section class="container">
+  <div class="categories">
+    @for (itrCategory of categories; track itrCategory){
+    <span
+      ><label>{{ itrCategory.nombre }}</label></span
+    >
+    }
+  </div>
+  <div class="datasheet">
+    <div class="head">
+      <h2>{{ productPipe.transform(product?.nombre, "name-product-full") }}</h2>
+    </div>
+
+    <div class="visor_img">
+      <app-visor-img [images]="product?.files"></app-visor-img>
+    </div>
+    <div class="operation"></div>
+  </div>
+</section>

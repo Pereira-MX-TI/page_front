@@ -1,10 +1,21 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component } from '@angular/core';
-import { SeoService } from 'src/app/services/seo.service';
+import { SeoService } from '../../../../services/seo.service';
 
 @Component({
   selector: 'app-service',
+  standalone: true,
   templateUrl: './service.component.html',
   styleUrls: ['./service.component.css'],
+  animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('0.5s', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [animate('0.5s', style({ opacity: 0 }))]),
+    ]),
+  ],
 })
 export class ServiceComponent {
   items: { title: string; list: string[]; url: string }[] = [

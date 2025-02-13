@@ -1,11 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ShareInformationService } from 'src/app/services/share-information.service';
-import { SelectOptionNav } from 'src/app/models/select_option_nav.model';
 import { Subscription } from 'rxjs';
-import { SelectOptionNavObservable } from 'src/app/observables/select_option_nav.observable';
+import { SelectOptionNav } from '../../../../models/select_option_nav.model';
+import { SelectOptionNavObservable } from '../../../../observables/select_option_nav.observable';
+import { ShareInformationService } from '../../../../services/share-information.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-movil-nav',
+  standalone: true,
+  imports: [RouterModule],
   templateUrl: './movil-nav.component.html',
   styleUrls: ['./movil-nav.component.css'],
 })

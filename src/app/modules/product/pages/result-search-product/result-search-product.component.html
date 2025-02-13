@@ -1,13 +1,12 @@
-<section class="container">
+<section class="container" [@fadeInOut]>
   <aside><app-filters-product></app-filters-product></aside>
   <article>
     <h2>
-      <strong>{{ this.dataPage.dataPaginator.search }}</strong>
+      <strong>{{ '"' + this.dataPage.dataPaginator.search + '"' }}</strong>
     </h2>
     <app-table
       id="tableProduct"
       [imgTable]="[{ column: 0 }]"
-      (response)="selectColumn($event)"
       [displayedColumns]="displayedColumns"
       [btnTable]="2"
       [listColumns]="listColumns"
@@ -15,10 +14,8 @@
     >
     </app-table>
 
-    <message-empty
-      [nameRegister]="'productos'"
-      *ngIf="dataPage.dataTable.dataSourceFilter.length == 0 ? true : false"
-    >
-    </message-empty>
+    @if(dataPage.dataTable.dataSourceFilter.length == 0 ? true : false){
+    <message-empty [nameRegister]="'productos'"> </message-empty>
+    }
   </article>
 </section>

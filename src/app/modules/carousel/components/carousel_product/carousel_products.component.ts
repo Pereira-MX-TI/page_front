@@ -1,17 +1,24 @@
 import { Component, Input, inject } from '@angular/core';
-import { OwlOptions } from 'ngx-owl-carousel-o';
-import { Carousel } from 'src/app/models/carousel.model';
+import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { CarouselPipe } from '../../pipes/carousel.pipe';
 import { NavigationService } from '../../../../services/navigation.service';
-import { Carousel_item_product } from 'src/app/models/carousel_item.model';
+import {
+  Carousel_item_product,
+  Product,
+} from '../../../../models/carousel_item.model';
+import { Carousel } from '../../../../models/carousel.model';
+import { ShareDataSearchService } from '../../../search/services/share-data-search.service';
+import { MaterialComponents } from '../../../material/material.module';
+import { Platform } from '@angular/cdk/platform';
 
 @Component({
   selector: 'app-carousel-products',
+  standalone: true,
+  imports: [CarouselModule, MaterialComponents],
   templateUrl: './carousel_products.component.html',
   styleUrls: ['./carousel_products.component.css'],
 })
 export class CarouselProductsComponent {
-  navigationService: NavigationService = inject(NavigationService);
   list_item: Carousel_item_product[] = [];
   carouselPipe: CarouselPipe = new CarouselPipe();
 
@@ -49,9 +56,12 @@ export class CarouselProductsComponent {
     nav: false,
   };
 
-  viewProduct(res: string): void {
-    if (res === '') return;
+  constructor(public platform: Platform) {}
 
-    this.navigationService.navigatePage(res);
+  viewProduct(res: Product): void {
+    // this.navigationService.navigatePage('Productos/Vista', {
+    //   data: btoa(String(res.id)),
+    // });
+    // this.shareDataSearchService.close$.emit();
   }
 }
