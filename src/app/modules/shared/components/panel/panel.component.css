@@ -1,0 +1,55 @@
+::ng-deep app-panel {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.paginator {
+  color: var(--color4-2) !important;
+  background-color: var(--color3-1) !important;
+}
+
+::ng-deep .mat-mdc-paginator-container {
+  flex-wrap: initial !important;
+}
+
+::ng-deep .mat-mdc-icon-button[disabled] .mat-mdc-paginator-icon {
+  fill: var(--color1-1) !important;
+}
+
+::ng-deep .mat-mdc-icon-button .mat-mdc-paginator-icon {
+  fill: var(--color1-2) !important;
+}
+
+.input_filter {
+  margin-left: 3rem;
+}
+
+.input_filter ::ng-deep .mat-mdc-form-field-subscript-wrapper,
+.input_date ::ng-deep .mat-mdc-form-field-subscript-wrapper {
+  display: none !important;
+}
+
+.input_filter,
+.input_date,
+.input_filter ::ng-deep .mdc-text-field__input,
+.input_date ::ng-deep .mdc-text-field__input,
+.input_filter ::ng-deep label,
+.input_date ::ng-deep label {
+  color: var(--color4-2) !important;
+}
+
+.titles {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-grow: 10;
+}
+
+.titles label {
+  margin-left: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--color1-2) !important;
+}

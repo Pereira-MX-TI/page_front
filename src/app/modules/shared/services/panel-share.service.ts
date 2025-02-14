@@ -12,4 +12,5 @@ export class SharePanelService {
   autoComplete$: EventEmitter<string[]> = new EventEmitter<string[]>();
   search$: EventEmitter<string> = new EventEmitter<string>();
   resetInput$: EventEmitter<void> = new EventEmitter<void>();
+  panelPageSize$: EventEmitter<number[]> = new EventEmitter<number[]>();
 }

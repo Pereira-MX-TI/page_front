@@ -17,5 +17,7 @@
     @if(dataPage.dataTable.dataSourceFilter.length == 0 ? true : false){
     <message-empty [nameRegister]="'productos'"> </message-empty>
     }
+
+    <app-panel (changePage)="changePagination($event)"> </app-panel>
   </article>
 </section>

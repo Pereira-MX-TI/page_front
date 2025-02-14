@@ -8,6 +8,7 @@ import { HttpService } from '../../../../services/http.service';
 import { ShareInformationService } from '../../../../services/share-information.service';
 import { CarouselProductsComponent } from '../../../carousel/components/carousel_product/carousel_products.component';
 import { FiltersProductComponent } from '../../components/filters-product/filters-product.component';
+import { SesionStorageService } from '../../../../services/sesion-storage.service';
 
 @Component({
   selector: 'app-product',
@@ -36,7 +37,8 @@ export class ProductComponent {
     private seoService: SeoService,
     private matSnackBar: MatSnackBar,
     private httpService: HttpService,
-    private shareInformationService: ShareInformationService
+    private shareInformationService: ShareInformationService,
+    private SesionStorageService: SesionStorageService
   ) {}
 
   ngOnInit(): void {
@@ -53,6 +55,24 @@ export class ProductComponent {
   }
 
   refresh(): void {
+    if (this.SesionStorageService.exist('carouselsProduct')) {
+      const {
+        water_meters,
+        valves,
+        connections,
+        itronAccellProducts,
+        alfaProducts,
+      } = this.SesionStorageService.get('carouselsProduct');
+
+      this.water_meters = water_meters;
+      this.valves = valves;
+      this.connections = connections;
+      this.itronAccellProducts = itronAccellProducts;
+      this.alfaProducts = alfaProducts;
+
+      return;
+    }
+
     zip(
       this.httpService.specificCarousel('water_meter'),
       this.httpService.specificCarousel('valve'),
@@ -66,6 +86,15 @@ export class ProductComponent {
         this.connections = res[2].data;
         this.itronAccellProducts = res[3].data;
         this.alfaProducts = res[4].data;
+
+        this.SesionStorageService.set('carouselsProduct', {
+          water_meters: this.water_meters,
+          valves: this.valves,
+          connections: this.connections,
+          itronAccellProducts: this.itronAccellProducts,
+          alfaProducts: this.alfaProducts,
+        });
+
         this.shareInformationService.viewLoading$.emit(false);
       },
       (err) => {

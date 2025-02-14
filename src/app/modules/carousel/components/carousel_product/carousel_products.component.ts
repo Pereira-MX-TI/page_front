@@ -10,6 +10,7 @@ import { Carousel } from '../../../../models/carousel.model';
 import { ShareDataSearchService } from '../../../search/services/share-data-search.service';
 import { MaterialComponents } from '../../../material/material.module';
 import { Platform } from '@angular/cdk/platform';
+import { SesionStorageService } from '../../../../services/sesion-storage.service';
 
 @Component({
   selector: 'app-carousel-products',
@@ -56,12 +57,19 @@ export class CarouselProductsComponent {
     nav: false,
   };
 
-  constructor(public platform: Platform) {}
+  constructor(
+    public platform: Platform,
+    private navigationService: NavigationService,
+    private shareDataSearchService: ShareDataSearchService,
+    private SesionStorageService: SesionStorageService
+  ) {}
 
   viewProduct(res: Product): void {
-    // this.navigationService.navigatePage('Productos/Vista', {
-    //   data: btoa(String(res.id)),
-    // });
-    // this.shareDataSearchService.close$.emit();
+    this.SesionStorageService.remove(['viewProduct']);
+
+    this.navigationService.navigatePage('Productos/Vista', {
+      data: btoa(String(res.id)),
+    });
+    this.shareDataSearchService.close$.emit();
   }
 }

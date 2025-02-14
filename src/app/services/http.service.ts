@@ -82,10 +82,7 @@ export class HttpService {
     );
   }
 
-  detailProduct(dto: {
-    id: number | string;
-    publicity: number | string;
-  }): Observable<any> {
+  detailProduct(dto: { id: number | string }): Observable<any> {
     let params = new HttpParams();
     params = params.append(
       'data',
@@ -94,6 +91,21 @@ export class HttpService {
 
     return this.httpClient.get<any>(
       `${environment.API_URI}product/detailProduct`,
+      {
+        params,
+      }
+    );
+  }
+
+  productsByCategory(dto: { product_id: number | string }): Observable<any> {
+    let params = new HttpParams();
+    params = params.append(
+      'data',
+      btoa(this.cryptoService.encrypted(dto)).replace(new RegExp('/', 'g'), '~')
+    );
+
+    return this.httpClient.get<any>(
+      `${environment.API_URI}product/productsByCategory`,
       {
         params,
       }

@@ -9,6 +9,7 @@ export const environment = {
   FILE_URI: 'https://schp-page.s3.us-east-1.amazonaws.com/',
   PRODUCT_URI: 'https://gestionserver.solucionesjmpf.com/',
   googleTagManager: '',
+  // API_URI: 'http://127.0.0.1:8000/api/v1/',
 };
 
 /*

@@ -12,11 +12,18 @@ import { DataPageService } from '../../../shared/services/data-page.service';
 import { FiltersProductComponent } from '../../components/filters-product/filters-product.component';
 import { TableComponent } from '../../../shared/components/table/table.component';
 import { MessageEmptyComponent } from '../../../shared/components/message-empty/message-empty.component';
+import { PanelComponent } from '../../../shared/components/panel/panel.component';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-result-search-product',
   standalone: true,
-  imports: [FiltersProductComponent, TableComponent, MessageEmptyComponent],
+  imports: [
+    PanelComponent,
+    FiltersProductComponent,
+    TableComponent,
+    MessageEmptyComponent,
+  ],
   templateUrl: './result-search-product.component.html',
   styleUrls: ['./result-search-product.component.css'],
   animations: [
@@ -100,6 +107,42 @@ export class ResultSearchProductComponent implements OnInit, OnDestroy {
             this.dataPage.dataPaginator,
             totalRecords
           );
+          this.dataPage = this.dataPageService.dataSourceFill(
+            this.dataPage,
+            list,
+            0,
+            'tableProduct'
+          );
+          this.shareInformationService.viewLoading$.emit(false);
+        },
+        () => {
+          this.shareInformationService.viewLoading$.emit(false);
+          this.matSnackBar.open('Error de carga', '', {
+            duration: 2500,
+            panelClass: ['snackBar_error'],
+          });
+        }
+      );
+  }
+
+  changePagination(event: PageEvent): void {
+    this.shareInformationService.viewLoading$.emit(true);
+    this.dataPage.dataPaginator = this.dataPageService.paginationData(
+      this.dataPage.dataPaginator,
+      event
+    );
+
+    this.httpService
+      .listProduct({
+        totalRecords: 0,
+        offset: this.dataPage.dataPaginator.offset,
+        limit: this.dataPage.dataPaginator.limit,
+        word: this.dataPage.dataPaginator.search,
+        orderby: 'ASC',
+      })
+      .subscribe(
+        ({ data }) => {
+          const { list } = data;
           this.dataPage = this.dataPageService.dataSourceFill(
             this.dataPage,
             list,

@@ -1,5 +1,10 @@
 <nav class="movil">
-  <button mat-icon-button aria-label="Menu" (click)="clickSideNav()">
+  <button
+    type="button"
+    mat-icon-button
+    aria-label="Menu"
+    (click)="clickSideNav()"
+  >
     <img
       loading="lazy"
       fetchpriority="low"
@@ -15,14 +20,14 @@
   />
   <div class="space"></div>
 
-  <button aria-label="Búsqueda" (click)="openModalSearch()">
+  <button type="button" aria-label="Búsqueda" (click)="openModalSearch()">
     <img
       loading="lazy"
       src="./../../../../../assets/icons/search-icon.svg"
       alt="Buscar"
     />
   </button>
-  <button aria-label="Carrito de compras">
+  <button type="button" aria-label="Carrito de compras">
     <img
       loading="lazy"
       src="./../../../../../assets/icons/carshopping-icon.svg"
@@ -73,14 +78,18 @@
     </ul>
   </nav>
 
-  <button aria-label="Búsqueda" (click)="viewSearch = !viewSearch">
+  <button
+    type="button"
+    aria-label="Búsqueda"
+    (click)="viewSearch = !viewSearch"
+  >
     <img
       loading="lazy"
       src="./../../../../../assets/icons/search-icon.svg"
       alt="Buscar"
     />
   </button>
-  <button aria-label="Carrito de compras">
+  <button type="button" aria-label="Carrito de compras">
     <img
       loading="lazy"
       src="./../../../../../assets/icons/carshopping-icon.svg"
@@ -92,7 +101,12 @@
   <div class="search">
     <app-input-search [colorIcon]="'white'"></app-input-search>
   </div>
-  <button (click)="viewSearch = false" aria-label="Retornar" mat-icon-button>
+  <button
+    type="button"
+    (click)="viewSearch = false"
+    aria-label="Retornar"
+    mat-icon-button
+  >
     <img
       loading="lazy"
       src="./../../../../../assets/icons/return-icon.svg"

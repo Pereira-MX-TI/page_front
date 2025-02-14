@@ -1,19 +1,144 @@
-<section class="container">
+<section class="container" [@fadeInOut]>
   <div class="categories">
+    <p>También puede interesarte:</p>
     @for (itrCategory of categories; track itrCategory){
-    <span
-      ><label>{{ itrCategory.nombre }}</label></span
+    <span (click)="viewCategory(itrCategory)"
+      ><label [class]="itrCategory.select ? 'select_category' : ''">{{
+        itrCategory.nombre
+      }}</label></span
     >
     }
   </div>
   <div class="datasheet">
     <div class="head">
-      <h2>{{ productPipe.transform(product?.nombre, "name-product-full") }}</h2>
+      <button type="button" (click)="location.back()">
+        <img
+          loading="lazy"
+          src="./../../../../../assets/icons/left-arrow-icon.svg"
+          alt="volver"
+        />
+        <label>Regresar</label>
+      </button>
+      <label class="space"></label>
+      <button type="button">
+        <img
+          loading="lazy"
+          src="./../../../../../assets/icons/share-icon.svg"
+          alt="volver"
+        />
+        <label>Compartir</label>
+      </button>
     </div>
 
     <div class="visor_img">
       <app-visor-img [images]="product?.files"></app-visor-img>
     </div>
-    <div class="operation"></div>
+
+    <article class="operation">
+      <div class="card">
+        <h2>
+          {{ productPipe.transform(product, "nameProduct") }}
+        </h2>
+        <h3>
+          {{ productPipe.transform(product, "codeProduct") }}
+        </h3>
+
+        <div class="characteristic_general">
+          <img alt="envíos" src="assets/icons/shipping-icon.svg" />
+          <p>Envió a toda la Republica Mexicana.</p>
+        </div>
+
+        <div class="characteristic_general">
+          <img alt="Garantía" src="assets/icons/warranty-icon.svg" />
+          <p>Garantía en todos los productos.</p>
+        </div>
+
+        <div class="characteristic_general">
+          <img
+            alt="distribuidor autorizado"
+            src="assets/icons/distribuidor-icon.svg"
+          />
+          <p>Precios de distributor autorizado.</p>
+        </div>
+
+        <div class="characteristic_general">
+          <img alt="facturación" src="assets/icons/sat-icon.svg" />
+          <p>Facturación.</p>
+        </div>
+
+        <div class="payment_methods">
+          <p>Nuestros métodos de pago</p>
+
+          <div>
+            <img
+              alt="distribuidor autorizado"
+              src="assets/icons/mastercard-icon.svg"
+            />
+            <img
+              alt="distribuidor autorizado"
+              src="assets/icons/visa-icon.svg"
+            />
+            <img
+              alt="distribuidor autorizado"
+              src="assets/icons/cash-icon.svg"
+            />
+          </div>
+        </div>
+
+        <div class="form">
+          <mat-form-field>
+            <mat-label>Cantidad</mat-label>
+            <input type="number" matInput [formControl]="formControl" />
+
+            @if(formControl.hasError('min')){
+            <mat-error>Cantidad no valida</mat-error>
+            } @if(formControl.hasError('required')){
+            <mat-error>Campo requerido</mat-error>
+            }
+          </mat-form-field>
+
+          <button (click)="register()" type="button" mat-stroked-button>
+            Cotizar ahora
+          </button>
+          <button (click)="register()" type="button" mat-stroked-button>
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <div class="description_container">
+      <hr />
+      <h3>Características principales</h3>
+      <table>
+        <tbody>
+          <tr>
+            <td><strong>Clave</strong></td>
+            <td>{{ product?.clave }}</td>
+          </tr>
+
+          <tr>
+            <td><strong>Marca</strong></td>
+            <td>{{ product?.brand?.nombre }}</td>
+          </tr>
+          <tr>
+            <td><strong>Categoría</strong></td>
+            <td>{{ product?.category?.nombre }}</td>
+          </tr>
+          <tr>
+            <td><strong>Material</strong></td>
+            <td>{{ product?.material?.nombre }}</td>
+          </tr>
+
+          <tr>
+            <td><strong>Unidad de medida</strong></td>
+            <td>{{ product?.messuare?.nombre }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Descripción</h3>
+      <p>{{ product?.description?.detalle }}</p>
+    </div>
   </div>
 </section>

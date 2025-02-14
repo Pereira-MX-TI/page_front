@@ -1,32 +1,71 @@
 ::ng-deep app-visor-img {
   width: 100% !important;
-  height: 100% !important;
 }
 
 .container {
   width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  height: 40rem;
   background-color: white;
+  display: flex;
 }
 
 .thumbs {
-  grid-column: 1 / 2;
+  width: 8rem;
+  min-width: 8rem;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  align-items: center;
 }
 
 .thumbs img {
-  width: 5rem;
-  height: 5rem;
-  object-fit: contain;
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
   border-radius: 0.5rem;
   background-color: white;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.thumbs img:hover {
+  opacity: 0.75;
+}
+
+.select {
+  border: solid 0.2rem var(--color1-1);
 }
 
 .complete {
-  grid-column: 2 / 7;
-  background-color: aquamarine;
+  flex-grow: 10;
+  height: 100%;
+  background-color: var(--color3-2);
+}
+
+.complete img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 756px) {
+  .container {
+    flex-direction: column-reverse;
+    height: 50rem;
+  }
+
+  .thumbs {
+    height: 10rem;
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .complete {
+    width: 100%;
+    height: calc(100% - 10rem);
+  }
+
+  .thumbs img {
+    margin-right: 1rem;
+  }
 }

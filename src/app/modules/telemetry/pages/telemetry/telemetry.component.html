@@ -51,7 +51,12 @@
       @for (itrImg of imgProducts; track itrImg){
       <div class="img_container">
         <p>{{ itrImg.description }}</p>
-        <img [alt]="itrImg.description" [src]="itrImg.url" [alt]="itrImg.alt" />
+        <img
+          [alt]="itrImg.description"
+          [src]="itrImg.url"
+          [alt]="itrImg.alt"
+          onerror="this.src='assets/errors/default.avif'"
+        />
       </div>
       }
     </div>

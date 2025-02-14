@@ -2,7 +2,11 @@
   @for (itrItem of items; track itrItem){
   <div class="item">
     <div class="card">
-      <img [alt]="itrItem.title" [src]="itrItem.url" />
+      <img
+        [alt]="itrItem.title"
+        [src]="itrItem.url"
+        onerror="this.src='assets/errors/default.avif'"
+      />
       <div class="description">
         <h2>
           <strong> {{ itrItem.title }}</strong>

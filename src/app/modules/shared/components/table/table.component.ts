@@ -4,6 +4,9 @@ import { DataTableDTO } from '../../models/dataTableDTO';
 import { TableInformationService } from '../../services/table-information.service';
 import { Product } from '../../../../models/carousel_item.model';
 import { MaterialComponents } from '../../../material/material.module';
+import { NavigationService } from '../../../../services/navigation.service';
+import { ShareDataSearchService } from '../../../search/services/share-data-search.service';
+import { SesionStorageService } from '../../../../services/sesion-storage.service';
 
 @Component({
   selector: 'app-table',
@@ -23,7 +26,12 @@ export class TableComponent implements OnInit, OnDestroy {
   listSubscription: Subscription[] = [new Subscription(), new Subscription()];
   rowsTable: any = [];
 
-  constructor(private tableInformationService: TableInformationService) {}
+  constructor(
+    private SesionStorageService: SesionStorageService,
+    private tableInformationService: TableInformationService,
+    private navigationService: NavigationService,
+    private shareDataSearchService: ShareDataSearchService
+  ) {}
 
   ngOnInit(): void {
     this.subscriptionRefresh();
@@ -45,10 +53,12 @@ export class TableComponent implements OnInit, OnDestroy {
   }
 
   viewProduct(res: Product): void {
-    // this.navigationService.navigatePage('Productos/Vista', {
-    //   data: btoa(String(res.id)),
-    // });
-    // this.shareDataSearchService.close$.emit();
+    this.SesionStorageService.remove(['viewProduct']);
+
+    this.navigationService.navigatePage('Productos/Vista', {
+      data: btoa(String(res.id)),
+    });
+    this.shareDataSearchService.close$.emit();
   }
 
   checkImgTable(column: number): boolean {

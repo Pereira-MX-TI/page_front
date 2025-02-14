@@ -1,8 +1,23 @@
 <div class="container">
+  @if(listImg.length>1){
   <div class="thumbs">
-    @for (itrImg of listImg | slice : 0 : 20; track itrImg){
-    <img [src]="productPipe.transform(itrImg.direccion, 'picture-product')" />
+    @for (itrImg of listImg; track itrImg){
+    <img
+      onerror="this.src='assets/errors/default.avif'"
+      alt="thumb img"
+      (click)="selectImg(itrImg)"
+      [class]="itrImg.select ? 'select' : ''"
+      [src]="productPipe.transform(itrImg.direccion, 'picture-product')"
+    />
     }
   </div>
-  <div class="complete"></div>
+  }
+
+  <div class="complete">
+    <img
+      onerror="this.src='assets/errors/default.avif'"
+      alt="imagen producto"
+      [src]="productPipe.transform(currentImg.direccion, 'picture-product')"
+    />
+  </div>
 </div>

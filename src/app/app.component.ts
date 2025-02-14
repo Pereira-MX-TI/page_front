@@ -11,11 +11,13 @@ import { checkOptionCurrentNav } from './functions/check_option_current_nav.func
 import { MaterialComponents } from './modules/material/material.module';
 import { HeadNavComponent } from './modules/nav-bar/components/head-nav/head-nav.component';
 import { MovilNavComponent } from './modules/nav-bar/components/movil-nav/movil-nav.component';
+import { CommonModule, ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
+    CommonModule,
     RouterOutlet,
     HeadNavComponent,
     MovilNavComponent,
@@ -38,7 +40,8 @@ export class AppComponent {
     private httpService: HttpService,
     private localStorageService: LocalStorageService,
     private shareInformationService: ShareInformationService,
-    private selectOptionNavObservable: SelectOptionNavObservable
+    private selectOptionNavObservable: SelectOptionNavObservable,
+    private viewportScroller: ViewportScroller
   ) {}
 
   ngOnInit() {
@@ -51,6 +54,7 @@ export class AppComponent {
       }
     }
 
+    this.subscriptionPositionScroll();
     this.subscriptionSideNav();
     this.subscribeNavigation();
   }
@@ -58,6 +62,14 @@ export class AppComponent {
   ngOnDestroy() {
     this.listSubscription.forEach((itrSub) => {
       itrSub.unsubscribe();
+    });
+  }
+
+  private subscriptionPositionScroll() {
+    this.router.events.subscribe((event: any) => {
+      if (event instanceof NavigationEnd) {
+        this.viewportScroller.scrollToPosition([0, 0]);
+      }
     });
   }
 

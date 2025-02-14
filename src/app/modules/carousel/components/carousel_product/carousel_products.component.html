@@ -11,12 +11,17 @@
             }}</strong>
           </h2>
           <img
+            onerror="this.src='assets/errors/default.avif'"
             [title]="itrData.product.nombre"
             [src]="
               carouselPipe.transform(itrData.product.files, 'image-product')
             "
           />
-          <button mat-stroked-button (click)="viewProduct(itrData.product)">
+          <button
+            type="button"
+            mat-stroked-button
+            (click)="viewProduct(itrData.product)"
+          >
             Ver mas
           </button>
         </div>

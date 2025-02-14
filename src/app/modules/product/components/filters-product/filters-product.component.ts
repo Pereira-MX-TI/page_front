@@ -9,9 +9,6 @@ import { NavigationService } from '../../../../services/navigation.service';
 import { ShareInformationService } from '../../../../services/share-information.service';
 import { ShareDataSearchService } from '../../../search/services/share-data-search.service';
 import { SlicePipe } from '@angular/common';
-import { CookieManageService } from '../../../../services/cookie-manage.service';
-import { Platform } from '@angular/cdk/platform';
-import { CookieService } from 'ngx-cookie-service';
 import { SesionStorageService } from '../../../../services/sesion-storage.service';
 
 @Component({

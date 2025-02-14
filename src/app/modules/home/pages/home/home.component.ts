@@ -17,6 +17,7 @@ import { BannerCategoryComponent } from '../../components/banner-category/banner
 import { BannerQuotationComponent } from '../../components/banner-quotation/banner-quotation.component';
 import { BannerTypeWatermeterComponent } from '../../components/banner-type-watermeter/banner-type-watermeter.component';
 import { BannerSomeProductsComponent } from '../../components/banner-some-products/banner-some-products.component';
+import { SesionStorageService } from '../../../../services/sesion-storage.service';
 
 @Component({
   selector: 'home',
@@ -53,6 +54,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     private matSnackBar: MatSnackBar,
     private httpService: HttpService,
     private shareInformationService: ShareInformationService,
+    private SesionStorageService: SesionStorageService,
     public navigationService: NavigationService
   ) {
     this.carousels = {
@@ -83,6 +85,16 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   refresh() {
+    if (this.SesionStorageService.exist('carouselsHome')) {
+      const { publicity, products } =
+        this.SesionStorageService.get('carouselsHome');
+
+      this.carousels.publicity = publicity;
+      this.carousels.products = products;
+
+      return;
+    }
+
     this.shareInformationService.viewLoading$.emit(true);
 
     zip(
@@ -92,6 +104,11 @@ export class HomeComponent implements OnInit, OnDestroy {
       (responses) => {
         this.carousels.publicity = responses[0].data;
         this.carousels.products = responses[1].data;
+
+        this.SesionStorageService.set('carouselsHome', {
+          publicity: this.carousels.publicity,
+          products: this.carousels.products,
+        });
 
         this.shareInformationService.viewLoading$.emit(false);
       },

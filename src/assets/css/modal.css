@@ -1,0 +1,76 @@
+.title
+{
+    display: flex;
+    align-items: center;
+    justify-content: initial;
+    
+    font-weight: bolder;
+    width: 100%;
+    padding: 1rem;
+    height: 3rem;
+
+    border-bottom: 1px solid var(--color3-4);
+    box-sizing: border-box;
+}
+
+.title_text
+{
+    flex-grow: 10;
+}
+
+.modal_btn
+{
+    display: flex;
+    align-items: center;
+    justify-content: initial;
+    width: 100%;
+}
+
+.modal_btn .mat-mdc-unelevated-button{
+    border-radius: 0;
+}
+.modal_btn .mat-mdc-unelevated-button .mat-mdc-button-touch-target
+{
+    position:static;
+    border-radius: 0;
+}
+
+.containerModal{
+
+    width: 25rem;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: var(--color3-1) !important;
+}
+
+.logo
+{
+    position: relative;
+    width: 100%;
+    height:10rem;
+
+    display: flex;
+    align-items:flex-start;
+    justify-content: flex-start;
+    flex-direction: column !important;
+}
+
+.logo div
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    position: absolute;
+}
+
+.logo img
+{
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
