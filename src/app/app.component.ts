@@ -13,12 +13,17 @@ import { HeadNavComponent } from './modules/nav-bar/components/head-nav/head-nav
 import { MovilNavComponent } from './modules/nav-bar/components/movil-nav/movil-nav.component';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import AOS from 'aos';
+import {
+  GoogleTagManagerModule,
+  GoogleTagManagerService,
+} from 'angular-google-tag-manager';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     CommonModule,
+    GoogleTagManagerModule,
     RouterOutlet,
     HeadNavComponent,
     MovilNavComponent,
@@ -42,15 +47,17 @@ export class AppComponent {
     private localStorageService: LocalStorageService,
     private shareInformationService: ShareInformationService,
     private selectOptionNavObservable: SelectOptionNavObservable,
-    private viewportScroller: ViewportScroller
+    private viewportScroller: ViewportScroller,
+    private googleTagManagerService: GoogleTagManagerService
   ) {}
 
   ngOnInit() {
     if (this.platform.isBrowser) {
       AOS.init();
+
       if (environment.production) {
-        // this.googleTagManagerService.addGtmToDom();
-        // this.googleTagManager();
+        this.googleTagManagerService.addGtmToDom();
+        this.googleTagManager();
       }
     }
 
@@ -81,7 +88,7 @@ export class AppComponent {
           pageName: item.url,
         };
 
-        // this.googleTagManagerService.pushTag(gtmTag);
+        this.googleTagManagerService.pushTag(gtmTag);
       }
     });
   }
