@@ -54,6 +54,10 @@
   padding: 1rem;
 }
 
+.some_products li {
+  cursor: pointer;
+}
+
 .some_products img {
   object-fit: cover;
   border-bottom-left-radius: 100%;

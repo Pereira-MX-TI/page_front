@@ -11,7 +11,13 @@
         [title]="itrCategory.title"
         [src]="itrCategory.url_img"
       />
-      <button type="button" mat-stroked-button>Ver mas</button>
+      <button
+        type="button"
+        mat-stroked-button
+        (click)="viewCategory(itrCategory.name)"
+      >
+        Ver mas
+      </button>
     </div>
   </div>
   }

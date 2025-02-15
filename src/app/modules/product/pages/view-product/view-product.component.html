@@ -20,7 +20,7 @@
         <label>Regresar</label>
       </button>
       <label class="space"></label>
-      <button type="button">
+      <button type="button" [matMenuTriggerFor]="menu">
         <img
           loading="lazy"
           src="./../../../../../assets/icons/share-icon.svg"
@@ -28,6 +28,41 @@
         />
         <label>Compartir</label>
       </button>
+
+      <mat-menu #menu="matMenu">
+        <button
+          type="button"
+          (click)="sharedSocialNetwork('whatsapp')"
+          mat-menu-item
+        >
+          <span>
+            <img
+              class="socialNetwork"
+              loading="lazy"
+              src="./../assets/social_networks/whatsapp.svg"
+              alt="whatsapp medidores de agua"
+            />
+
+            Whatsapp
+          </span>
+        </button>
+        <button
+          type="button"
+          (click)="sharedSocialNetwork('facebook')"
+          mat-menu-item
+        >
+          <span>
+            <img
+              loading="lazy"
+              class="socialNetwork"
+              src="./../assets/social_networks/facebook.svg"
+              alt="facebook medidores de agua"
+            />
+
+            Facebook
+          </span>
+        </button>
+      </mat-menu>
     </div>
 
     <div class="visor_img">

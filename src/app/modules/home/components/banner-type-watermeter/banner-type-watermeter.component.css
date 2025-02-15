@@ -8,6 +8,7 @@
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  background-color: var(--color3-1);
 }
 
 .water_meters_types h2 {

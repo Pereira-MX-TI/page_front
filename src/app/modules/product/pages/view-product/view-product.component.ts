@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription, zip } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ProductPipe } from '../../pipes/product.pipe';
 import { Product } from '../../../../models/carousel_item.model';
 import { HttpService } from '../../../../services/http.service';
@@ -23,6 +23,8 @@ import {
 import { MaterialComponents } from '../../../material/material.module';
 import { MatDialog } from '@angular/material/dialog';
 import { MaintenanceModalComponent } from '../../../error-page/components/maintenance-modal/maintenance-modal.component';
+import { WindowSizeService } from '../../../../services/window-size.service';
+import { Router } from 'express';
 
 @Component({
   selector: 'app-view-product',
@@ -67,7 +69,8 @@ export class ViewProductComponent {
     private shareDataSearchService: ShareDataSearchService,
     private SesionStorageService: SesionStorageService,
     private seoService: SeoService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private windowSizeService: WindowSizeService
   ) {}
 
   ngOnInit(): void {
@@ -177,5 +180,30 @@ export class ViewProductComponent {
     this.dialog.open(MaintenanceModalComponent, {
       autoFocus: false,
     });
+  }
+
+  sharedSocialNetwork(type: 'whatsapp' | 'facebook'): void {
+    const currentUrl: string = window.location.href;
+
+    const shareUrl: string =
+      type === 'whatsapp'
+        ? `https://wa.me?text=${currentUrl}`
+        : `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+
+    if (
+      'share' in navigator &&
+      typeof navigator.share === 'function' &&
+      this.windowSizeService.checkMaxScreenSize(650)
+    ) {
+      navigator
+        .share({
+          title: this.product?.nombre,
+          text: this.product?.description.detalle,
+          url: shareUrl,
+        })
+        .catch((error) => console.error('Error sharing:', error));
+    } else {
+      window.open(shareUrl, '_blank');
+    }
   }
 }

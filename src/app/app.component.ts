@@ -12,6 +12,7 @@ import { MaterialComponents } from './modules/material/material.module';
 import { HeadNavComponent } from './modules/nav-bar/components/head-nav/head-nav.component';
 import { MovilNavComponent } from './modules/nav-bar/components/movil-nav/movil-nav.component';
 import { CommonModule, ViewportScroller } from '@angular/common';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-root',
@@ -35,7 +36,7 @@ export class AppComponent {
   currentYear: number = new Date().getFullYear();
 
   constructor(
-    private readonly _platform: Platform,
+    private readonly platform: Platform,
     private readonly router: Router,
     private httpService: HttpService,
     private localStorageService: LocalStorageService,
@@ -45,9 +46,8 @@ export class AppComponent {
   ) {}
 
   ngOnInit() {
-    // this.navigationService.navigatePage('mantenimiento');
-
-    if (this._platform.isBrowser) {
+    if (this.platform.isBrowser) {
+      AOS.init();
       if (environment.production) {
         // this.googleTagManagerService.addGtmToDom();
         // this.googleTagManager();
