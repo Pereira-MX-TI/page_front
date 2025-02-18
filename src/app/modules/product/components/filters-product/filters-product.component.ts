@@ -10,11 +10,12 @@ import { ShareInformationService } from '../../../../services/share-information.
 import { ShareDataSearchService } from '../../../search/services/share-data-search.service';
 import { SlicePipe } from '@angular/common';
 import { SesionStorageService } from '../../../../services/sesion-storage.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-filters-product',
   standalone: true,
-  imports: [SlicePipe],
+  imports: [RouterModule, SlicePipe],
   templateUrl: './filters-product.component.html',
   styleUrls: ['./filters-product.component.css'],
 })
@@ -31,7 +32,7 @@ export class FiltersProductComponent {
     private httpService: HttpService,
     private navigationService: NavigationService,
     private shareInformationService: ShareInformationService,
-    private shareDataSearchService: ShareDataSearchService,
+    public shareDataSearchService: ShareDataSearchService,
     public dialog: MatDialog
   ) {}
 
@@ -70,14 +71,6 @@ export class FiltersProductComponent {
         });
       }
     );
-  }
-
-  applySearch(res: Filter): void {
-    this.navigationService.navigatePage('Productos/Busqueda', {
-      data: res.nombre,
-    });
-
-    this.shareDataSearchService.close$.emit();
   }
 
   openModal(list: Filter[], title: string): void {

@@ -26,10 +26,14 @@
 }
 
 @media screen and (max-width: 767px) {
+  .question_product img {
+    width: 50%;
+  }
+
   .question_product h2 {
-    padding: 1rem;
-    text-align: center;
+    width: 50%;
     color: var(--color1-2);
-    font-size: 1rem;
+    line-height: 1.5;
+    font-size: max(0.75rem, 1rem);
   }
 }

@@ -47,33 +47,20 @@
   @if(!viewSearch){
   <nav>
     <ul>
-      <li [class]="selectOption.home ? 'li_active' : ''" routerLink="Inicio">
-        Inicio
+      <li [class]="selectOption.home ? 'li_active' : ''">
+        <a routerLink="/Inicio">Inicio</a>
       </li>
-      <li
-        [class]="selectOption.product ? 'li_active' : ''"
-        routerLink="Productos"
-      >
-        Productos
+      <li [class]="selectOption.product ? 'li_active' : ''">
+        <a routerLink="/Productos">Productos</a>
       </li>
-      <li
-        [class]="selectOption.service ? 'li_active' : ''"
-        routerLink="Servicios"
-      >
-        Servicios
+      <li [class]="selectOption.service ? 'li_active' : ''">
+        <a routerLink="/Servicios">Servicios</a>
       </li>
-      <li
-        [class]="selectOption.telemetry ? 'li_active' : ''"
-        routerLink="Telemetria"
-      >
-        Telemetría
+      <li [class]="selectOption.telemetry ? 'li_active' : ''">
+        <a routerLink="/Telemetria">Telemetría</a>
       </li>
-      <!-- <li [class]="selectOption.invoice ? 'li_active' : ''">Facturación</li> -->
-      <li
-        [class]="selectOption.contact ? 'li_active' : ''"
-        routerLink="Contacto"
-      >
-        Contacto
+      <li [class]="selectOption.contact ? 'li_active' : ''">
+        <a routerLink="/Contacto">Contacto</a>
       </li>
     </ul>
   </nav>

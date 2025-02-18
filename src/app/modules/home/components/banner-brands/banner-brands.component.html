@@ -1,31 +1,51 @@
 <div class="brands">
   <h2><strong> Somos distribuidores autorizados</strong></h2>
-  <span (click)="viewBrand('alfa')">
-    <img
-      loading="lazy"
-      src="./../../../../../assets/logos/alfa.avif"
-      alt="materiales para medidores de agua alfa"
-    />
+  <span>
+    <a
+      (click)="shareDataSearchService.close$.emit()"
+      routerLink="/Productos/Busqueda"
+      [queryParams]="{ data: 'alfa' }"
+    >
+      <img
+        loading="lazy"
+        src="./../../../../../assets/logos/alfa.avif"
+        alt="materiales para medidores de agua alfa"
+    /></a>
   </span>
-  <span (click)="viewBrand('itron')">
-    <img
-      loading="lazy"
-      src="./../../../../../assets/logos/itron.avif"
-      alt="medidores para agua itron"
-    />
+  <span>
+    <a
+      (click)="shareDataSearchService.close$.emit()"
+      routerLink="/Productos/Busqueda"
+      [queryParams]="{ data: 'itron' }"
+    >
+      <img
+        loading="lazy"
+        src="./../../../../../assets/logos/itron.avif"
+        alt="medidores para agua itron"
+    /></a>
   </span>
-  <span (click)="viewBrand('accell')">
-    <img
-      loading="lazy"
-      src="./../../../../../assets/logos/accell.avif"
-      alt="medidores para agua accell"
-    />
+  <span>
+    <a
+      (click)="shareDataSearchService.close$.emit()"
+      routerLink="/Productos/Busqueda"
+      [queryParams]="{ data: 'accell' }"
+    >
+      <img
+        loading="lazy"
+        src="./../../../../../assets/logos/accell.avif"
+        alt="medidores para agua accell"
+    /></a>
   </span>
-  <span (click)="viewBrand('miller')">
-    <img
-      loading="lazy"
-      src="./../../../../../assets/logos/miller.avif"
-      alt="válvulas miller"
-    />
+  <span>
+    <a
+      (click)="shareDataSearchService.close$.emit()"
+      routerLink="/Productos/Busqueda"
+      [queryParams]="{ data: 'miller' }"
+    >
+      <img
+        loading="lazy"
+        src="./../../../../../assets/logos/miller.avif"
+        alt="válvulas miller"
+    /></a>
   </span>
 </div>

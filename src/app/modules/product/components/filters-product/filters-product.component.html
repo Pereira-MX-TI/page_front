@@ -2,8 +2,14 @@
   <h2><strong>Categorías</strong></h2>
   <ul>
     @for (itrCategory of categories | slice : 0 : 20; track itrCategory){
-    <li (click)="applySearch(itrCategory)">
-      {{ productPipe.transform(itrCategory.nombre, "name-filter") }}
+    <li>
+      <a
+        (click)="shareDataSearchService.close$.emit()"
+        routerLink="/Productos/Busqueda"
+        [queryParams]="{ data: itrCategory.nombre }"
+      >
+        {{ productPipe.transform(itrCategory.nombre, "name-filter") }}</a
+      >
     </li>
     } @if(categories.length > 20){
     <li (click)="openModal(categories, 'Categorias')">Ver mas</li>
@@ -14,8 +20,14 @@
   <h2><strong>Materiales</strong></h2>
   <ul>
     @for (itrMaterial of materials | slice : 0 : 20; track itrMaterial){
-    <li (click)="applySearch(itrMaterial)">
-      {{ productPipe.transform(itrMaterial.nombre, "name-filter") }}
+    <li>
+      <a
+        (click)="shareDataSearchService.close$.emit()"
+        routerLink="/Productos/Busqueda"
+        [queryParams]="{ data: itrMaterial.nombre }"
+      >
+        {{ productPipe.transform(itrMaterial.nombre, "name-filter") }}</a
+      >
     </li>
     } @if(materials.length > 20){
     <li (click)="openModal(materials, 'Materiales')">Ver mas</li>
@@ -25,8 +37,14 @@
   <h2><strong>Marcas</strong></h2>
   <ul>
     @for (itrBrand of brands | slice : 0 : 20; track itrBrand){
-    <li (click)="applySearch(itrBrand)">
-      {{ productPipe.transform(itrBrand.nombre, "name-filter") }}
+    <li>
+      <a
+        (click)="shareDataSearchService.close$.emit()"
+        routerLink="/Productos/Busqueda"
+        [queryParams]="{ data: itrBrand.nombre }"
+      >
+        {{ productPipe.transform(itrBrand.nombre, "name-filter") }}</a
+      >
     </li>
     } @if(brands.length > 20){
     <li class="more_items" (click)="openModal(brands, 'Marcas')">Ver mas</li>

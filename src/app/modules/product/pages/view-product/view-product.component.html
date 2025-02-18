@@ -175,5 +175,17 @@
       <h3>Descripción</h3>
       <p>{{ product?.description?.detalle }}</p>
     </div>
+
+    @if(productsByCategory.length != 0){
+    <h3 class="title_carousel">
+      Quienes cotizaron este producto también cotizaron
+    </h3>
+
+    <div class="carrousel">
+      <app-carousel-products-v2
+        [data]="productsByCategory"
+      ></app-carousel-products-v2>
+    </div>
+    }
   </div>
 </section>

@@ -3,7 +3,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription, zip } from 'rxjs';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ProductPipe } from '../../pipes/product.pipe';
-import { Product } from '../../../../models/carousel_item.model';
+import {
+  Carousel_item_product,
+  Product,
+} from '../../../../models/carousel_item.model';
 import { HttpService } from '../../../../services/http.service';
 import { NavigationService } from '../../../../services/navigation.service';
 import { ShareInformationService } from '../../../../services/share-information.service';
@@ -25,6 +28,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { MaintenanceModalComponent } from '../../../error-page/components/maintenance-modal/maintenance-modal.component';
 import { WindowSizeService } from '../../../../services/window-size.service';
 import { Router } from 'express';
+import { CarouselProductsComponent } from '../../../carousel/components/carousel_product/carousel_products.component';
+import { Carousel } from '../../../../models/carousel.model';
+import { CarouselProductsV2Component } from '../../../carousel/components/carousel_product_v2/carousel_products_v2.component';
 
 @Component({
   selector: 'app-view-product',
@@ -33,6 +39,8 @@ import { Router } from 'express';
     ReactiveFormsModule,
     FormsModule,
     VisorImgComponent,
+    CarouselProductsV2Component,
+
     MaterialComponents,
   ],
   templateUrl: './view-product.component.html',
@@ -48,6 +56,7 @@ import { Router } from 'express';
   ],
 })
 export class ViewProductComponent {
+  carousel: Carousel | null = null;
   categories: Category[] = [];
   product: Product | null = null;
   productsByCategory: Product[] = [];
@@ -101,11 +110,12 @@ export class ViewProductComponent {
 
   refresh(): void {
     if (this.SesionStorageService.exist('viewProduct')) {
-      const { categories, product } =
+      const { categories, product, productsByCategory } =
         this.SesionStorageService.get('viewProduct');
 
       this.product = product;
       this.categories = categories;
+      this.productsByCategory = productsByCategory;
 
       this.setMetaTags(
         this.product!.nombre,
@@ -133,6 +143,7 @@ export class ViewProductComponent {
         this.productsByCategory = res[2].data;
         this.product = product;
 
+        this.categories = [];
         categories.forEach((itrCategory: Category) => {
           this.categories.push({
             ...itrCategory,

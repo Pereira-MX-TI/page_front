@@ -3,73 +3,67 @@
     <li
       [class]="selectOption.home ? 'li_active' : ''"
       (click)="shareInformationService.sideNav$.emit()"
-      routerLink="/Inicio"
     >
-      <img
-        loading="lazy"
-        src="./../../../../../assets/icons/home_icon.svg"
-        alt="inicio"
-      />
-      <h2>Inicio</h2>
+      <a routerLink="/Inicio">
+        <img
+          loading="lazy"
+          src="./../../../../../assets/icons/home_icon.svg"
+          alt="inicio"
+        />
+        <h2>Inicio</h2></a
+      >
     </li>
     <li
       [class]="selectOption.product ? 'li_active' : ''"
       (click)="shareInformationService.sideNav$.emit()"
-      routerLink="/Productos"
     >
-      <img
-        loading="lazy"
-        src="./../../../../../assets/icons/product_icon.svg"
-        alt="productos"
-      />
-      <h2>Productos</h2>
+      <a routerLink="/Productos">
+        <img
+          loading="lazy"
+          src="./../../../../../assets/icons/product_icon.svg"
+          alt="productos"
+        />
+        <h2>Productos</h2></a
+      >
     </li>
     <li
       [class]="selectOption.service ? 'li_active' : ''"
       (click)="shareInformationService.sideNav$.emit()"
-      routerLink="/Servicios"
     >
-      <img
-        loading="lazy"
-        src="./../../../../../assets/icons/service_icon.svg"
-        alt="servicios"
-      />
-      <h2>Servicios</h2>
+      <a routerLink="/Servicios">
+        <img
+          loading="lazy"
+          src="./../../../../../assets/icons/service_icon.svg"
+          alt="servicios"
+        />
+        <h2>Servicios</h2></a
+      >
     </li>
     <li
       [class]="selectOption.telemetry ? 'li_active' : ''"
       (click)="shareInformationService.sideNav$.emit()"
-      routerLink="/Telemetria"
     >
-      <img
-        loading="lazy"
-        src="./../../../../../assets/icons/networking_icon.svg"
-        alt="telemetría"
-      />
-      <h2>Telemetría</h2>
+      <a routerLink="/Telemetria">
+        <img
+          loading="lazy"
+          src="./../../../../../assets/icons/networking_icon.svg"
+          alt="telemetría"
+        />
+        <h2>Telemetría</h2></a
+      >
     </li>
-    <!-- <li
-      [class]="selectOption.invoice ? 'li_active' : ''"
-      (click)="shareInformationService.sideNav$.emit()"
-    >
-      <img
-        loading="lazy"
-        src="./../../../../../assets/icons/bill_icon.svg"
-        alt="facturación"
-      />
-      <h2>Facturación</h2>
-    </li> -->
     <li
       [class]="selectOption.contact ? 'li_active' : ''"
       (click)="shareInformationService.sideNav$.emit()"
-      routerLink="/Contacto"
     >
-      <img
-        loading="lazy"
-        src="./../../../../../assets/icons/contact_icon.svg"
-        alt="contacto"
-      />
-      <h2>Contacto</h2>
+      <a routerLink="/Contacto">
+        <img
+          loading="lazy"
+          src="./../../../../../assets/icons/contact_icon.svg"
+          alt="contacto"
+        />
+        <h2>Contacto</h2></a
+      >
     </li>
   </ul>
 </nav>

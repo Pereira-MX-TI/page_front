@@ -12,7 +12,6 @@
 
 .container h2 {
   width: 100%;
-  color: var(--color1-1);
   margin: 0;
   font-size: max(1rem, 1.5rem);
 }
@@ -31,5 +30,10 @@
 }
 
 .more_items {
+  color: var(--color1-1);
+}
+
+a {
+  text-decoration: none;
   color: var(--color1-1);
 }

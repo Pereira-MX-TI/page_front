@@ -30,7 +30,6 @@
 
 .telemetria_info h2 {
   text-align: center;
-  color: var(--color1-2);
   font-size: max(0.9rem, 1.5rem);
 }
 
@@ -62,6 +61,11 @@ ul.checklist li::before {
   left: 0;
   top: 0;
   color: var(--color1-2); /* Color de la palomita */
+}
+
+a {
+  text-decoration: none;
+  color: var(--color1-2);
 }
 
 @media screen and (max-width: 549px) {

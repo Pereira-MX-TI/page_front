@@ -4,20 +4,19 @@ import { Platform } from '@angular/cdk/platform';
 import { NavigationService } from '../../../../services/navigation.service';
 import { ShareDataSearchService } from '../../../search/services/share-data-search.service';
 import { SesionStorageService } from './../../../../services/sesion-storage.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-banner-category',
   standalone: true,
-  imports: [MaterialComponents],
+  imports: [RouterModule, MaterialComponents],
   templateUrl: './banner-category.component.html',
   styleUrls: ['./banner-category.component.css'],
 })
 export class BannerCategoryComponent {
   constructor(
     public platform: Platform,
-    private navigationService: NavigationService,
-    private shareDataSearchService: ShareDataSearchService,
-    private SesionStorageService: SesionStorageService
+    public shareDataSearchService: ShareDataSearchService
   ) {}
 
   categories: { name: string; url_img: string; title: string }[] = [
@@ -52,11 +51,4 @@ export class BannerCategoryComponent {
       title: 'cajas de banqueta, geofonos, segurisellos',
     },
   ];
-
-  viewCategory(res: string): void {
-    this.SesionStorageService.remove(['viewProduct']);
-
-    this.navigationService.navigatePage('Productos/Busqueda', { data: res });
-    this.shareDataSearchService.close$.emit();
-  }
 }

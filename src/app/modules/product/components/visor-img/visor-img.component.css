@@ -50,7 +50,7 @@
 @media screen and (max-width: 756px) {
   .container {
     flex-direction: column-reverse;
-    height: 50rem;
+    height: 35rem;
   }
 
   .thumbs {

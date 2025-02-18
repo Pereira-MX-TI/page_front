@@ -12,6 +12,12 @@ export class CarouselPipe implements PipeTransform {
     if (!data) return '-';
 
     switch (args[0]) {
+      case 'id-product-bas64':
+        {
+          return btoa(data.id);
+        }
+        break;
+
       case 'image-publicity':
         {
           return environment.FILE_URI + data.url;

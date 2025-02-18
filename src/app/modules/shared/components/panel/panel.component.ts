@@ -16,6 +16,7 @@ import { ShareInformationService } from '../../../../services/share-information.
 import { DataPageService } from '../../services/data-page.service';
 import { MaterialComponents } from '../../../material/material.module';
 import { ViewportScroller } from '@angular/common';
+import { WindowSizeService } from '../../../../services/window-size.service';
 
 @Component({
   selector: 'app-panel',
@@ -28,6 +29,7 @@ export class PanelComponent implements OnInit, AfterViewInit, OnDestroy {
   dataPaginator: DataPaginator;
   pageSizeOptions: number[];
   listSubscription: Subscription[] = [];
+  hidePageSize: boolean = false;
 
   @ViewChild('paginator') paginator!: MatPaginator;
 
@@ -38,7 +40,8 @@ export class PanelComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private viewportScroller: ViewportScroller,
     private sharePanelService: SharePanelService,
-    private dataPageService: DataPageService
+    private dataPageService: DataPageService,
+    private windowSizeService: WindowSizeService
   ) {
     this.pageSizeOptions = [25, 50, 100];
 
@@ -49,6 +52,8 @@ export class PanelComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.hidePageSize = this.windowSizeService.checkMaxScreenSize(615);
+
     this.subscriptionRefresh();
     this.subscriptionPanelSize();
   }

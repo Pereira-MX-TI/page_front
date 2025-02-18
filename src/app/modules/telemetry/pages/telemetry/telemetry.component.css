@@ -300,10 +300,14 @@ ul.checklist li::before {
     font-size: 0.9rem;
   }
 
-  .architecture img,
   .architecture .description {
     width: 100%;
-    height: 50%;
+    height: 70%;
+  }
+
+  .architecture img {
+    width: 100%;
+    height: 30%;
   }
 
   .products {
@@ -320,10 +324,12 @@ ul.checklist li::before {
 
   .software img {
     width: 100%;
+    height: 40%;
   }
 
   .software ul {
     width: 100%;
+    height: 60%;
   }
 }
 

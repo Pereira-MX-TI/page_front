@@ -3,42 +3,250 @@
     <h2>Medidores de agua y todo lo relacionado.</h2>
     <div class="list_products">
       <ul>
-        <li (click)="viewProduct('Niples')">Niples</li>
-        <li (click)="viewProduct('Tees')">Tees</li>
-        <li (click)="viewProduct('Sensor de pulsos')">Sensor de pulsos</li>
-        <li (click)="viewProduct('Filtros')">Filtros</li>
-        <li (click)="viewProduct('Válvula expulsora de aire')">
-          Válvula expulsora de aire
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Niples' }"
+            >Niples</a
+          >
         </li>
-        <li (click)="viewProduct('Pvc')">Pvc</li>
-        <li (click)="viewProduct('Dosificadora')">Dosificadora</li>
-        <li (click)="viewProduct('Emisor de pulsos')">Emisor de pulsos</li>
-        <li (click)="viewProduct('Abrazadera')">Abrazadera</li>
-        <li (click)="viewProduct('Válvula media luna')">Válvula media luna</li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Tees' }"
+            >Tees</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Sensor de pulsos' }"
+            >Sensor de pulsos</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Filtros' }"
+            >Filtros</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Válvula expulsora de aire' }"
+            >Válvula expulsora de aire</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Pvc' }"
+            >Pvc</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Dosificadora' }"
+            >Dosificadora</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Emisor de pulsos' }"
+            >Emisor de pulsos</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Abrazadera' }"
+            >Abrazadera</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Válvula media luna' }"
+            >Válvula media luna</a
+          >
+        </li>
       </ul>
       <ul>
-        <li (click)="viewProduct('Kit de conexiones')">Kit de conexiones</li>
-        <li (click)="viewProduct('Teflon')">Teflon</li>
-        <li (click)="viewProduct('Codos')">Codos</li>
-        <li (click)="viewProduct('Adhesivo')">Adhesivo</li>
-        <li (click)="viewProduct('Seguros')">Seguros</li>
-        <li (click)="viewProduct('Estrella expansiva')">Estrella expansiva</li>
-        <li (click)="viewProduct('Tubería')">Tubería</li>
-        <li (click)="viewProduct('Cpvc')">Cpvc</li>
-        <li (click)="viewProduct('Soldadura')">Soldadura</li>
-        <li (click)="viewProduct('Gas')">Gas</li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Kit de conexiones' }"
+            >Kit de conexiones</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Teflon' }"
+            >Teflon</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Codos' }"
+            >Codos</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Adhesivo' }"
+            >Adhesivo</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Seguros' }"
+            >Seguros</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Estrella expansiva' }"
+            >Estrella expansiva</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Tubería' }"
+            >Tubería</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Cpvc' }"
+            >Cpvc</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Soldadura' }"
+            >Soldadura</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Gas' }"
+            >Gas</a
+          >
+        </li>
       </ul>
       <ul>
-        <li (click)="viewProduct('Empaque plano')">Empaque plano</li>
-        <li (click)="viewProduct('Válvula reductora')">Válvula reductora</li>
-        <li (click)="viewProduct('Adaptadores')">Adaptadores</li>
-        <li (click)="viewProduct('Tuerca union')">Tuerca union</li>
-        <li (click)="viewProduct('Caja para medidor')">Caja para medidor</li>
-        <li (click)="viewProduct('Válvula check')">Válvula check</li>
-        <li (click)="viewProduct('Tapón')">Tapón</li>
-        <li (click)="viewProduct('Válvula media luna')">Válvula media luna</li>
-        <li (click)="viewProduct('Conexiones')">Conexiones</li>
-        <li (click)="viewProduct('Empaque cónico')">Empaque cónico</li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Empaque plano' }"
+            >Empaque plano</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: '' }"
+            >Válvula reductora</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Adaptadores' }"
+            >Adaptadores</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Tuerca union' }"
+            >Tuerca union</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Caja para medidor' }"
+            >Caja para medidor</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Válvula check' }"
+            >Válvula check</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Tapón' }"
+            >Tapón</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Válvula media luna' }"
+            >Válvula media luna</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Conexiones' }"
+            >Conexiones</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="shareDataSearchService.close$.emit()"
+            routerLink="/Productos/Busqueda"
+            [queryParams]="{ data: 'Empaque cónico' }"
+            >Empaque cónico</a
+          >
+        </li>
       </ul>
     </div>
   </div>

@@ -53,6 +53,7 @@ h2 {
 .address li {
   text-align: start;
   display: flex;
+  box-sizing: border-box;
 }
 
 .address li img {

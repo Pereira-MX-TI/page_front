@@ -1,9 +1,9 @@
-::ng-deep app-carousel-products {
+::ng-deep app-carousel-products-v2 {
   width: 100%;
   height: 100%;
 }
 
-section {
+.container {
   width: 100%;
   height: 100%;
 }

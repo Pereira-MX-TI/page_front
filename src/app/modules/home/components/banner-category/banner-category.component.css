@@ -40,7 +40,11 @@
 
 .categories h3 {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: max(1rem, 1.5rem);
+}
+
+a {
+  text-decoration: none;
   color: var(--color1-2);
 }
 
@@ -59,11 +63,23 @@
     grid-template-columns: 3fr 3fr;
     grid-auto-rows: 33.3%;
   }
+
+  .categories h3 {
+    text-align: center;
+    font-size: max(0.75rem, 1rem);
+    line-height: 1.5;
+  }
 }
 
 @media screen and (min-width: 550px) and (max-width: 767px) {
   .categories {
     grid-template-columns: 3fr 3fr;
     grid-auto-rows: 33.3%;
+  }
+
+  .categories h3 {
+    text-align: center;
+    font-size: max(0.9rem, 1.25rem);
+    line-height: 1.5;
   }
 }

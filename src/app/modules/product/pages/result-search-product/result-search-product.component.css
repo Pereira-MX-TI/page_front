@@ -1,5 +1,6 @@
 .container {
   width: 100%;
+  min-height: 100vh;
   padding: 1rem;
   background-color: white;
   box-sizing: border-box;
@@ -34,7 +35,7 @@ article h2 {
 ::ng-deep #tableProduct .table_cell:nth-child(2),
 ::ng-deep #tableProduct .table_th:nth-child(2),
 ::ng-deep #tableProduct .table_td:nth-child(2) {
-  padding: 0;
+  padding: 0.25rem;
   width: 40%;
 }
 

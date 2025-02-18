@@ -50,12 +50,17 @@
 .some_products ul {
   margin: 0;
   max-height: 100% !important;
-  color: var(--color3-2);
   padding: 1rem;
 }
 
 .some_products li {
   cursor: pointer;
+  color: var(--color3-2);
+}
+
+a {
+  text-decoration: none;
+  color: var(--color3-2);
 }
 
 .some_products img {

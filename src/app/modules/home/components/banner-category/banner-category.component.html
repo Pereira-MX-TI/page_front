@@ -11,12 +11,14 @@
         [title]="itrCategory.title"
         [src]="itrCategory.url_img"
       />
-      <button
-        type="button"
-        mat-stroked-button
-        (click)="viewCategory(itrCategory.name)"
-      >
-        Ver mas
+      <button type="button" mat-stroked-button>
+        <a
+          (click)="shareDataSearchService.close$.emit()"
+          routerLink="/Productos/Busqueda"
+          [queryParams]="{ data: itrCategory.name }"
+        >
+          Ver mas</a
+        >
       </button>
     </div>
   </div>

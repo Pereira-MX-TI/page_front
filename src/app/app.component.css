@@ -6,6 +6,10 @@
   flex-direction: column;
 }
 
+::ng-deep mat-sidenav {
+  width: 13rem !important;
+}
+
 aside {
   width: 13rem;
   min-height: 100vh;
@@ -39,6 +43,7 @@ p {
   padding: 0;
   font-size: 0.75rem;
   text-align: center;
+  line-height: 1.5;
 }
 
 h1 {

@@ -1,0 +1,39 @@
+<section class="container">
+  @if(platform.isBrowser){
+  <owl-carousel-o [options]="customOptions">
+    @for (itrData of list_item; track itrData){
+    <ng-template carouselSlide>
+      <div class="card">
+        <div class="body-card">
+          <h2>
+            <strong>{{
+              carouselPipe.transform(itrData.nombre, "name-product")
+            }}</strong>
+          </h2>
+          <img
+            onerror="this.src='assets/errors/default.avif'"
+            [title]="itrData.nombre"
+            [src]="carouselPipe.transform(itrData.files, 'image-product')"
+          />
+          <button
+            type="button"
+            mat-stroked-button
+            (click)="viewProduct(itrData)"
+          >
+            Ver mas
+          </button>
+        </div>
+      </div>
+    </ng-template>
+    }
+  </owl-carousel-o>
+  }@else {
+  <ul class="text-hidden">
+    @for (itrData of list_item; track itrData){
+    <li>
+      {{ carouselPipe.transform(itrData.nombre, "name-product") }}
+    </li>
+    }
+  </ul>
+  }
+</section>

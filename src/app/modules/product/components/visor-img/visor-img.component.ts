@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, inject, Input } from '@angular/core';
 import { ProductPipe } from '../../pipes/product.pipe';
-import { SlicePipe } from '@angular/common';
+import Viewer from 'viewerjs';
 
 interface itemImg {
+  id: number | string;
   direccion: string;
   select: boolean;
 }
@@ -13,9 +14,13 @@ interface itemImg {
   styleUrls: ['./visor-img.component.css'],
 })
 export class VisorImgComponent {
+  public elementRef: ElementRef = inject(ElementRef);
+  viewer: any = null;
+
   @Input() set images(res: any[] | undefined) {
     if (!res) return;
 
+    this.listImg = [];
     res.forEach((itr) => {
       this.listImg.push({ ...itr, select: false });
     });
@@ -29,6 +34,7 @@ export class VisorImgComponent {
   listImg: itemImg[] = [];
   productPipe: ProductPipe = new ProductPipe();
   currentImg: itemImg = {
+    id: '',
     direccion: '',
     select: true,
   };
@@ -40,5 +46,19 @@ export class VisorImgComponent {
 
     res.select = true;
     this.currentImg = res;
+  }
+
+  viewImage(elementRef: ElementRef): void {
+    if (!this.currentImg) return;
+
+    const img = elementRef.nativeElement.querySelector(
+      `#img-${this.currentImg.id}`
+    );
+    if (!img) return;
+
+    if (this.viewer) this.viewer.destroy();
+
+    this.viewer = new Viewer(img, { fullscreen: true, toolbar: false });
+    this.viewer.show();
   }
 }
