@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription, zip } from 'rxjs';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ProductPipe } from '../../pipes/product.pipe';
-import {
-  Carousel_item_product,
-  Product,
-} from '../../../../models/carousel_item.model';
+import { Product } from '../../../../models/carousel_item.model';
 import { HttpService } from '../../../../services/http.service';
 import { NavigationService } from '../../../../services/navigation.service';
 import { ShareInformationService } from '../../../../services/share-information.service';
@@ -27,8 +24,6 @@ import { MaterialComponents } from '../../../material/material.module';
 import { MatDialog } from '@angular/material/dialog';
 import { MaintenanceModalComponent } from '../../../error-page/components/maintenance-modal/maintenance-modal.component';
 import { WindowSizeService } from '../../../../services/window-size.service';
-import { Router } from 'express';
-import { CarouselProductsComponent } from '../../../carousel/components/carousel_product/carousel_products.component';
 import { Carousel } from '../../../../models/carousel.model';
 import { CarouselProductsV2Component } from '../../../carousel/components/carousel_product_v2/carousel_products_v2.component';
 
@@ -195,11 +190,18 @@ export class ViewProductComponent {
 
   sharedSocialNetwork(type: 'whatsapp' | 'facebook'): void {
     const currentUrl: string = window.location.href;
+    const productName = this.product?.nombre || 'Consulta este producto';
+    const productDescription =
+      this.product?.description?.detalle || 'Mira más detalles en el enlace.';
 
-    const shareUrl: string =
+    const shareUrl =
       type === 'whatsapp'
-        ? `https://wa.me?text=${currentUrl}`
-        : `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+        ? `https://wa.me/?text=${encodeURIComponent(
+            `${productName} - ${currentUrl}`
+          )}`
+        : `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+            currentUrl
+          )}`;
 
     if (
       'share' in navigator &&
@@ -208,11 +210,11 @@ export class ViewProductComponent {
     ) {
       navigator
         .share({
-          title: this.product?.nombre,
-          text: this.product?.description.detalle,
-          url: shareUrl,
+          title: productName,
+          text: productDescription,
+          url: currentUrl,
         })
-        .catch((error) => console.error('Error sharing:', error));
+        .catch((error) => console.error('Error al compartir:', error));
     } else {
       window.open(shareUrl, '_blank');
     }

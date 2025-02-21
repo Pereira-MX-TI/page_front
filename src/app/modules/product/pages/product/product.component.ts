@@ -48,8 +48,9 @@ export class ProductComponent {
 
   private setMetaTags(): void {
     this.seoService.setTitle('Productos | Medidores de agua');
-    this.seoService.setDescription('Pagina de productos de hidráulicos.');
-
+    this.seoService.setDescription(
+      'Explora nuestra variedad de productos hidráulicos. Soluciones de alta calidad para medición, control y gestión eficiente del agua.'
+    );
     this.seoService.setIndexingFollower(true);
     this.seoService.setCanonicalURL();
   }

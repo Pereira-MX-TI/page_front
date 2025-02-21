@@ -20,6 +20,18 @@ import { SeoService } from '../../../../services/seo.service';
 export class ServiceComponent {
   items: { title: string; list: string[]; url: string }[] = [
     {
+      title: 'Quater: Administración del agua ',
+      list: [
+        'Administración de  consumo condominal',
+        'Proyectos llave en mano',
+        'Comercialización de  medidores de agua',
+        'Gestión de dispositivos  mediante LoRaWAN',
+        'Interconexión informativa  con los organismos',
+        'Y mucho mas',
+      ],
+      url: 'assets/quater/presentation4.avif',
+    },
+    {
       title: 'Instalación de medidores de agua',
       list: [
         'Instalación de micromedidores',
@@ -96,7 +108,7 @@ export class ServiceComponent {
   private setMetaTags(): void {
     this.seoService.setTitle('Servicios | Medidores de agua');
     this.seoService.setDescription(
-      'Pagina de servicios para medidores de agua.'
+      'Descubre nuestros servicios especializados para medidores de agua. Instalación, mantenimiento y soluciones personalizadas para un control eficiente del consumo.'
     );
 
     this.seoService.setIndexingFollower(true);

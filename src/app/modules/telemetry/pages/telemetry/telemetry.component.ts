@@ -75,7 +75,7 @@ export class TelemetryComponent {
   private setMetaTags(): void {
     this.seoService.setTitle('Telemetría | Medidores de agua');
     this.seoService.setDescription(
-      'Pagina de telemetría para medidores de agua.'
+      'Accede a la telemetría avanzada para medidores de agua. Monitorea y gestiona el consumo en tiempo real con precisión y eficiencia.'
     );
 
     this.seoService.setIndexingFollower(true);

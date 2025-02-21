@@ -18,6 +18,7 @@ import { BannerQuotationComponent } from '../../components/banner-quotation/bann
 import { BannerTypeWatermeterComponent } from '../../components/banner-type-watermeter/banner-type-watermeter.component';
 import { BannerSomeProductsComponent } from '../../components/banner-some-products/banner-some-products.component';
 import { SesionStorageService } from '../../../../services/sesion-storage.service';
+import { BannerQuaterComponent } from '../../components/banner-quater/banner-quater.component';
 
 @Component({
   selector: 'home',
@@ -32,6 +33,7 @@ import { SesionStorageService } from '../../../../services/sesion-storage.servic
     BannerQuotationComponent,
     BannerTypeWatermeterComponent,
     BannerSomeProductsComponent,
+    BannerQuaterComponent,
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
@@ -78,7 +80,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private setMetaTags(): void {
     this.seoService.setTitle('Inicio | Medidores de agua');
-    this.seoService.setDescription('Pagina inicio de medidores de agua.');
+    this.seoService.setDescription(
+      'Encuentra los mejores medidores de agua para tu hogar o negocio. Soluciones precisas y confiables para el control del consumo de agua.'
+    );
 
     this.seoService.setIndexingFollower(true);
     this.seoService.setCanonicalURL();

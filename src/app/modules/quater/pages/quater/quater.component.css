@@ -1,0 +1,469 @@
+:host ::ng-deep {
+  --quater-color1-1: #009ee2;
+  --quater-color1-1: #39a935;
+
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+}
+
+.head {
+  width: 100%;
+  height: 7rem;
+  padding: 0.5rem;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.head .logo {
+  width: 10rem;
+  height: 100%;
+  object-fit: cover;
+}
+
+.head ul {
+  margin: 0;
+  margin-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.head li {
+  list-style-type: none;
+}
+
+.head ul img {
+  width: 1rem;
+  height: 1rem;
+  object-fit: contain;
+  margin-right: 1rem;
+}
+
+.space {
+  flex-grow: 10;
+}
+
+section {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color3-1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.presentation {
+  z-index: 5;
+  width: 100%;
+  height: 110vh;
+  background-color: black;
+  position: relative;
+
+  border-top: 0.2rem solid transparent; /* Define el grosor del borde */
+  border-image-source: linear-gradient(to right, #009ee2 70%, #39a935 70%);
+  border-image-slice: 1;
+  box-sizing: border-box;
+}
+
+.presentation h2 {
+  color: white;
+  opacity: 0.8;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.images {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-size: 100% 100%;
+  background-image: url("./../../../../../assets/quater/presentation1.avif");
+  animation: slider 120s ease infinite;
+  position: relative;
+  box-sizing: border-box;
+  opacity: 0.5;
+
+  transition: background-image 1s ease-in-out; /* Suaviza la transición entre imágenes */
+}
+
+@keyframes slider {
+  0% {
+    background-image: url("./../../../../../assets/quater/presentation1.avif");
+  }
+  16.66% {
+    background-image: url("./../../../../../assets/quater/presentation2.avif");
+  }
+  33.33% {
+    background-image: url("./../../../../../assets/quater/presentation3.avif");
+  }
+  50% {
+    background-image: url("./../../../../../assets/quater/presentation4.avif");
+  }
+  66.66% {
+    background-image: url("./../../../../../assets/quater/presentation5.avif");
+  }
+  83.33% {
+    background-image: url("./../../../../../assets/quater/presentation6.avif");
+  }
+  100% {
+    background-image: url("./../../../../../assets/quater/presentation7.avif");
+  }
+}
+
+.borde-color-quater {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+
+  border-bottom: 0.2rem solid transparent; /* Define el grosor del borde */
+  border-image-source: linear-gradient(to right, #009ee2 70%, #39a935 70%);
+  border-image-slice: 1;
+}
+
+.us_info {
+  z-index: 10;
+  position: relative;
+  top: -5rem;
+  padding: 2rem;
+  width: 50%;
+  min-width: 30rem;
+  text-align: justify;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.75);
+  background-color: white;
+}
+
+.us_info h4 {
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+h3 {
+  opacity: 0.9;
+  font-size: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.comprehensive_solutions {
+  margin-top: 2rem;
+  width: 75%;
+}
+
+.comprehensive_solutions .items {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-auto-rows: 20rem;
+  justify-items: center; /* Centra los elementos horizontalmente dentro de cada celda */
+  align-items: center;
+}
+
+.items div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.items img {
+  width: 10rem;
+  height: 10rem;
+  object-fit: contain;
+}
+
+.items p {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.container_problem_solution {
+  width: 100%;
+  height: 45rem;
+}
+
+.problem_solution {
+  width: 75%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: 3fr 3fr;
+  justify-items: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+.problem_solution .item {
+  background-color: white;
+  border-radius: 1rem;
+  width: 75%;
+  padding: 2rem;
+  -webkit-box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.75);
+  box-sizing: border-box;
+}
+
+.problem_solution .item:nth-of-type(2) {
+  -webkit-box-shadow: 0px 0px 26px 0px rgb(57, 169, 53, 0.75);
+  -moz-box-shadow: 0px 0px 26px 0px rgb(57, 169, 53, 0.75);
+  box-shadow: 0px 0px 26px 0px rgb(57, 169, 53, 0.75);
+}
+
+.borde-color-quater strong {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.borde-color-quater strong:nth-of-type(2) {
+  font-size: 3.5rem;
+}
+
+.borde-color-quater label {
+  font-size: 1.25rem;
+  color: var(--quater-color1-1);
+}
+
+.problem_solution img {
+  margin-top: 1rem;
+  width: 100%;
+  height: 25rem;
+  object-fit: contain;
+}
+
+.more_info {
+  margin-top: 3rem;
+  width: 75%;
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  background-color: white;
+}
+
+.more_info .item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.more_info p {
+  text-align: justify;
+  margin: 0;
+}
+
+.more_info img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.how_it_works {
+  margin-top: 3rem;
+  height: 40rem;
+  width: 100%;
+  background-image: url("./../../../../../assets/quater/how_it_works.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  box-sizing: border-box;
+}
+
+.how_it_works div {
+  width: 75%;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.75);
+  background-color: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.how_it_works img {
+  width: 100%;
+  flex-grow: 10;
+  object-fit: contain;
+}
+
+.desktop {
+  display: none;
+}
+
+@media screen and (max-width: 549px) {
+  .head ul {
+    margin-right: 0;
+  }
+
+  .head li label {
+    display: none;
+  }
+
+  .presentation {
+    height: 90vh;
+  }
+
+  .presentation h2 {
+    font-size: 2rem;
+    line-height: 1.5;
+  }
+
+  .us_info {
+    width: 90%;
+    min-width: auto;
+  }
+
+  .us_info h4 {
+    font-size: 1.25rem;
+    margin-top: 3rem;
+  }
+
+  .comprehensive_solutions {
+    margin-top: 2rem;
+    width: 90%;
+  }
+
+  .comprehensive_solutions .items {
+    grid-template-columns: 3fr 3fr;
+  }
+
+  .items img {
+    width: 7rem;
+    height: 7rem;
+  }
+
+  .items p {
+    font-size: 0.75rem;
+  }
+
+  .container_problem_solution {
+    height: 80rem;
+  }
+
+  .more_info,
+  .problem_solution {
+    width: 90%;
+    grid-template-columns: 6fr;
+  }
+
+  .problem_solution .item {
+    width: 100%;
+  }
+
+  .how_it_works {
+    height: 30rem;
+  }
+
+  .how_it_works .info {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 550px) and (max-width: 767px) {
+  .head ul {
+    margin-right: 0;
+  }
+  .head li label {
+    display: none;
+  }
+  .presentation {
+    height: 90vh;
+  }
+
+  .items img {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+
+  .items p {
+    font-size: 0.85rem;
+  }
+
+  .comprehensive_solutions {
+    margin-top: 2rem;
+    width: 90%;
+  }
+
+  .comprehensive_solutions .items {
+    grid-template-columns: 3fr 3fr;
+  }
+
+  .container_problem_solution {
+    height: 80rem;
+  }
+
+  .problem_solution {
+    width: 90%;
+    grid-template-columns: 6fr;
+  }
+
+  .problem_solution .item {
+    width: 100%;
+  }
+
+  .more_info {
+    width: 90%;
+    grid-template-columns: 6fr;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .comprehensive_solutions {
+    margin-top: 2rem;
+    width: 90%;
+  }
+
+  .comprehensive_solutions .items {
+    grid-template-columns: 3fr 3fr;
+  }
+
+  .container_problem_solution {
+    height: 80rem;
+  }
+
+  .problem_solution {
+    width: 90%;
+    grid-template-columns: 6fr;
+  }
+
+  .problem_solution .item {
+    width: 100%;
+  }
+
+  .more_info {
+    width: 90%;
+    grid-template-columns: 6fr;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .movil {
+    display: none;
+  }
+
+  .desktop {
+    display: block;
+  }
+}

@@ -15,6 +15,10 @@
   background-color: var(--color3-1);
 }
 
+.carousel-publicity {
+  height: 80vh;
+}
+
 .carousel_product {
   background-color: var(--color3-2);
   border-top: solid 2rem var(--color3-2);
@@ -23,9 +27,8 @@
 
 @media screen and (max-width: 549px) {
   .carousel-publicity {
-    height: 20rem;
+    height: 60vh;
   }
-
   .carousel_product {
     height: 35rem;
   }
@@ -33,7 +36,7 @@
 
 @media screen and (min-width: 550px) and (max-width: 767px) {
   .carousel-publicity {
-    height: 25rem;
+    height: 60vh;
   }
 
   .carousel_product {
@@ -42,20 +45,12 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-  .carousel-publicity {
-    height: 30rem;
-  }
-
   .carousel_product {
     height: 30rem;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .carousel-publicity {
-    height: 30rem;
-  }
-
   .carousel_product {
     height: 30rem;
   }

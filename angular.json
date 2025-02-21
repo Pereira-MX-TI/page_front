@@ -28,7 +28,16 @@
               {
                 "glob": "**/*",
                 "input": "public"
-
+              },
+              {
+                "glob": "robots.txt",
+                "input": "src/assets",
+                "output": "/"
+              },
+              {
+                  "glob": "sitemap.xml",
+                  "input": "src/assets",
+                  "output": "/"
               }
             ],
             "styles": [
@@ -77,10 +86,13 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "page-front:build:production"
+              "buildTarget": "page-front:build:production",
+              "headers": {"X-Frame-Options": "deny"}
+
             },
             "development": {
-              "buildTarget": "page-front:build:development"
+              "buildTarget": "page-front:build:development",
+              "headers": {"X-Frame-Options": "deny"}
             }
           },
           "defaultConfiguration": "development"
