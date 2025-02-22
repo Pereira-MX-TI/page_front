@@ -22,32 +22,32 @@ export class BannerCategoryComponent {
   categories: { name: string; url_img: string; title: string }[] = [
     {
       name: 'Conexiones',
-      url_img: './../../../../../assets/products/conections_all.avif',
+      url_img: './assets/products/conections_all/',
       title: 'conexiones pvc, cpvc, ppr, galvanizado',
     },
     {
       name: 'Medidores de agua',
-      url_img: './../../../../../assets/products/water_meter_all.avif',
+      url_img: './assets/products/water_meter_all/',
       title: 'Medidores de agua',
     },
     {
       name: 'Válvulas',
-      url_img: './../../../../../assets/products/valves_all.avif',
+      url_img: './assets/products/valves_all/',
       title: 'Válvulas para agua',
     },
     {
       name: 'Adhesivos',
-      url_img: './../../../../../assets/products/adhesive_all.avif',
+      url_img: './assets/products/adhesive_all/',
       title: 'Pegamentos, cintas, teflones',
     },
     {
       name: 'Kits',
-      url_img: './../../../../../assets/products/kit_all.avif',
+      url_img: './assets/products/kit_all/',
       title: 'kit plástico, bronce y empaques',
     },
     {
       name: 'Otros',
-      url_img: './../../../../../assets/products/another_all.avif',
+      url_img: './assets/products/another_all/',
       title: 'cajas de banqueta, geofonos, segurisellos',
     },
   ];

@@ -60,6 +60,7 @@
           },
           "configurations": {
             "production": {
+              "index": "src/index.html",
               "budgets": [
                 {
                   "type": "initial",
@@ -75,6 +76,7 @@
               "outputHashing": "all"
             },
             "development": {
+              "index": "src/index_dev.html",
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true

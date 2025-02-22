@@ -1,4 +1,5 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
 import { CarouselPipe } from '../../pipes/carousel.pipe';
 import { NavigationService } from '../../../../services/navigation.service';
 import { Carousel_item_publicity } from '../../../../models/carousel_item.model';
@@ -9,7 +10,7 @@ import { Platform } from '@angular/cdk/platform';
 @Component({
   selector: 'app-carousel-images',
   standalone: true,
-  imports: [CarouselModule],
+  imports: [NgOptimizedImage, CarouselModule],
   templateUrl: './carousel_images.component.html',
   styleUrls: ['./carousel_images.component.css'],
 })

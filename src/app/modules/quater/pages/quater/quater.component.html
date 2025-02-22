@@ -106,7 +106,20 @@
             id="img-problem_example"
             (click)="viewImage(elementRef, '#img-problem_example')"
             alt="ejemplo de problema"
-            src="assets/quater/problem_example.avif"
+            srcset="
+              ./assets/quater/problem_example/320.avif   320w,
+              ./assets/quater/problem_example/480.avif   480w,
+              ./assets/quater/problem_example/800.avif   800w,
+              ./assets/quater/problem_example/1200.avif 1200w
+            "
+            sizes="
+                (max-width: 320px) 320px,
+                (max-width: 480px) 480px,
+                (max-width: 800px) 800px,
+                1200px
+              "
+            loading="lazy"
+            priority
           />
         </div>
 
@@ -119,7 +132,20 @@
             id="img-solution_example"
             (click)="viewImage(elementRef, '#img-solution_example')"
             alt="ejemplo de solución de problema"
-            src="assets/quater/solution_example.avif"
+            srcset="
+              ./assets/quater/solution_example/320.avif   320w,
+              ./assets/quater/solution_example/480.avif   480w,
+              ./assets/quater/solution_example/800.avif   800w,
+              ./assets/quater/solution_example/1200.avif 1200w
+            "
+            sizes="
+              (max-width: 320px) 320px,
+              (max-width: 480px) 480px,
+              (max-width: 800px) 800px,
+              1200px
+            "
+            loading="lazy"
+            priority
           />
         </div>
       </div>
@@ -148,7 +174,20 @@
         id="img-beneficios"
         (click)="viewImage(elementRef, '#img-beneficios')"
         alt="imagen de beneficios"
-        src="assets/quater/benefits.avif"
+        srcset="
+          ./assets/quater/benefits/320.avif   320w,
+          ./assets/quater/benefits/480.avif   480w,
+          ./assets/quater/benefits/800.avif   800w,
+          ./assets/quater/benefits/1200.avif 1200w
+        "
+        sizes="
+          (max-width: 320px) 320px,
+          (max-width: 480px) 480px,
+          (max-width: 800px) 800px,
+          1200px
+        "
+        loading="lazy"
+        priority
       />
     </div>
   </div>
@@ -163,14 +202,40 @@
         (click)="viewImage(elementRef, '#img-funcionamiento-desktop')"
         class="desktop"
         alt="funcionamiento"
-        src="assets/quater/how_it_works_example.avif"
+        srcset="
+          ./assets/quater/how_it_works_example/320.avif   320w,
+          ./assets/quater/how_it_works_example/480.avif   480w,
+          ./assets/quater/how_it_works_example/800.avif   800w,
+          ./assets/quater/how_it_works_example/1200.avif 1200w
+        "
+        sizes="
+        (max-width: 320px) 320px,
+        (max-width: 480px) 480px,
+        (max-width: 800px) 800px,
+        1200px
+      "
+        loading="lazy"
+        priority
       />
       <img
         id="img-funcionamiento-movil"
         (click)="viewImage(elementRef, '#img-funcionamiento-movil')"
         class="movil"
         alt="funcionamiento"
-        src="assets/quater/how_it_works_example_movil.avif"
+        srcset="
+          ./assets/quater/how_it_works_example_movil/320.avif   320w,
+          ./assets/quater/how_it_works_example_movil/480.avif   480w,
+          ./assets/quater/how_it_works_example_movil/800.avif   800w,
+          ./assets/quater/how_it_works_example_movil/1200.avif 1200w
+        "
+        sizes="
+        (max-width: 320px) 320px,
+        (max-width: 480px) 480px,
+        (max-width: 800px) 800px,
+        1200px
+      "
+        loading="lazy"
+        priority
       />
     </div>
   </div>

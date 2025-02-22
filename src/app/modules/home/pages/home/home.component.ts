@@ -19,6 +19,7 @@ import { BannerTypeWatermeterComponent } from '../../components/banner-type-wate
 import { BannerSomeProductsComponent } from '../../components/banner-some-products/banner-some-products.component';
 import { SesionStorageService } from '../../../../services/sesion-storage.service';
 import { BannerQuaterComponent } from '../../components/banner-quater/banner-quater.component';
+import { Platform } from '@angular/cdk/platform';
 
 @Component({
   selector: 'home',
@@ -52,6 +53,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   listSubscription: Subscription[];
 
   constructor(
+    private platform: Platform,
     private seoService: SeoService,
     private matSnackBar: MatSnackBar,
     private httpService: HttpService,

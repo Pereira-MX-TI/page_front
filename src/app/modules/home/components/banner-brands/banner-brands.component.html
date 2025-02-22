@@ -7,9 +7,21 @@
       [queryParams]="{ data: 'alfa' }"
     >
       <img
-        loading="lazy"
-        src="./../../../../../assets/logos/alfa.avif"
+        srcset="
+          ./assets/logos/alfa/320.avif   320w,
+          ./assets/logos/alfa/480.avif   480w,
+          ./assets/logos/alfa/800.avif   800w,
+          ./assets/logos/alfa/1200.avif 1200w
+        "
+        sizes="
+          (max-width: 320px) 320px,
+          (max-width: 480px) 480px,
+          (max-width: 800px) 800px,
+          1200px
+        "
         alt="materiales para medidores de agua alfa"
+        loading="lazy"
+        priority
     /></a>
   </span>
   <span>
@@ -19,9 +31,21 @@
       [queryParams]="{ data: 'itron' }"
     >
       <img
-        loading="lazy"
-        src="./../../../../../assets/logos/itron.avif"
+        srcset="
+          ./assets/logos/itron/320.avif   320w,
+          ./assets/logos/itron/480.avif   480w,
+          ./assets/logos/itron/800.avif   800w,
+          ./assets/logos/itron/1200.avif 1200w
+        "
+        sizes="
+          (max-width: 320px) 320px,
+          (max-width: 480px) 480px,
+          (max-width: 800px) 800px,
+          1200px
+        "
         alt="medidores para agua itron"
+        loading="lazy"
+        priority
     /></a>
   </span>
   <span>
@@ -31,9 +55,21 @@
       [queryParams]="{ data: 'accell' }"
     >
       <img
-        loading="lazy"
-        src="./../../../../../assets/logos/accell.avif"
+        srcset="
+          ./assets/logos/accell/320.avif   320w,
+          ./assets/logos/accell/480.avif   480w,
+          ./assets/logos/accell/800.avif   800w,
+          ./assets/logos/accell/1200.avif 1200w
+        "
+        sizes="
+          (max-width: 320px) 320px,
+          (max-width: 480px) 480px,
+          (max-width: 800px) 800px,
+          1200px
+        "
         alt="medidores para agua accell"
+        loading="lazy"
+        priority
     /></a>
   </span>
   <span>
@@ -43,9 +79,21 @@
       [queryParams]="{ data: 'miller' }"
     >
       <img
-        loading="lazy"
-        src="./../../../../../assets/logos/miller.avif"
+        srcset="
+          ./assets/logos/miller/320.avif   320w,
+          ./assets/logos/miller/480.avif   480w,
+          ./assets/logos/miller/800.avif   800w,
+          ./assets/logos/miller/1200.avif 1200w
+        "
+        sizes="
+          (max-width: 320px) 320px,
+          (max-width: 480px) 480px,
+          (max-width: 800px) 800px,
+          1200px
+        "
         alt="válvulas miller"
+        loading="lazy"
+        priority
     /></a>
   </span>
 </div>

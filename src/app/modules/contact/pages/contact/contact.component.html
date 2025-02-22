@@ -11,12 +11,25 @@
     </div>
     <div class="address">
       <img
-        class="city"
+        srcset="
+          ./assets/contact/arcos_qro/320.avif   320w,
+          ./assets/contact/arcos_qro/480.avif   480w,
+          ./assets/contact/arcos_qro/800.avif   800w,
+          ./assets/contact/arcos_qro/1200.avif 1200w
+        "
+        sizes="
+            (max-width: 320px) 320px,
+            (max-width: 480px) 480px,
+            (max-width: 800px) 800px,
+            1200px
+          "
+        loading="lazy"
+        priority
         alt="medidores de agua en Queretaro"
-        src="assets/general/arcos_qro.avif"
+        class="city"
       />
 
-      <h2>Sucursal <strong>Queretaro</strong></h2>
+      <h2>Sucursal <strong>Querétaro</strong></h2>
       <ul>
         <li>
           <img
@@ -58,9 +71,22 @@
     </div>
     <div class="address">
       <img
+        srcset="
+          ./assets/contact/cathedral_puebla/320.avif   320w,
+          ./assets/contact/cathedral_puebla/480.avif   480w,
+          ./assets/contact/cathedral_puebla/800.avif   800w,
+          ./assets/contact/cathedral_puebla/1200.avif 1200w
+        "
+        sizes="
+      (max-width: 320px) 320px,
+      (max-width: 480px) 480px,
+      (max-width: 800px) 800px,
+      1200px
+    "
+        loading="lazy"
+        priority
         class="city"
         alt="medidores de agua en puebla"
-        src="assets/general/cathedral_puebla.avif"
       />
 
       <h2>Sucursal <strong>Puebla</strong></h2>

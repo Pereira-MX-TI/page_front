@@ -7,9 +7,25 @@
       </h3>
 
       <img
+        [srcset]="
+          itrCategory.url_img +
+          '320.avif   320w,' +
+          itrCategory.url_img +
+          '480.avif   480w,' +
+          itrCategory.url_img +
+          '800.avif   800w,' +
+          itrCategory.url_img +
+          '1200.avif 1200w'
+        "
+        sizes="
+          (max-width: 320px) 320px,
+          (max-width: 480px) 480px,
+          (max-width: 800px) 800px,
+          1200px
+        "
+        [alt]="itrCategory.title"
         loading="lazy"
-        [title]="itrCategory.title"
-        [src]="itrCategory.url_img"
+        priority
       />
       <button type="button" mat-stroked-button>
         <a

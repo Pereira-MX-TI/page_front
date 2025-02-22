@@ -84,7 +84,7 @@ section {
   height: 100%;
   overflow: hidden;
   background-size: 100% 100%;
-  background-image: url("./../../../../../assets/quater/presentation1.avif");
+  /* background-image: url("./../../../../../assets/quater/presentation1/800.avif"); */
   animation: slider 120s ease infinite;
   position: relative;
   box-sizing: border-box;
@@ -93,29 +93,29 @@ section {
   transition: background-image 1s ease-in-out; /* Suaviza la transición entre imágenes */
 }
 
-@keyframes slider {
+/* @keyframes slider {
   0% {
-    background-image: url("./../../../../../assets/quater/presentation1.avif");
+    background-image: url("./../../../../../assets/quater/presentation1/800.avif");
   }
   16.66% {
-    background-image: url("./../../../../../assets/quater/presentation2.avif");
+    background-image: url("./../../../../../assets/quater/presentation2/800.avif");
   }
   33.33% {
-    background-image: url("./../../../../../assets/quater/presentation3.avif");
+    background-image: url("./../../../../../assets/quater/presentation3/800.avif");
   }
   50% {
-    background-image: url("./../../../../../assets/quater/presentation4.avif");
+    background-image: url("./../../../../../assets/quater/presentation4/800.avif");
   }
   66.66% {
-    background-image: url("./../../../../../assets/quater/presentation5.avif");
+    background-image: url("./../../../../../assets/quater/presentation5/800.avif");
   }
   83.33% {
-    background-image: url("./../../../../../assets/quater/presentation6.avif");
+    background-image: url("./../../../../../assets/quater/presentation6/800.avif");
   }
   100% {
-    background-image: url("./../../../../../assets/quater/presentation7.avif");
+    background-image: url("./../../../../../assets/quater/presentation7/800.avif");
   }
-}
+} */
 
 .borde-color-quater {
   padding-bottom: 1rem;
@@ -276,7 +276,7 @@ h3 {
   margin-top: 3rem;
   height: 40rem;
   width: 100%;
-  background-image: url("./../../../../../assets/quater/how_it_works.png");
+  background-image: url("./../../../../../assets/quater/how_it_works/800.avif");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

@@ -29,7 +29,7 @@ export class ServiceComponent {
         'Interconexión informativa  con los organismos',
         'Y mucho mas',
       ],
-      url: 'assets/quater/presentation4.avif',
+      url: 'assets/quater/presentation4/',
     },
     {
       title: 'Instalación de medidores de agua',
@@ -40,7 +40,7 @@ export class ServiceComponent {
         'Reparación de toma',
         'Y mucho mas',
       ],
-      url: 'assets/general/water_meter_installation.avif',
+      url: 'assets/services/water_meter_installation/',
     },
     {
       title: 'Prueba de medidores de agua',
@@ -52,7 +52,7 @@ export class ServiceComponent {
         'Caudal de transición',
         'Y mucho mas',
       ],
-      url: 'assets/general/test_bench.avif',
+      url: 'assets/services/test_bench/',
     },
     {
       title: 'Capacitación',
@@ -63,7 +63,7 @@ export class ServiceComponent {
         'Gestión',
         'Y mucho mas',
       ],
-      url: 'assets/general/training.avif',
+      url: 'assets/services/training/',
     },
     {
       title: 'Venta de productos hidráulicos',
@@ -75,7 +75,7 @@ export class ServiceComponent {
         'Pegamentos',
         'Y mucho mas',
       ],
-      url: 'assets/products/products_all.avif',
+      url: 'assets/products/products_all/',
     },
     {
       title: 'Implementación telemetría',
@@ -86,7 +86,7 @@ export class ServiceComponent {
         'Configuración de gateways',
         'Y mucho mas',
       ],
-      url: 'assets/general/telemetria.avif',
+      url: 'assets/telemetry/principal/',
     },
     {
       title: 'Detección de fugas',
@@ -95,7 +95,7 @@ export class ServiceComponent {
         'Pruebas de presión y hermeticidad',
         'Y muchos mas',
       ],
-      url: 'assets/general/leakage.avif',
+      url: 'assets/services/leakage/',
     },
   ];
 

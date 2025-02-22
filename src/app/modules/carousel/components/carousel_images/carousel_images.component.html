@@ -4,11 +4,12 @@
     @for (itrData of list_item; track itrData){
     <ng-template carouselSlide>
       <img
-        loading="lazy"
         (click)="navigateLink(itrData.link)"
         [src]="carouselPipe.transform(itrData, 'image-publicity')"
         [alt]="itrData.id"
         onerror="this.src='assets/errors/default.avif'"
+        loading="eager"
+        priority
       />
     </ng-template>
     }

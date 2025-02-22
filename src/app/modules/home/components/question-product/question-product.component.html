@@ -1,8 +1,20 @@
 <div class="question_product">
   <img
-    loading="lazy"
-    src="./../../../../../assets/products/water_meters_question.avif"
+    srcset="
+      ./assets/products/water_meters_question/320.avif   320w,
+      ./assets/products/water_meters_question/480.avif   480w,
+      ./assets/products/water_meters_question/800.avif   800w,
+      ./assets/products/water_meters_question/1200.avif 1200w
+    "
+    sizes="
+      (max-width: 320px) 320px,
+      (max-width: 480px) 480px,
+      (max-width: 800px) 800px,
+      1200px
+    "
     alt="medidores de agua"
+    loading="lazy"
+    priority
   />
   <h2>
     ¿No estás seguro de qué <strong>medidor de agua</strong> necesitas?<br />
