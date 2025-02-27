@@ -30,6 +30,13 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'MedidorDeAgua',
+        loadChildren: () =>
+          import('./modules/water-meter/water-meter-routing.module').then(
+            (m) => m.WaterMeterRoutes
+          ),
+      },
+      {
         path: 'Servicios',
         loadChildren: () =>
           import('./modules/service/service-routing.module').then(

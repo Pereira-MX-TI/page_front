@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CryptoService } from './crypto.service';
 import { environment } from '../../environments/environment';
@@ -114,5 +114,15 @@ export class HttpService {
 
   getIpAddress(): Observable<any> {
     return this.httpClient.get<any>('https://api.ipify.org/?format=json');
+  }
+
+  sitemap(): Observable<string> {
+    const headers = new HttpHeaders({
+      Accept: 'application/xml',
+    });
+    return this.httpClient.get<string>(`${environment.API_URI}sitemap`, {
+      headers,
+      responseType: 'text' as 'json',
+    });
   }
 }

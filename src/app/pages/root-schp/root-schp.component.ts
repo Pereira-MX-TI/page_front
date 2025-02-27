@@ -28,7 +28,7 @@ import { checkOptionCurrentNav } from '../../functions/check_option_current_nav.
 export class RootSchpComponent {
   @ViewChild('sideNav', { static: true }) sideNav: any;
 
-  title = 'Medidores para agua';
+  title = 'Venta de medidores de agua - Schp';
   listSubscription: Subscription[] = [new Subscription()];
   sideNavStatus: boolean = false;
   currentYear: number = new Date().getFullYear();
@@ -57,6 +57,10 @@ export class RootSchpComponent {
   }
 
   private subscribeNavigation(): void {
+    this.selectOptionNavObservable.updateData(
+      checkOptionCurrentNav(this.router.url)
+    );
+
     this.listSubscription[1] = this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.selectOptionNavObservable.updateData(

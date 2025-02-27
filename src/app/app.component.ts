@@ -14,7 +14,7 @@ import { ViewportScroller } from '@angular/common';
 export class AppComponent {
   @ViewChild('sideNav', { static: true }) sideNav: any;
 
-  title = 'Medidores para agua';
+  title = 'Venta de medidores de agua - Schp';
   listSubscription: Subscription[] = [new Subscription()];
   sideNavStatus: boolean = false;
   currentYear: number = new Date().getFullYear();
@@ -25,8 +25,9 @@ export class AppComponent {
     private viewportScroller: ViewportScroller
   ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     if (this.platform.isBrowser) {
+      const AOS = (await import('aos')).default;
       AOS.init();
     }
 

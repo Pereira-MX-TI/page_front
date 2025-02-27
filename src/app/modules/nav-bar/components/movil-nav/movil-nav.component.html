@@ -4,23 +4,54 @@
       [class]="selectOption.home ? 'li_active' : ''"
       (click)="shareInformationService.sideNav$.emit()"
     >
-      <a routerLink="/Inicio">
+      <a title="Inicio" routerLink="/Inicio">
         <img
           loading="lazy"
           src="./../../../../../assets/icons/home_icon.svg"
+          title="inicio"
           alt="inicio"
         />
         <h2>Inicio</h2></a
       >
     </li>
     <li
+      [class]="selectOption.water_meter ? 'li_active' : ''"
+      (click)="shareInformationService.sideNav$.emit()"
+    >
+      <a title="Medidor de agua" routerLink="/MedidorDeAgua">
+        <img
+          loading="lazy"
+          src="./../../../../../assets/icons/water-meter-icon.svg"
+          title="Medidores de agua"
+          alt="Medidores de agua"
+        />
+        <h2>Medidores de agua</h2></a
+      >
+    </li>
+    <li
+      [class]="selectOption.telemetry ? 'li_active' : ''"
+      (click)="shareInformationService.sideNav$.emit()"
+    >
+      <a title="telemetría" routerLink="/Telemetria">
+        <img
+          loading="lazy"
+          src="./../../../../../assets/icons/networking_icon.svg"
+          title="telemetría"
+          alt="telemetría"
+        />
+        <h2>Telemetría</h2></a
+      >
+    </li>
+
+    <li
       [class]="selectOption.product ? 'li_active' : ''"
       (click)="shareInformationService.sideNav$.emit()"
     >
-      <a routerLink="/Productos">
+      <a title="productos" routerLink="/Productos">
         <img
           loading="lazy"
           src="./../../../../../assets/icons/product_icon.svg"
+          title="productos"
           alt="productos"
         />
         <h2>Productos</h2></a
@@ -30,36 +61,26 @@
       [class]="selectOption.service ? 'li_active' : ''"
       (click)="shareInformationService.sideNav$.emit()"
     >
-      <a routerLink="/Servicios">
+      <a title="servicios" routerLink="/Servicios">
         <img
           loading="lazy"
           src="./../../../../../assets/icons/service_icon.svg"
+          title="servicios"
           alt="servicios"
         />
         <h2>Servicios</h2></a
       >
     </li>
-    <li
-      [class]="selectOption.telemetry ? 'li_active' : ''"
-      (click)="shareInformationService.sideNav$.emit()"
-    >
-      <a routerLink="/Telemetria">
-        <img
-          loading="lazy"
-          src="./../../../../../assets/icons/networking_icon.svg"
-          alt="telemetría"
-        />
-        <h2>Telemetría</h2></a
-      >
-    </li>
+
     <li
       [class]="selectOption.contact ? 'li_active' : ''"
       (click)="shareInformationService.sideNav$.emit()"
     >
-      <a routerLink="/Contacto">
+      <a title="contacto" routerLink="/Contacto">
         <img
           loading="lazy"
           src="./../../../../../assets/icons/contact_icon.svg"
+          title="contacto"
           alt="contacto"
         />
         <h2>Contacto</h2></a

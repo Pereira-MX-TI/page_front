@@ -76,7 +76,7 @@ export class ResultSearchProductComponent implements OnInit, OnDestroy {
   }
 
   private setMetaTags(): void {
-    this.seoService.setTitle('Productos | Medidores de agua');
+    this.seoService.setTitle('Productos | Venta de medidores de agua');
     this.seoService.setDescription(
       'Encuentra los mejores productos hidráulicos para sistemas de agua. Innovación y eficiencia en soluciones de medición, control y distribución.'
     );

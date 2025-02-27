@@ -6,6 +6,7 @@
       @switch (checkViewCell(indexColumn)) { @case ("img") {
       <img
         onerror="this.src='assets/errors/default.avif'"
+        [title]="pipeData.transform(element, 'nameProduct')"
         [alt]="pipeData.transform(element, 'nameProduct')"
         [src]="pipeData.transform(element, column)"
         class="img_td"

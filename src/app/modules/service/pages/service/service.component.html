@@ -9,13 +9,13 @@
       <img
         [srcset]="
           itrItem.url +
-          '320.avif   320w,' +
+          '-320.avif   320w,' +
           itrItem.url +
-          '480.avif   480w,' +
+          '-480.avif   480w,' +
           itrItem.url +
-          '800.avif   800w,' +
+          '-800.avif   800w,' +
           itrItem.url +
-          '1200.avif 1200w'
+          '-1200.avif 1200w'
         "
         sizes="
           (max-width: 320px) 320px,
@@ -23,7 +23,10 @@
           (max-width: 800px) 800px,
           1200px
         "
+        [title]="itrItem.title"
         [alt]="itrItem.title"
+        loading="lazy"
+        priority
         onerror="this.src='assets/errors/default.avif'"
       />
       <div class="description">

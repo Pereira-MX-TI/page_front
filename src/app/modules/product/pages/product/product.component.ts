@@ -47,7 +47,7 @@ export class ProductComponent {
   }
 
   private setMetaTags(): void {
-    this.seoService.setTitle('Productos | Medidores de agua');
+    this.seoService.setTitle('Productos | Venta de medidores de agua');
     this.seoService.setDescription(
       'Explora nuestra variedad de productos hidráulicos. Soluciones de alta calidad para medición, control y gestión eficiente del agua.'
     );
@@ -100,7 +100,7 @@ export class ProductComponent {
       },
       (err) => {
         this.shareInformationService.viewLoading$.emit(false);
-        this.matSnackBar.open('Error obtener carrusel', '', {
+        this.matSnackBar.open('Error obtener datos', '', {
           duration: 2500,
           panelClass: ['snackBar_error'],
         });

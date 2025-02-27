@@ -65,7 +65,7 @@ export class FiltersProductComponent {
       },
       (err) => {
         this.shareInformationService.viewLoading$.emit(false);
-        this.matSnackBar.open('Error obtener carrusel', '', {
+        this.matSnackBar.open('Error obtener datos', '', {
           duration: 2500,
           panelClass: ['snackBar_error'],
         });

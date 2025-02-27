@@ -1,0 +1,59 @@
+<section class="container_problem_solution">
+  <app-background-1>
+    <div class="problem_solution">
+      <div class="item" data-aos="zoom-in">
+        <h3 class="borde-color-quater">
+          <strong>Problema</strong><br /><strong>Actualidad</strong>
+        </h3>
+        <img
+          id="img-problem_example"
+          (click)="viewImage(elementRef, '#img-problem_example')"
+          title="problema administración del agua"
+          alt="problema administración del agua"
+          srcset="
+            ./assets/quater/problema-administración-del-agua/problema-administración-del-agua-320.avif   320w,
+            ./assets/quater/problema-administración-del-agua/problema-administración-del-agua-480.avif   480w,
+            ./assets/quater/problema-administración-del-agua/problema-administración-del-agua-800.avif   800w,
+            ./assets/quater/problema-administración-del-agua/problema-administración-del-agua-1200.avif 1200w
+          "
+          sizes="
+                (max-width: 320px) 320px,
+                (max-width: 480px) 480px,
+                (max-width: 800px) 800px,
+                1200px
+              "
+          src="./assets/quater/problema-administración-del-agua/problema-administración-del-agua-800.avif"
+          loading="lazy"
+          priority
+        />
+      </div>
+
+      <div class="item" data-aos="zoom-in">
+        <h3 class="borde-color-quater">
+          <strong>Solución</strong><br /><strong>uater</strong
+          ><label>SISTEM</label>
+        </h3>
+        <img
+          id="img-solution_example"
+          (click)="viewImage(elementRef, '#img-solution_example')"
+          title="solución problema administración del agua"
+          alt="solución problema administración del agua"
+          srcset="
+            ./assets/quater/solución-problema-administración-del-agua/solución-problema-administración-del-agua-320.avif   320w,
+            ./assets/quater/solución-problema-administración-del-agua/solución-problema-administración-del-agua-480.avif   480w,
+            ./assets/quater/solución-problema-administración-del-agua/solución-problema-administración-del-agua-800.avif   800w,
+            ./assets/quater/solución-problema-administración-del-agua/solución-problema-administración-del-agua-1200.avif 1200w
+          "
+          sizes="
+              (max-width: 320px) 320px,
+              (max-width: 480px) 480px,
+              (max-width: 800px) 800px,
+              1200px
+            "
+          loading="lazy"
+          priority
+        />
+      </div>
+    </div>
+  </app-background-1>
+</section>

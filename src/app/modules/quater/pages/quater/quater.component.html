@@ -1,18 +1,24 @@
 <section class="container" [@fadeInOut]>
   <div class="head">
     <img
+      title="logo quater"
       alt="logo quater"
       class="logo"
       src="assets/quater/quater_logo_desktop.svg"
     />
     <label class="space"></label>
     <ul>
-      <li>
-        <img alt="icono teléfono" src="assets/quater/phone-icon.svg" />
+      <li (click)="openInfo('phone')">
+        <img
+          title="icono teléfono"
+          alt="icono teléfono"
+          src="assets/quater/phone-icon.svg"
+        />
         <label>2228947194</label>
       </li>
-      <li>
+      <li (click)="openInfo('email')">
         <img
+          title="icono correo electrónico"
           alt="icono correo electrónico"
           src="assets/quater/email-icon.svg"
         />
@@ -21,222 +27,13 @@
     </ul>
   </div>
 
-  <div class="presentation">
-    <div class="images"></div>
-    <h2 data-aos="zoom-in-up" data-aos-duration="3000">
-      <strong>La nueva forma de administrar el agua</strong>
-    </h2>
-  </div>
+  <app-presentation></app-presentation>
 
-  <div class="us_info" data-aos="fade-up" data-aos-duration="1500">
-    <h3 class="borde-color-quater"><strong>Nosotros</strong></h3>
-    <p>
-      Somos una empresa dedicada a la creación de soluciones integrales,
-      aprovechando de manera eficiente los recursos mediante el uso de
-      tecnología de punta y herramientas que dan paso a la transparencia en la
-      administración de consumos. <br /><br />Más de 25 años de experiencia en
-      la industria respaldan nuestra metodología y conocimiento en la gestión
-      proyectos relacionados a la hidrometría.
-    </p>
+  <app-us-info></app-us-info>
+  <app-comprehensive-solutions></app-comprehensive-solutions>
 
-    <h4>Trabajamos en un entorno de <br />enfoque del 100% al consumidor.</h4>
-  </div>
+  <app-container-problem-solution></app-container-problem-solution>
 
-  <div class="comprehensive_solutions">
-    <h3 class="borde-color-quater"><strong>Soluciones integrales</strong></h3>
-    <div class="items">
-      <div data-aos="flip-left" data-aos-duration="1500">
-        <img
-          alt="Administración de consumo condominal"
-          src="assets/quater/condominio-icon.svg"
-        />
-        <p>Administración de <br />consumo condominal</p>
-      </div>
-
-      <div data-aos="flip-right" data-aos-duration="1500">
-        <img
-          alt="Proyectos llave en mano"
-          src="assets/quater/project-icon.svg"
-        />
-        <p>Proyectos llave en mano</p>
-      </div>
-
-      <div data-aos="flip-left" data-aos-duration="1500">
-        <img
-          alt="Gestión de dispositivos mediante LoRaWAN"
-          src="assets/quater/signal-icon.svg"
-        />
-        <p>Gestión de dispositivos <br />mediante LoRaWAN</p>
-      </div>
-
-      <div data-aos="flip-right" data-aos-duration="1500">
-        <img
-          alt="Comercialización de medidores de agua"
-          src="assets/quater/water_meter-icon.svg"
-        />
-        <p>Comercialización de <br />medidores de agua</p>
-      </div>
-
-      <div data-aos="flip-left" data-aos-duration="1500">
-        <img
-          alt="Interconexión informativa con los organismos"
-          src="assets/quater/connection-icon.svg"
-        />
-        <p>Interconexión informativa <br />con los organismos</p>
-      </div>
-
-      <div data-aos="flip-right" data-aos-duration="1500">
-        <img
-          alt="Plataforma de transparencia en consumo y reporteo"
-          src="assets/quater/software-icon.svg"
-        />
-        <p>Plataforma de transparencia <br />en consumo y reporteo</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="container_problem_solution">
-    <app-background-1>
-      <div class="problem_solution">
-        <div class="item" data-aos="zoom-in">
-          <h3 class="borde-color-quater">
-            <strong>Problema</strong><br /><strong>Actualidad</strong>
-          </h3>
-          <img
-            id="img-problem_example"
-            (click)="viewImage(elementRef, '#img-problem_example')"
-            alt="ejemplo de problema"
-            srcset="
-              ./assets/quater/problem_example/320.avif   320w,
-              ./assets/quater/problem_example/480.avif   480w,
-              ./assets/quater/problem_example/800.avif   800w,
-              ./assets/quater/problem_example/1200.avif 1200w
-            "
-            sizes="
-                (max-width: 320px) 320px,
-                (max-width: 480px) 480px,
-                (max-width: 800px) 800px,
-                1200px
-              "
-            loading="lazy"
-            priority
-          />
-        </div>
-
-        <div class="item" data-aos="zoom-in">
-          <h3 class="borde-color-quater">
-            <strong>Solución</strong><br /><strong>uater</strong
-            ><label>SISTEM</label>
-          </h3>
-          <img
-            id="img-solution_example"
-            (click)="viewImage(elementRef, '#img-solution_example')"
-            alt="ejemplo de solución de problema"
-            srcset="
-              ./assets/quater/solution_example/320.avif   320w,
-              ./assets/quater/solution_example/480.avif   480w,
-              ./assets/quater/solution_example/800.avif   800w,
-              ./assets/quater/solution_example/1200.avif 1200w
-            "
-            sizes="
-              (max-width: 320px) 320px,
-              (max-width: 480px) 480px,
-              (max-width: 800px) 800px,
-              1200px
-            "
-            loading="lazy"
-            priority
-          />
-        </div>
-      </div>
-    </app-background-1>
-  </div>
-
-  <div class="more_info">
-    <div class="item" data-aos="flip-left" data-aos-duration="1500">
-      <h3 class="borde-color-quater">
-        <strong>Solución</strong><br /><strong>uater</strong
-        ><label>SISTEM</label>
-      </h3>
-      <p>
-        uater SYSTEM es una solución tecnológica enfocada al usuario, nace con
-        la ﬁnalidad de ofrecer al mercado una nueva forma de gestionar y medir
-        el consumo de agua en los hogares mexicanos.<br /><br />
-        <strong>Objetivo</strong> <br />El ﬁn de instalar un medidor de agua
-        inteligente para cada condomino tiene como principal propósito la
-        medición individualizada del consumo, trayendo consigo una gestión justa
-        y optimizada del agua.
-      </p>
-    </div>
-
-    <div class="item" data-aos="flip-right" data-aos-duration="1500">
-      <img
-        id="img-beneficios"
-        (click)="viewImage(elementRef, '#img-beneficios')"
-        alt="imagen de beneficios"
-        srcset="
-          ./assets/quater/benefits/320.avif   320w,
-          ./assets/quater/benefits/480.avif   480w,
-          ./assets/quater/benefits/800.avif   800w,
-          ./assets/quater/benefits/1200.avif 1200w
-        "
-        sizes="
-          (max-width: 320px) 320px,
-          (max-width: 480px) 480px,
-          (max-width: 800px) 800px,
-          1200px
-        "
-        loading="lazy"
-        priority
-      />
-    </div>
-  </div>
-
-  <div class="how_it_works">
-    <div class="info" data-aos="zoom-out-up">
-      <h3 class="borde-color-quater">
-        <strong>¿Cómo funciona? </strong>
-      </h3>
-      <img
-        id="img-funcionamiento-desktop"
-        (click)="viewImage(elementRef, '#img-funcionamiento-desktop')"
-        class="desktop"
-        alt="funcionamiento"
-        srcset="
-          ./assets/quater/how_it_works_example/320.avif   320w,
-          ./assets/quater/how_it_works_example/480.avif   480w,
-          ./assets/quater/how_it_works_example/800.avif   800w,
-          ./assets/quater/how_it_works_example/1200.avif 1200w
-        "
-        sizes="
-        (max-width: 320px) 320px,
-        (max-width: 480px) 480px,
-        (max-width: 800px) 800px,
-        1200px
-      "
-        loading="lazy"
-        priority
-      />
-      <img
-        id="img-funcionamiento-movil"
-        (click)="viewImage(elementRef, '#img-funcionamiento-movil')"
-        class="movil"
-        alt="funcionamiento"
-        srcset="
-          ./assets/quater/how_it_works_example_movil/320.avif   320w,
-          ./assets/quater/how_it_works_example_movil/480.avif   480w,
-          ./assets/quater/how_it_works_example_movil/800.avif   800w,
-          ./assets/quater/how_it_works_example_movil/1200.avif 1200w
-        "
-        sizes="
-        (max-width: 320px) 320px,
-        (max-width: 480px) 480px,
-        (max-width: 800px) 800px,
-        1200px
-      "
-        loading="lazy"
-        priority
-      />
-    </div>
-  </div>
+  <app-more-info></app-more-info>
+  <app-how-it-works></app-how-it-works>
 </section>

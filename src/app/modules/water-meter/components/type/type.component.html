@@ -1,0 +1,97 @@
+<section class="type">
+  <div class="card">
+    <h2>Medidores Mecánicos</h2>
+    <img
+      srcset="
+        ./assets/products/medidor-mecánico-para-agua/medidor-mecánico-para-agua-320.avif   320w,
+        ./assets/products/medidor-mecánico-para-agua/medidor-mecánico-para-agua-480.avif   480w,
+        ./assets/products/medidor-mecánico-para-agua/medidor-mecánico-para-agua-800.avif   800w,
+        ./assets/products/medidor-mecánico-para-agua/medidor-mecánico-para-agua-1200.avif 1200w
+      "
+      sizes="
+        (max-width: 320px) 320px,
+        (max-width: 480px) 480px,
+        (max-width: 800px) 800px,
+        1200px
+      "
+      title="medidores de agua mecánicos"
+      alt="medidores de agua mecánicos"
+    />
+    <p>
+      Funcionan a través de un sistema de engranajes que gira con el flujo de
+      agua.
+    </p>
+    <button type="button" mat-stroked-button>
+      <a
+        title="Medidores de agua mecánicos"
+        (click)="shareDataSearchService.close$.emit()"
+        routerLink="/Productos/Busqueda"
+        [queryParams]="{ data: 'Medidores de agua' }"
+        >Ver mas</a
+      >
+    </button>
+  </div>
+
+  <div class="card">
+    <h2>Medidores Electromagnéticos</h2>
+    <img
+      srcset="
+        ./assets/products/macromedidor-electromagnético-para-agua/macromedidor-electromagnético-para-agua-320.avif   320w,
+        ./assets/products/macromedidor-electromagnético-para-agua/macromedidor-electromagnético-para-agua-480.avif   480w,
+        ./assets/products/macromedidor-electromagnético-para-agua/macromedidor-electromagnético-para-agua-800.avif   800w,
+        ./assets/products/macromedidor-electromagnético-para-agua/macromedidor-electromagnético-para-agua-1200.avif 1200w
+      "
+      sizes="
+      (max-width: 320px) 320px,
+      (max-width: 480px) 480px,
+      (max-width: 800px) 800px,
+      1200px
+    "
+      title="medidores de agua electromagnéticos"
+      alt="medidores de agua electromagnéticos"
+    />
+    <p>Usan principios de inducción para medir el flujo de agua.</p>
+    <button type="button" mat-stroked-button>
+      <a
+        title="Medidores de agua electromagnéticos"
+        (click)="shareDataSearchService.close$.emit()"
+        routerLink="/Productos/Busqueda"
+        [queryParams]="{ data: 'Medidores de agua' }"
+        >Ver mas</a
+      >
+    </button>
+  </div>
+
+  <div class="card">
+    <h2>Medidores ultrasonicos</h2>
+    <img
+      srcset="
+        ./assets/telemetry/macromedidor-ultrasonico-para-agua/macromedidor-ultrasonico-para-agua-320.avif   320w,
+        ./assets/telemetry/macromedidor-ultrasonico-para-agua/macromedidor-ultrasonico-para-agua-480.avif   480w,
+        ./assets/telemetry/macromedidor-ultrasonico-para-agua/macromedidor-ultrasonico-para-agua-800.avif   800w,
+        ./assets/telemetry/macromedidor-ultrasonico-para-agua/macromedidor-ultrasonico-para-agua-1200.avif 1200w
+      "
+      sizes="
+          (max-width: 320px) 320px,
+          (max-width: 480px) 480px,
+          (max-width: 800px) 800px,
+          1200px
+        "
+      title="medidores de agua ultrasonico"
+      alt="medidores de agua ultrasonico"
+    />
+    <p>
+      Utilizan ondas de sonido para determinar la velocidad del agua y calcular
+      el consumo.
+    </p>
+    <button type="button" mat-stroked-button>
+      <a
+        title="Medidores de agua Ultrasonico"
+        (click)="shareDataSearchService.close$.emit()"
+        routerLink="/Productos/Busqueda"
+        [queryParams]="{ data: 'Medidores de agua' }"
+        >Ver mas</a
+      >
+    </button>
+  </div>
+</section>

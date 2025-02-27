@@ -18,6 +18,7 @@ export class MovilNavComponent implements OnInit, OnDestroy {
     product: false,
     service: false,
     telemetry: false,
+    water_meter: false,
     invoice: false,
     contact: false,
   };

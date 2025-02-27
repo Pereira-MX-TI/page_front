@@ -81,7 +81,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   private setMetaTags(): void {
-    this.seoService.setTitle('Inicio | Medidores de agua');
+    this.seoService.setTitle('Inicio | Venta de medidores de agua');
     this.seoService.setDescription(
       'Encuentra los mejores medidores de agua para tu hogar o negocio. Soluciones precisas y confiables para el control del consumo de agua.'
     );
@@ -120,7 +120,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       },
       (err) => {
         this.shareInformationService.viewLoading$.emit(false);
-        this.matSnackBar.open('Error obtener carrusel', '', {
+        this.matSnackBar.open('Error obtener datos', '', {
           duration: 2500,
           panelClass: ['snackBar_error'],
         });

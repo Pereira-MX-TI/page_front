@@ -1,0 +1,128 @@
+::ng-deep app-type {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.type {
+  width: 80%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-auto-rows: 30rem;
+
+  align-items: center;
+  justify-items: center; /* Centra los elementos horizontalmente */
+}
+
+.card {
+  width: 90%;
+  height: 100%;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: var(--color3-1);
+  -webkit-box-shadow: -3px 7px 25px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -3px 7px 25px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: -3px 7px 25px 0px rgba(0, 0, 0, 0.75);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color1-2);
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  margin: 0;
+  height: 20%;
+  line-height: 1.5;
+}
+
+img {
+  object-fit: contain;
+  width: 80%;
+  height: 40%;
+  margin: 1rem;
+  box-sizing: border-box;
+  border-radius: 50%;
+}
+
+p {
+  height: 30%;
+  margin: 0;
+  padding: 1rem;
+  box-sizing: border-box;
+  text-align: justify;
+}
+
+a {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: var(--color1-2);
+
+  display: inline-block;
+  min-width: 48px;
+  text-align: center;
+}
+
+@media screen and (max-width: 549px) {
+  .type {
+    width: 90%;
+
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    width: 100%;
+    height: 90%;
+  }
+
+  h2 {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 550px) and (max-width: 767px) {
+  .type {
+    width: 90%;
+
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    width: 80%;
+    height: 90%;
+  }
+
+  h2 {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .type {
+    width: 90%;
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    width: 60%;
+    height: 90%;
+  }
+
+  h2 {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+}

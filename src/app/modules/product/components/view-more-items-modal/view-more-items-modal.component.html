@@ -3,7 +3,12 @@
     <h2>
       Filtrar por <strong> {{ title }}</strong>
     </h2>
-    <img src="assets/general/close.avif" mat-dialog-close />
+    <img
+      alt="cerrar"
+      title="cerrar"
+      src="assets/general/close.avif"
+      mat-dialog-close
+    />
   </div>
   <div class="body_modal">
     @for (itrItems of listItems | slice : 0 : 20; track itrItems){

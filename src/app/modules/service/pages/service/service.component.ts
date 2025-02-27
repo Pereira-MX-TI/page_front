@@ -29,7 +29,7 @@ export class ServiceComponent {
         'Interconexión informativa  con los organismos',
         'Y mucho mas',
       ],
-      url: 'assets/quater/presentation4/',
+      url: 'assets/services/administración-del-agua/administración-del-agua',
     },
     {
       title: 'Instalación de medidores de agua',
@@ -40,7 +40,7 @@ export class ServiceComponent {
         'Reparación de toma',
         'Y mucho mas',
       ],
-      url: 'assets/services/water_meter_installation/',
+      url: 'assets/services/instalación-medidores-para-agua/instalación-medidores-para-agua',
     },
     {
       title: 'Prueba de medidores de agua',
@@ -52,7 +52,7 @@ export class ServiceComponent {
         'Caudal de transición',
         'Y mucho mas',
       ],
-      url: 'assets/services/test_bench/',
+      url: 'assets/services/prueba-de-medidores-de-agua/prueba-de-medidores-de-agua',
     },
     {
       title: 'Capacitación',
@@ -63,7 +63,7 @@ export class ServiceComponent {
         'Gestión',
         'Y mucho mas',
       ],
-      url: 'assets/services/training/',
+      url: 'assets/services/capacitación-en-medidores-para-agua/capacitación-en-medidores-para-agua',
     },
     {
       title: 'Venta de productos hidráulicos',
@@ -75,7 +75,7 @@ export class ServiceComponent {
         'Pegamentos',
         'Y mucho mas',
       ],
-      url: 'assets/products/products_all/',
+      url: 'assets/services/venta-de-productos-hidráulicos/venta-de-productos-hidráulicos',
     },
     {
       title: 'Implementación telemetría',
@@ -86,7 +86,7 @@ export class ServiceComponent {
         'Configuración de gateways',
         'Y mucho mas',
       ],
-      url: 'assets/telemetry/principal/',
+      url: 'assets/telemetry/telemetría-para-medidores-para-agua/telemetría-para-medidores-para-agua',
     },
     {
       title: 'Detección de fugas',
@@ -95,7 +95,7 @@ export class ServiceComponent {
         'Pruebas de presión y hermeticidad',
         'Y muchos mas',
       ],
-      url: 'assets/services/leakage/',
+      url: 'assets/services/detección-de-fugas/detección-de-fugas',
     },
   ];
 
@@ -106,7 +106,7 @@ export class ServiceComponent {
   }
 
   private setMetaTags(): void {
-    this.seoService.setTitle('Servicios | Medidores de agua');
+    this.seoService.setTitle('Servicios | Venta de medidores de agua');
     this.seoService.setDescription(
       'Descubre nuestros servicios especializados para medidores de agua. Instalación, mantenimiento y soluciones personalizadas para un control eficiente del consumo.'
     );

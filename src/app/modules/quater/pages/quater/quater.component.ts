@@ -1,13 +1,25 @@
 import { Component, ElementRef } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Background1Component } from '../../components/background-1/background-1.component';
 import { SeoService } from '../../../../services/seo.service';
-import Viewer from 'viewerjs';
+import { PresentationComponent } from '../../components/presentation/presentation.component';
+import { UsInfoComponent } from '../../components/us-info/us-info.component';
+import { ComprehensiveSolutionsComponent } from '../../components/comprehensive-solutions/comprehensive-solutions.component';
+import { ContainerProblemSolutionComponent } from '../../components/container-problem-solution/container-problem-solution.component';
+import { MoreInfoComponent } from '../../components/more-info/more-info.component';
+import { HowItWorksComponent } from '../../components/how-it-works/how-it-works.component';
+import { WindowSizeService } from '../../../../services/window-size.service';
 
 @Component({
   selector: 'app-quater',
   standalone: true,
-  imports: [Background1Component],
+  imports: [
+    PresentationComponent,
+    UsInfoComponent,
+    ComprehensiveSolutionsComponent,
+    ContainerProblemSolutionComponent,
+    MoreInfoComponent,
+    HowItWorksComponent,
+  ],
   templateUrl: './quater.component.html',
   styleUrl: './quater.component.css',
   animations: [
@@ -21,31 +33,31 @@ import Viewer from 'viewerjs';
   ],
 })
 export class QuaterComponent {
-  viewer: any = null;
-
-  constructor(private seoService: SeoService, public elementRef: ElementRef) {}
+  constructor(
+    private seoService: SeoService,
+    private windowSizeService: WindowSizeService
+  ) {}
 
   ngOnInit(): void {
     this.setMetaTags();
   }
 
   private setMetaTags(): void {
-    this.seoService.setTitle('Quater');
+    this.seoService.setTitle('Quater | Administración del agua');
     this.seoService.setDescription(
-      'Optimiza la administración del agua con nuestra solución basada en tecnología LoRaWAN. Controla el consumo, la calidad y la distribución del agua en tiempo real con sensores IoT de largo alcance y bajo consumo. Reduce desperdicios, mejora la eficiencia operativa y toma decisiones estratégicas con datos precisos. Ideal para empresas, municipios y organismos de agua, nuestra plataforma ofrece monitoreo remoto, mantenimiento predictivo y un uso sustentable del recurso. ¡Descubre cómo la digitalización del agua puede transformar la gestión hídrica!'
+      'Optimiza la gestión del agua con tecnología LoRaWAN e IoT. Monitorea consumo, calidad y distribución en tiempo real. Reduce desperdicios, mejora la eficiencia y toma decisiones con datos precisos.'
     );
     this.seoService.setIndexingFollower(true);
     this.seoService.setCanonicalURL();
   }
 
-  viewImage(elementRef: ElementRef, id: string): void {
-    const img = elementRef.nativeElement.querySelector(id);
+  openInfo(res: 'email' | 'phone'): void {
+    if (this.windowSizeService.checkMinScreenSize(767)) return;
 
-    if (!img) return;
-
-    if (this.viewer) this.viewer.destroy();
-
-    this.viewer = new Viewer(img, { fullscreen: true, toolbar: false });
-    this.viewer.show();
+    if (res === 'email') {
+      window.location.href = 'mailto:solucionescomerciales_jmpf@outlook.com';
+    } else if (res === 'phone') {
+      window.location.href = 'tel:2228947194';
+    }
   }
 }

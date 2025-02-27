@@ -8,7 +8,24 @@
   </div>
 
   <div class="questions" data-aos="fade-up" data-aos-duration="1000">
-    <img alt="pregunta" src="assets/general/question_one.avif" />
+    <img
+      srcset="
+        ./assets/telemetry/que-es-telemetría-para-medidor-para-agua/que-es-telemetría-para-medidor-para-agua-320.avif   320w,
+        ./assets/telemetry/que-es-telemetría-para-medidor-para-agua/que-es-telemetría-para-medidor-para-agua-480.avif   480w,
+        ./assets/telemetry/que-es-telemetría-para-medidor-para-agua/que-es-telemetría-para-medidor-para-agua-800.avif   800w,
+        ./assets/telemetry/que-es-telemetría-para-medidor-para-agua/que-es-telemetría-para-medidor-para-agua-1200.avif 1200w
+      "
+      sizes="
+      (max-width: 320px) 320px,
+      (max-width: 480px) 480px,
+      (max-width: 800px) 800px,
+      1200px
+    "
+      loading="lazy"
+      priority
+      title="Que es la Telemetría?"
+      alt="Que es la Telemetría?"
+    />
     <div class="info">
       <h3><strong>¿Que es la Telemetría?</strong></h3>
       <p>
@@ -43,7 +60,22 @@
         de los dispositivos dentro de la red.
       </p>
     </div>
-    <img alt="arquitectura" src="assets/general/architecture.avif" />
+    <img
+      srcset="
+        ./assets/telemetry/arquitectura-lorawan-para-medidor-para-agua/arquitectura-lorawan-para-medidor-para-agua-320.avif   320w,
+        ./assets/telemetry/arquitectura-lorawan-para-medidor-para-agua/arquitectura-lorawan-para-medidor-para-agua-480.avif   480w,
+        ./assets/telemetry/arquitectura-lorawan-para-medidor-para-agua/arquitectura-lorawan-para-medidor-para-agua-800.avif   800w,
+        ./assets/telemetry/arquitectura-lorawan-para-medidor-para-agua/arquitectura-lorawan-para-medidor-para-agua-1200.avif 1200w
+      "
+      sizes="
+        (max-width: 320px) 320px,
+        (max-width: 480px) 480px,
+        (max-width: 800px) 800px,
+        1200px
+      "
+      title="arquitectura usada en Telemetría"
+      alt="arquitectura usada en Telemetría"
+    />
   </div>
 
   <div class="products" data-aos="fade-up" data-aos-duration="1000">
@@ -53,8 +85,23 @@
       <div class="img_container">
         <p>{{ itrImg.description }}</p>
         <img
-          [alt]="itrImg.description"
-          [src]="itrImg.url"
+          [srcset]="
+            itrImg.url +
+            '-320.avif 320w,' +
+            itrImg.url +
+            '-480.avif 480w,' +
+            itrImg.url +
+            '-800.avif 800w,' +
+            itrImg.url +
+            '-1200.avif 1200w'
+          "
+          sizes="
+          (max-width: 320px) 320px,
+          (max-width: 480px) 480px,
+          (max-width: 800px) 800px,
+          1200px
+        "
+          [title]="itrImg.alt"
           [alt]="itrImg.alt"
           onerror="this.src='assets/errors/default.avif'"
         />
@@ -67,8 +114,20 @@
     <h2><strong>Software</strong></h2>
     <div class="description">
       <img
+        srcset="
+          ./assets/telemetry/software-lorawan-para-medidor-para-agua/software-lorawan-para-medidor-para-agua-320.avif   320w,
+          ./assets/telemetry/software-lorawan-para-medidor-para-agua/software-lorawan-para-medidor-para-agua-480.avif   480w,
+          ./assets/telemetry/software-lorawan-para-medidor-para-agua/software-lorawan-para-medidor-para-agua-800.avif   800w,
+          ./assets/telemetry/software-lorawan-para-medidor-para-agua/software-lorawan-para-medidor-para-agua-1200.avif 1200w
+        "
+        sizes="
+          (max-width: 320px) 320px,
+          (max-width: 480px) 480px,
+          (max-width: 800px) 800px,
+          1200px
+        "
+        title="Software para medidores de agua"
         alt="Software para medidores de agua"
-        src="/assets/general/devices_software.jpg"
       />
       <ul class="checklist">
         <li>

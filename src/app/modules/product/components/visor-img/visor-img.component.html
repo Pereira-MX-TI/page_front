@@ -4,7 +4,7 @@
     @for (itrImg of listImg; track itrImg){
     <img
       onerror="this.src='assets/errors/default.avif'"
-      alt="thumb img"
+      alt="thumb imagen"
       (click)="selectImg(itrImg)"
       [class]="itrImg.select ? 'select' : ''"
       [src]="productPipe.transform(itrImg.direccion, 'picture-product')"
@@ -18,7 +18,8 @@
       [id]="'img-' + currentImg.id"
       (click)="viewImage(elementRef)"
       onerror="this.src='assets/errors/default.avif'"
-      alt="imagen producto"
+      [title]="'imagen producto ' + currentImg.id"
+      [alt]="'imagen producto ' + currentImg.id"
       [src]="productPipe.transform(currentImg.direccion, 'picture-product')"
     />
   </div>

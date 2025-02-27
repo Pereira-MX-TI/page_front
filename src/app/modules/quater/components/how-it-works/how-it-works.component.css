@@ -1,0 +1,101 @@
+::ng-deep app-how-it-works {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.how_it_works {
+  margin-top: 3rem;
+  height: 40rem;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  box-sizing: border-box;
+}
+
+.how_it_works div {
+  width: 75%;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.75);
+  background-color: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.how_it_works img {
+  width: 100%;
+  flex-grow: 10;
+  object-fit: contain;
+}
+
+.desktop {
+  display: none;
+}
+
+.borde-color-quater {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+
+  border-bottom: 0.2rem solid transparent; /* Define el grosor del borde */
+  border-image-source: linear-gradient(to right, #009ee2 70%, #39a935 70%);
+  border-image-slice: 1;
+}
+
+h3 {
+  opacity: 0.9;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 549px) {
+  .how_it_works {
+    height: 30rem;
+  }
+
+  .how_it_works .info {
+    width: 90%;
+  }
+
+  .how_it_works {
+    padding: 1rem;
+    background-image: url("./../../../../../assets/quater/fondo-administración-del-agua/fondo-administración-del-agua-320.avif");
+  }
+}
+
+@media screen and (min-width: 550px) and (max-width: 767px) {
+  .how_it_works {
+    background-image: url("./../../../../../assets/quater/fondo-administración-del-agua/fondo-administración-del-agua-480.avif");
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .how_it_works {
+    background-image: url("./../../../../../assets/quater/fondo-administración-del-agua/fondo-administración-del-agua-800.avif");
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .movil {
+    display: none;
+  }
+
+  .desktop {
+    display: block;
+  }
+
+  .how_it_works {
+    background-image: url("./../../../../../assets/quater/fondo-administración-del-agua/fondo-administración-del-agua-1200.avif");
+  }
+}

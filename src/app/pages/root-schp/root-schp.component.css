@@ -7,11 +7,11 @@
 }
 
 ::ng-deep mat-sidenav {
-  width: 13rem !important;
+  width: 80vw !important;
 }
 
 aside {
-  width: 13rem;
+  width: 100%;
   min-height: 100vh;
 }
 
@@ -47,7 +47,7 @@ footer p {
 
 h1 {
   position: absolute;
-  top: -10rem;
+  top: -20rem;
   color: black;
 }
 

@@ -13,6 +13,7 @@
           <img
             onerror="this.src='assets/errors/default.avif'"
             [title]="itrData.nombre"
+            [alt]="itrData.nombre"
             [src]="carouselPipe.transform(itrData.files, 'image-product')"
           />
           <button

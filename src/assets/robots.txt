@@ -2,3 +2,4 @@ User-agent: *
 Disallow:
 
 Sitemap: https://medidordeagua.mx/sitemap.xml
+Sitemap: https://pageserver.solucionesjmpf.com/api/v1/sitemap

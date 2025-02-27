@@ -9,6 +9,7 @@
       loading="lazy"
       fetchpriority="low"
       src="./../../../../../assets/icons/burger_icon.svg"
+      title="Menu"
       alt="Menu"
     />
   </button>
@@ -16,7 +17,8 @@
     loading="lazy"
     src="./../../../../../assets/logos/movil_schp.svg"
     class="logo_general"
-    alt="logo_schp_movil"
+    title="logo soluciones comerciales hidráulicas Pereira"
+    alt="logo soluciones comerciales hidráulicas Pereira"
   />
   <div class="space"></div>
 
@@ -24,6 +26,7 @@
     loading="lazy"
     src="./../../../../../assets/quater/quater_logo.svg"
     class="logo_general logo_quater"
+    title="logo quater"
     alt="logo quater"
     routerLink="/Quater"
   />
@@ -31,6 +34,7 @@
     <img
       loading="lazy"
       src="./../../../../../assets/icons/search-icon.svg"
+      title="Buscar"
       alt="Buscar"
     />
   </button>
@@ -38,7 +42,8 @@
     <img
       loading="lazy"
       src="./../../../../../assets/icons/carshopping-icon.svg"
-      alt="Carrito compras"
+      title="Carrito cotización"
+      alt="Carrito cotización"
     />
   </button>
 </nav>
@@ -48,26 +53,33 @@
     loading="lazy"
     src="./../../../../../assets/logos/movil_schp.svg"
     class="logo_general"
-    alt="logo_schp_tablet"
+    title="logo soluciones comerciales hidráulicas Pereira"
+    alt="logo soluciones comerciales hidráulicas Pereira"
   />
 
   @if(!viewSearch){
   <nav>
     <ul>
       <li [class]="selectOption.home ? 'li_active' : ''">
-        <a routerLink="/Inicio">Inicio</a>
+        <a title="Inicio" routerLink="/Inicio">Inicio</a>
       </li>
-      <li [class]="selectOption.product ? 'li_active' : ''">
-        <a routerLink="/Productos">Productos</a>
-      </li>
-      <li [class]="selectOption.service ? 'li_active' : ''">
-        <a routerLink="/Servicios">Servicios</a>
+      <li [class]="selectOption.water_meter ? 'li_active' : ''">
+        <a title="Medidores de agua" routerLink="/MedidorDeAgua"
+          >Medidores de agua</a
+        >
       </li>
       <li [class]="selectOption.telemetry ? 'li_active' : ''">
-        <a routerLink="/Telemetria">Telemetría</a>
+        <a title="Telemetria" routerLink="/Telemetria">Telemetría</a>
+      </li>
+
+      <li [class]="selectOption.service ? 'li_active' : ''">
+        <a title="Servicios" routerLink="/Servicios">Servicios</a>
+      </li>
+      <li [class]="selectOption.product ? 'li_active' : ''">
+        <a title="Productos" routerLink="/Productos">Productos</a>
       </li>
       <li [class]="selectOption.contact ? 'li_active' : ''">
-        <a routerLink="/Contacto">Contacto</a>
+        <a title="Contacto" routerLink="/Contacto">Contacto</a>
       </li>
     </ul>
   </nav>
@@ -76,6 +88,7 @@
     loading="lazy"
     src="./../../../../../assets/quater/quater_logo.svg"
     class="logo_general logo_quater"
+    title="logo quater"
     alt="logo quater"
     routerLink="/Quater"
   />
@@ -88,6 +101,7 @@
     <img
       loading="lazy"
       src="./../../../../../assets/icons/search-icon.svg"
+      title="Buscar"
       alt="Buscar"
     />
   </button>
@@ -95,7 +109,8 @@
     <img
       loading="lazy"
       src="./../../../../../assets/icons/carshopping-icon.svg"
-      alt="Carrito compras"
+      title="Carrito cotización"
+      alt="Carrito cotización"
     />
   </button>
   } @else {
@@ -112,7 +127,8 @@
     <img
       loading="lazy"
       src="./../../../../../assets/icons/return-icon.svg"
-      alt="close"
+      title="cerrar"
+      alt="cerrar"
     />
   </button>
   }

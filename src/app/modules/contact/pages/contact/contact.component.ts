@@ -26,7 +26,7 @@ export class ContactComponent implements OnInit {
   }
 
   private setMetaTags(): void {
-    this.seoService.setTitle('Contacto | Medidores de agua');
+    this.seoService.setTitle('Contacto | Venta de medidores de agua');
     this.seoService.setDescription(
       'Ponte en contacto con nosotros para más información sobre medidores de agua. Resolveremos tus dudas y te ayudaremos a encontrar la mejor solución.'
     );

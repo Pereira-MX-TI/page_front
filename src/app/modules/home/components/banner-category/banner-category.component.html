@@ -9,13 +9,13 @@
       <img
         [srcset]="
           itrCategory.url_img +
-          '320.avif   320w,' +
+          '-320.avif   320w,' +
           itrCategory.url_img +
-          '480.avif   480w,' +
+          '-480.avif   480w,' +
           itrCategory.url_img +
-          '800.avif   800w,' +
+          '-800.avif   800w,' +
           itrCategory.url_img +
-          '1200.avif 1200w'
+          '-1200.avif 1200w'
         "
         sizes="
           (max-width: 320px) 320px,
@@ -24,11 +24,13 @@
           1200px
         "
         [alt]="itrCategory.title"
+        [title]="itrCategory.title"
         loading="lazy"
         priority
       />
       <button type="button" mat-stroked-button>
         <a
+          [title]="itrCategory.name"
           (click)="shareDataSearchService.close$.emit()"
           routerLink="/Productos/Busqueda"
           [queryParams]="{ data: itrCategory.name }"

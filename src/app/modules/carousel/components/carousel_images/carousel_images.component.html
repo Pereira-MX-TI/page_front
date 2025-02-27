@@ -6,7 +6,8 @@
       <img
         (click)="navigateLink(itrData.link)"
         [src]="carouselPipe.transform(itrData, 'image-publicity')"
-        [alt]="itrData.id"
+        [title]="'Producto ' + itrData.id"
+        [alt]="'Producto ' + itrData.id"
         onerror="this.src='assets/errors/default.avif'"
         loading="eager"
         priority

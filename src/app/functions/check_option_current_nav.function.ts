@@ -6,12 +6,14 @@ export function checkOptionCurrentNav(url: string): SelectOptionNav {
     product: false,
     service: false,
     telemetry: false,
+    water_meter: false,
     invoice: false,
     contact: false,
   };
 
   if (url.includes('Inicio')) selectOption.home = true;
   else if (url.includes('Telemetria')) selectOption.telemetry = true;
+  else if (url.includes('MedidorDeAgua')) selectOption.water_meter = true;
   else if (url.includes('Contacto')) selectOption.contact = true;
   else if (url.includes('Servicios')) selectOption.service = true;
   else if (url.includes('Productos')) selectOption.product = true;
