@@ -31,7 +31,7 @@ export class WaterMetersComponent {
   private setMetaTags(): void {
     this.seoService.setTitle('Medidores de agua | Venta de medidores de agua');
     this.seoService.setDescription(
-      'Venta de medidores de agua mecánicos, ultrasónicos y electromagnéticos para uso residencial, comercial e industrial. Alta precisión y durabilidad. ¡Cotiza hoy!'
+      'Venta de medidores de agua, medidores de agua potable, medidor de agua potable y medidor de agua mecánicos, ultrasonicos y electromagnéticos para uso residencial, comercial e industrial. Alta precisión y durabilidad. ¡Cotiza hoy!'
     );
 
     this.seoService.setIndexingFollower(true);

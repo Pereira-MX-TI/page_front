@@ -1,7 +1,7 @@
 import { CanActivateFn } from '@angular/router';
 
-export const viewProductGuard: CanActivateFn = (route, state) => {
-  const { data } = route.queryParams;
+export const viewProductGuard: CanActivateFn = (route) => {
+  const { data } = route.params;
   if (!data) return false;
 
   return true;

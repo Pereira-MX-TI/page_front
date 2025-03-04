@@ -26,6 +26,7 @@ import { MaintenanceModalComponent } from '../../../error-page/components/mainte
 import { WindowSizeService } from '../../../../services/window-size.service';
 import { Carousel } from '../../../../models/carousel.model';
 import { CarouselProductsV2Component } from '../../../carousel/components/carousel_product_v2/carousel_products_v2.component';
+import { Platform } from '@angular/cdk/platform';
 
 @Component({
   selector: 'app-view-product',
@@ -97,33 +98,47 @@ export class ViewProductComponent {
   }
 
   private subscriptionChangeUrl(): void {
-    this.activatedRoute.queryParams.subscribe(({ data }) => {
-      this._id = atob(data);
+    this.activatedRoute.params.subscribe(({ data }) => {
+      this._id = this.decodeBase64UrlSafe(data);
       this.refresh();
     });
+  }
+
+  private decodeBase64UrlSafe(base64Url: string) {
+    // Restaurar los caracteres problemáticos
+    let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+
+    // Agregar padding si es necesario
+    while (base64.length % 4 !== 0) {
+      base64 += '=';
+    }
+
+    return atob(base64);
   }
 
   refresh(): void {
     if (this.SesionStorageService.exist('viewProduct')) {
       const { categories, product, productsByCategory } =
         this.SesionStorageService.get('viewProduct');
-
       this.product = product;
-      this.categories = categories;
-      this.productsByCategory = productsByCategory;
 
-      this.setMetaTags(
-        this.product!.nombre,
-        this.product!.description.detalle,
-        this.product?.files.length == 0
-          ? ''
-          : this.productPipe.transform(
-              this.product?.files[0].direccion,
-              'picture-product'
-            )
-      );
+      if (this._id == this.product?.id) {
+        this.categories = categories;
+        this.productsByCategory = productsByCategory;
 
-      return;
+        this.setMetaTags(
+          this.product!.nombre,
+          this.product!.description.detalle,
+          this.product?.files.length == 0
+            ? ''
+            : this.productPipe.transform(
+                this.product?.files[0].direccion,
+                'picture-product'
+              )
+        );
+
+        return;
+      }
     }
 
     zip(

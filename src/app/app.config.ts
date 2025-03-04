@@ -1,5 +1,10 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import {
+  provideRouter,
+  withComponentInputBinding,
+  withHashLocation,
+  withRouterConfig,
+} from '@angular/router';
 import {
   provideHttpClient,
   withFetch,
@@ -19,7 +24,7 @@ import { CookieService } from 'ngx-cookie-service';
 export const appConfig: ApplicationConfig = {
   providers: [
     CookieService,
-    provideRouter(routes),
+    provideRouter(routes, withRouterConfig({ urlUpdateStrategy: 'deferred' })),
     provideClientHydration(withNoHttpTransferCache()),
     provideHttpClient(withFetch(), withInterceptors([ResponseInterceptor])),
     {
@@ -28,7 +33,6 @@ export const appConfig: ApplicationConfig = {
     },
 
     // provideZoneChangeDetection({ eventCoalescing: true }),
-    // provideClientHydration(),
     provideAnimationsAsync(),
   ],
 };

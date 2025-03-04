@@ -55,9 +55,11 @@ export class TableComponent implements OnInit, OnDestroy {
   viewProduct(res: Product): void {
     this.SesionStorageService.remove(['viewProduct']);
 
-    this.navigationService.navigatePage('Productos/Vista', {
-      data: btoa(String(res.id)),
-    });
+    const id: string = btoa(String(res.id))
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/, '');
+    this.navigationService.navigatePage(`Productos/Vista/${id}`);
     this.shareDataSearchService.close$.emit();
   }
 
