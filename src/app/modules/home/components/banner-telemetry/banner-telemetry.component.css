@@ -64,6 +64,9 @@ ul.checklist li::before {
 }
 
 a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   color: var(--color1-2);
 }

@@ -59,6 +59,7 @@
 }
 
 a {
+  width: 100%;
   text-decoration: none;
   color: var(--color3-2);
 }

@@ -6,7 +6,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { ViewMoreItemsModalComponent } from '../view-more-items-modal/view-more-items-modal.component';
 import { HttpService } from '../../../../services/http.service';
 import { NavigationService } from '../../../../services/navigation.service';
-import { ShareInformationService } from '../../../../services/share-information.service';
 import { ShareDataSearchService } from '../../../search/services/share-data-search.service';
 import { SlicePipe } from '@angular/common';
 import { SesionStorageService } from '../../../../services/sesion-storage.service';
@@ -31,7 +30,6 @@ export class FiltersProductComponent {
     private SesionStorageService: SesionStorageService,
     private httpService: HttpService,
     private navigationService: NavigationService,
-    private shareInformationService: ShareInformationService,
     public shareDataSearchService: ShareDataSearchService,
     public dialog: MatDialog
   ) {}

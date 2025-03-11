@@ -6,7 +6,6 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { Carousel } from '../../../../models/carousel.model';
 import { SeoService } from '../../../../services/seo.service';
 import { HttpService } from '../../../../services/http.service';
-import { ShareInformationService } from '../../../../services/share-information.service';
 import { NavigationService } from '../../../../services/navigation.service';
 import { CarouselImagesComponent } from '../../../carousel/components/carousel_images/carousel_images.component';
 import { BannerBrandsComponent } from '../../components/banner-brands/banner-brands.component';
@@ -19,7 +18,6 @@ import { BannerTypeWatermeterComponent } from '../../components/banner-type-wate
 import { BannerSomeProductsComponent } from '../../components/banner-some-products/banner-some-products.component';
 import { SesionStorageService } from '../../../../services/sesion-storage.service';
 import { BannerQuaterComponent } from '../../components/banner-quater/banner-quater.component';
-import { Platform } from '@angular/cdk/platform';
 
 @Component({
   selector: 'home',
@@ -56,7 +54,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     private seoService: SeoService,
     private matSnackBar: MatSnackBar,
     private httpService: HttpService,
-    private shareInformationService: ShareInformationService,
     private SesionStorageService: SesionStorageService,
     public navigationService: NavigationService
   ) {

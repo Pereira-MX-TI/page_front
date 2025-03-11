@@ -6,7 +6,6 @@ import { ProductPipe } from '../../pipes/product.pipe';
 import { Product } from '../../../../models/carousel_item.model';
 import { HttpService } from '../../../../services/http.service';
 import { NavigationService } from '../../../../services/navigation.service';
-import { ShareInformationService } from '../../../../services/share-information.service';
 import { ShareDataSearchService } from '../../../search/services/share-data-search.service';
 import { SeoService } from '../../../../services/seo.service';
 import { VisorImgComponent } from '../../components/visor-img/visor-img.component';
@@ -68,7 +67,6 @@ export class ViewProductComponent {
     private matSnackBar: MatSnackBar,
     private httpService: HttpService,
     private navigationService: NavigationService,
-    private shareInformationService: ShareInformationService,
     private shareDataSearchService: ShareDataSearchService,
     private SesionStorageService: SesionStorageService,
     private seoService: SeoService,

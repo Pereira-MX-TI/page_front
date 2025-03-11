@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ShareInformationService } from '../../../../services/share-information.service';
 
 @Component({
   selector: 'app-loading',
@@ -11,8 +10,6 @@ import { ShareInformationService } from '../../../../services/share-information.
 export class LoadingComponent implements OnInit {
   statusView: boolean = false;
   subscription: Subscription = new Subscription();
-
-  constructor(private objShareInformationService: ShareInformationService) {}
 
   ngOnInit(): void {
     this.subscriptionLoading();

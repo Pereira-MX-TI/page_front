@@ -5,7 +5,6 @@ import { zip } from 'rxjs';
 import { Carousel } from '../../../../models/carousel.model';
 import { SeoService } from '../../../../services/seo.service';
 import { HttpService } from '../../../../services/http.service';
-import { ShareInformationService } from '../../../../services/share-information.service';
 import { CarouselProductsComponent } from '../../../carousel/components/carousel_product/carousel_products.component';
 import { FiltersProductComponent } from '../../components/filters-product/filters-product.component';
 import { SesionStorageService } from '../../../../services/sesion-storage.service';
@@ -39,7 +38,6 @@ export class ProductComponent {
     private seoService: SeoService,
     private matSnackBar: MatSnackBar,
     private httpService: HttpService,
-    private shareInformationService: ShareInformationService,
     private SesionStorageService: SesionStorageService
   ) {}
 

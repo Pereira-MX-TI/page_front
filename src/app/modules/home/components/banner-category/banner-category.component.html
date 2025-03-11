@@ -28,16 +28,15 @@
         loading="lazy"
         priority
       />
-      <button type="button" mat-stroked-button>
-        <a
-          [title]="itrCategory.name"
-          (click)="shareDataSearchService.close$.emit()"
-          routerLink="/Productos/Busqueda"
-          [queryParams]="{ data: itrCategory.name }"
-        >
-          Ver mas</a
-        >
-      </button>
+
+      <a
+        [title]="itrCategory.name"
+        (click)="shareDataSearchService.close$.emit()"
+        routerLink="/Productos/Busqueda"
+        [queryParams]="{ data: itrCategory.name }"
+      >
+        <button type="button" mat-stroked-button>Ver mas</button>
+      </a>
     </div>
   </div>
   }

@@ -12,7 +12,6 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { DataPage } from '../../../shared/models/dataPage';
 import { SeoService } from '../../../../services/seo.service';
 import { HttpService } from '../../../../services/http.service';
-import { ShareInformationService } from '../../../../services/share-information.service';
 import { DataPageService } from '../../../shared/services/data-page.service';
 import { FiltersProductComponent } from '../../components/filters-product/filters-product.component';
 import { TableComponent } from '../../../shared/components/table/table.component';
@@ -53,7 +52,6 @@ export class ResultSearchProductComponent implements OnInit, OnDestroy {
     private seoService: SeoService,
     private matSnackBar: MatSnackBar,
     private httpService: HttpService,
-    private shareInformationService: ShareInformationService,
     private dataPageService: DataPageService,
     private activatedRoute: ActivatedRoute
   ) {

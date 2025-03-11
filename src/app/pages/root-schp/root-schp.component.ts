@@ -1,13 +1,10 @@
-import { CommonModule, ViewportScroller } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HeadNavComponent } from '../../modules/nav-bar/components/head-nav/head-nav.component';
 import { MovilNavComponent } from '../../modules/nav-bar/components/movil-nav/movil-nav.component';
 import { MaterialComponents } from '../../modules/material/material.module';
 import { Subscription } from 'rxjs';
-import { Platform } from '@angular/cdk/platform';
-import { HttpService } from '../../services/http.service';
-import { LocalStorageService } from '../../services/local-storage.service';
 import { ShareInformationService } from '../../services/share-information.service';
 import { SelectOptionNavObservable } from '../../observables/select_option_nav.observable';
 import { checkOptionCurrentNav } from '../../functions/check_option_current_nav.function';
