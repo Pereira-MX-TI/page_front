@@ -22,9 +22,5 @@ export class LoadingComponent implements OnInit {
     this.subscription.unsubscribe();
   }
 
-  private subscriptionLoading(): void {
-    this.objShareInformationService.viewLoading$.subscribe(
-      (res: boolean) => (this.statusView = res)
-    );
-  }
+  private subscriptionLoading(): void {}
 }

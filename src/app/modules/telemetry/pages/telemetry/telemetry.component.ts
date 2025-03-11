@@ -1,5 +1,5 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { SeoService } from '../../../../services/seo.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { SeoService } from '../../../../services/seo.service';
   standalone: true,
   templateUrl: './telemetry.component.html',
   styleUrls: ['./telemetry.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('fadeInOut', [
       transition(':enter', [

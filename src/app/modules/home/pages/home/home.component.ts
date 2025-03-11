@@ -53,7 +53,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   listSubscription: Subscription[];
 
   constructor(
-    private platform: Platform,
     private seoService: SeoService,
     private matSnackBar: MatSnackBar,
     private httpService: HttpService,
@@ -101,8 +100,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       return;
     }
 
-    this.shareInformationService.viewLoading$.emit(true);
-
     zip(
       this.httpService.specificCarousel('publicity'),
       this.httpService.specificCarousel('product')
@@ -115,11 +112,8 @@ export class HomeComponent implements OnInit, OnDestroy {
           publicity: this.carousels.publicity,
           products: this.carousels.products,
         });
-
-        this.shareInformationService.viewLoading$.emit(false);
       },
       (err) => {
-        this.shareInformationService.viewLoading$.emit(false);
         this.matSnackBar.open('Error obtener datos', '', {
           duration: 2500,
           panelClass: ['snackBar_error'],

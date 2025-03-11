@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef } from '@angular/core';
 import Viewer from 'viewerjs';
 
 @Component({
@@ -7,6 +7,7 @@ import Viewer from 'viewerjs';
   imports: [],
   templateUrl: './more-info.component.html',
   styleUrl: './more-info.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MoreInfoComponent {
   viewer: any = null;

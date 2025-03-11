@@ -1,5 +1,5 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { zip } from 'rxjs';
 import { Carousel } from '../../../../models/carousel.model';
@@ -16,6 +16,8 @@ import { SesionStorageService } from '../../../../services/sesion-storage.servic
   imports: [CarouselProductsComponent, FiltersProductComponent],
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+
   animations: [
     trigger('fadeInOut', [
       transition(':enter', [
@@ -65,11 +67,11 @@ export class ProductComponent {
         alfaProducts,
       } = this.SesionStorageService.get('carouselsProduct');
 
-      this.water_meters = water_meters;
-      this.valves = valves;
-      this.connections = connections;
-      this.itronAccellProducts = itronAccellProducts;
-      this.alfaProducts = alfaProducts;
+      this.water_meters = { ...water_meters };
+      this.valves = { ...valves };
+      this.connections = { ...connections };
+      this.itronAccellProducts = { ...itronAccellProducts };
+      this.alfaProducts = { ...alfaProducts };
 
       return;
     }
@@ -95,11 +97,8 @@ export class ProductComponent {
           itronAccellProducts: this.itronAccellProducts,
           alfaProducts: this.alfaProducts,
         });
-
-        this.shareInformationService.viewLoading$.emit(false);
       },
       (err) => {
-        this.shareInformationService.viewLoading$.emit(false);
         this.matSnackBar.open('Error obtener datos', '', {
           duration: 2500,
           panelClass: ['snackBar_error'],

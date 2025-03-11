@@ -1,10 +1,6 @@
 <section class="container" [@fadeInOut]>
   @for (itrItem of items; track itrItem; let index = $index){
-  <div
-    class="item"
-    [attr.data-aos]="index > 1 ? 'fade-up' : null"
-    [attr.data-aos-duration]="index > 1 ? '1000' : null"
-  >
+  <div class="item">
     <div class="card">
       <img
         [srcset]="

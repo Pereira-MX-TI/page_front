@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MaterialComponents } from '../../../material/material.module';
 
 @Component({
@@ -7,5 +7,6 @@ import { MaterialComponents } from '../../../material/material.module';
   imports: [MaterialComponents],
   templateUrl: './maintenance-modal.component.html',
   styleUrl: './maintenance-modal.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MaintenanceModalComponent {}

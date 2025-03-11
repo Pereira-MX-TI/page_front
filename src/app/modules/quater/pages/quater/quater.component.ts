@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { SeoService } from '../../../../services/seo.service';
 import { PresentationComponent } from '../../components/presentation/presentation.component';
@@ -22,6 +22,7 @@ import { WindowSizeService } from '../../../../services/window-size.service';
   ],
   templateUrl: './quater.component.html',
   styleUrl: './quater.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('fadeInOut', [
       transition(':enter', [

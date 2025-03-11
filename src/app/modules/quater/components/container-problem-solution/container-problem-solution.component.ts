@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef } from '@angular/core';
 import { Background1Component } from '../background-1/background-1.component';
 import Viewer from 'viewerjs';
 
@@ -8,6 +8,7 @@ import Viewer from 'viewerjs';
   imports: [Background1Component],
   templateUrl: './container-problem-solution.component.html',
   styleUrl: './container-problem-solution.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContainerProblemSolutionComponent {
   viewer: any = null;

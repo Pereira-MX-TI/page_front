@@ -1,5 +1,5 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
-import { Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { InputSearchComponent } from '../input-search/input-search.component';
 
 @Component({
@@ -8,6 +8,7 @@ import { InputSearchComponent } from '../input-search/input-search.component';
   imports: [InputSearchComponent],
   templateUrl: './input-search-movil.component.html',
   styleUrls: ['./input-search-movil.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputSearchMovilComponent {
   word: string = '';

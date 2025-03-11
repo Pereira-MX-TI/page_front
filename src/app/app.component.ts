@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { Platform } from '@angular/cdk/platform';
 import { Subscription } from 'rxjs';
-import AOS from 'aos';
 import { ViewportScroller } from '@angular/common';
 @Component({
   selector: 'app-root',
@@ -26,11 +25,6 @@ export class AppComponent {
   ) {}
 
   async ngOnInit() {
-    if (this.platform.isBrowser) {
-      const AOS = (await import('aos')).default;
-      AOS.init();
-    }
-
     this.subscriptionPositionScroll();
   }
 

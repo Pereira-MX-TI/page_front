@@ -8,11 +8,9 @@ import {
   OnDestroy,
 } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { FormBuilder } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { DataPaginator } from '../../models/dataPaginator';
 import { SharePanelService } from '../../services/panel-share.service';
-import { ShareInformationService } from '../../../../services/share-information.service';
 import { DataPageService } from '../../services/data-page.service';
 import { MaterialComponents } from '../../../material/material.module';
 import { ViewportScroller } from '@angular/common';

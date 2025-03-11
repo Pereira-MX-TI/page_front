@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, inject, signal } from '@angular/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { CarouselPipe } from '../../pipes/carousel.pipe';
 import { NavigationService } from '../../../../services/navigation.service';
@@ -20,13 +20,14 @@ import { SesionStorageService } from '../../../../services/sesion-storage.servic
   styleUrls: ['./carousel_products_v2.component.css'],
 })
 export class CarouselProductsV2Component {
-  list_item: Product[] = [];
+  list_item = signal<Product[]>([]);
+
   carouselPipe: CarouselPipe = new CarouselPipe();
 
   @Input() set data(res: Product[]) {
     if (!res) return;
 
-    this.list_item = res;
+    this.list_item.set(res);
   }
 
   customOptions: OwlOptions = {

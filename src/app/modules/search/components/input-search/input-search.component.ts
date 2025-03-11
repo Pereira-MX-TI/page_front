@@ -1,4 +1,10 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import {
   FormControl,
   FormsModule,
@@ -18,6 +24,7 @@ import { MaterialComponents } from '../../../material/material.module';
   imports: [ReactiveFormsModule, FormsModule, MaterialComponents],
   templateUrl: './input-search.component.html',
   styleUrls: ['./input-search.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputSearchComponent implements OnInit, OnDestroy {
   @Input() set word(res: string) {

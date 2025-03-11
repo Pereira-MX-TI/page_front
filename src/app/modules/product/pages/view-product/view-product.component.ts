@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription, zip } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
@@ -24,9 +24,7 @@ import { MaterialComponents } from '../../../material/material.module';
 import { MatDialog } from '@angular/material/dialog';
 import { MaintenanceModalComponent } from '../../../error-page/components/maintenance-modal/maintenance-modal.component';
 import { WindowSizeService } from '../../../../services/window-size.service';
-import { Carousel } from '../../../../models/carousel.model';
 import { CarouselProductsV2Component } from '../../../carousel/components/carousel_product_v2/carousel_products_v2.component';
-import { Platform } from '@angular/cdk/platform';
 
 @Component({
   selector: 'app-view-product',
@@ -41,6 +39,7 @@ import { Platform } from '@angular/cdk/platform';
   ],
   templateUrl: './view-product.component.html',
   styleUrls: ['./view-product.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('fadeInOut', [
       transition(':enter', [
@@ -52,9 +51,8 @@ import { Platform } from '@angular/cdk/platform';
   ],
 })
 export class ViewProductComponent {
-  carousel: Carousel | null = null;
-  categories: Category[] = [];
-  product: Product | null = null;
+  categories = signal<Category[]>([]);
+  product = signal<Product | null>(null);
   productsByCategory: Product[] = [];
   _id: number | string = '';
   listSubscription: Subscription[] = [new Subscription()];
@@ -120,19 +118,21 @@ export class ViewProductComponent {
     if (this.SesionStorageService.exist('viewProduct')) {
       const { categories, product, productsByCategory } =
         this.SesionStorageService.get('viewProduct');
-      this.product = product;
+      this.product.set(product);
 
-      if (this._id == this.product?.id) {
-        this.categories = categories;
+      if (!this.product()) return;
+
+      if (this._id == this.product()?.id) {
+        this.categories.set(categories);
         this.productsByCategory = productsByCategory;
 
         this.setMetaTags(
-          this.product!.nombre,
-          this.product!.description.detalle,
-          this.product?.files.length == 0
+          this.product()!.nombre,
+          this.product()!.description.detalle,
+          this.product()!.files.length == 0
             ? ''
             : this.productPipe.transform(
-                this.product?.files[0].direccion,
+                this.product()!.files[0].direccion,
                 'picture-product'
               )
         );
@@ -151,36 +151,36 @@ export class ViewProductComponent {
         const { product } = res[1].data;
 
         this.productsByCategory = res[2].data;
-        this.product = product;
+        this.product.set(product);
 
-        this.categories = [];
+        this.categories.set([]);
         categories.forEach((itrCategory: Category) => {
-          this.categories.push({
+          this.categories()!.push({
             ...itrCategory,
-            select: this.product?.category.id === itrCategory.id,
+            select: this.product()!.category.id === itrCategory.id,
           });
         });
 
-        this.SesionStorageService.set('viewProduct', {
-          categories: this.categories,
-          product: this.product,
-          productsByCategory: this.productsByCategory,
-        });
+        if (!this.product()) return;
 
         this.setMetaTags(
-          this.product!.nombre,
-          this.product!.description.detalle,
-          this.product?.files.length == 0
+          this.product()!.nombre,
+          this.product()!.description.detalle,
+          this.product()!.files.length == 0
             ? ''
             : this.productPipe.transform(
-                this.product?.files[0].direccion,
+                this.product()!.files[0].direccion,
                 'picture-product'
               )
         );
-        this.shareInformationService.viewLoading$.emit(false);
+
+        this.SesionStorageService.set('viewProduct', {
+          categories: this.categories(),
+          product: this.product(),
+          productsByCategory: this.productsByCategory,
+        });
       },
       (err) => {
-        this.shareInformationService.viewLoading$.emit(false);
         this.matSnackBar.open('Error obtener datos', '', {
           duration: 2500,
           panelClass: ['snackBar_error'],
@@ -205,9 +205,9 @@ export class ViewProductComponent {
 
   sharedSocialNetwork(type: 'whatsapp' | 'facebook'): void {
     const currentUrl: string = window.location.href;
-    const productName = this.product?.nombre || 'Consulta este producto';
+    const productName = this.product()!.nombre || 'Consulta este producto';
     const productDescription =
-      this.product?.description?.detalle || 'Mira más detalles en el enlace.';
+      this.product()!.description?.detalle || 'Mira más detalles en el enlace.';
 
     const shareUrl =
       type === 'whatsapp'

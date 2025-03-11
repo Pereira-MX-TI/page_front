@@ -1,4 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ProductPipe } from '../../pipes/product.pipe';
 import { ActivatedRoute } from '@angular/router';
@@ -26,6 +31,7 @@ import { PageEvent } from '@angular/material/paginator';
   ],
   templateUrl: './result-search-product.component.html',
   styleUrls: ['./result-search-product.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('fadeInOut', [
       transition(':enter', [
@@ -86,8 +92,6 @@ export class ResultSearchProductComponent implements OnInit, OnDestroy {
   }
 
   refresh(): void {
-    this.shareInformationService.viewLoading$.emit(true);
-
     this.dataPage = this.dataPageService.searchData(
       this.dataPage,
       'tableProduct',
@@ -115,10 +119,8 @@ export class ResultSearchProductComponent implements OnInit, OnDestroy {
             0,
             'tableProduct'
           );
-          this.shareInformationService.viewLoading$.emit(false);
         },
         () => {
-          this.shareInformationService.viewLoading$.emit(false);
           this.matSnackBar.open('Error de carga', '', {
             duration: 2500,
             panelClass: ['snackBar_error'],
@@ -128,7 +130,6 @@ export class ResultSearchProductComponent implements OnInit, OnDestroy {
   }
 
   changePagination(event: PageEvent): void {
-    this.shareInformationService.viewLoading$.emit(true);
     this.dataPage.dataPaginator = this.dataPageService.paginationData(
       this.dataPage.dataPaginator,
       event
@@ -151,10 +152,8 @@ export class ResultSearchProductComponent implements OnInit, OnDestroy {
             0,
             'tableProduct'
           );
-          this.shareInformationService.viewLoading$.emit(false);
         },
         () => {
-          this.shareInformationService.viewLoading$.emit(false);
           this.matSnackBar.open('Error de carga', '', {
             duration: 2500,
             panelClass: ['snackBar_error'],

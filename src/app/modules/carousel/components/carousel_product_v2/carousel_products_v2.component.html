@@ -1,7 +1,7 @@
 <section class="container">
   @if(platform.isBrowser){
   <owl-carousel-o [options]="customOptions">
-    @for (itrData of list_item; track itrData){
+    @for (itrData of list_item(); track itrData){
     <ng-template carouselSlide>
       <div class="card">
         <div class="body-card">
@@ -30,7 +30,7 @@
   </owl-carousel-o>
   }@else {
   <ul class="text-hidden">
-    @for (itrData of list_item; track itrData){
+    @for (itrData of list_item(); track itrData){
     <li>
       {{ carouselPipe.transform(itrData.nombre, "name-product") }}
     </li>

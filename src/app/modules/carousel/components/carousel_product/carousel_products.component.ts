@@ -1,4 +1,10 @@
-import { Component, Input, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  inject,
+  signal,
+} from '@angular/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { CarouselPipe } from '../../pipes/carousel.pipe';
 import { NavigationService } from '../../../../services/navigation.service';
@@ -18,15 +24,17 @@ import { SesionStorageService } from '../../../../services/sesion-storage.servic
   imports: [CarouselModule, MaterialComponents],
   templateUrl: './carousel_products.component.html',
   styleUrls: ['./carousel_products.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CarouselProductsComponent {
-  list_item: Carousel_item_product[] = [];
+  list_item = signal<Carousel_item_product[]>([]);
   carouselPipe: CarouselPipe = new CarouselPipe();
 
   @Input() set data(res: Carousel | null) {
     if (!res) return;
 
-    this.list_item = res.list as Carousel_item_product[];
+    const list = res.list as Carousel_item_product[];
+    this.list_item.set(list);
   }
 
   customOptions: OwlOptions = {

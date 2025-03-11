@@ -61,10 +61,8 @@ export class FiltersProductComponent {
         this.brands = brands;
         this.categories = categories;
         this.materials = materials;
-        this.shareInformationService.viewLoading$.emit(false);
       },
       (err) => {
-        this.shareInformationService.viewLoading$.emit(false);
         this.matSnackBar.open('Error obtener datos', '', {
           duration: 2500,
           panelClass: ['snackBar_error'],

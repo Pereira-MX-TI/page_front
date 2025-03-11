@@ -1,7 +1,7 @@
 <section class="container" [@fadeInOut]>
   <div class="categories">
     <p>También puede interesarte:</p>
-    @for (itrCategory of categories; track itrCategory){
+    @for (itrCategory of categories(); track itrCategory){
     <span (click)="viewCategory(itrCategory)"
       ><label [class]="itrCategory.select ? 'select_category' : ''">{{
         itrCategory.nombre
@@ -70,16 +70,16 @@
     </div>
 
     <div class="visor_img">
-      <app-visor-img [images]="product?.files"></app-visor-img>
+      <app-visor-img [images]="product()?.files"></app-visor-img>
     </div>
 
     <article class="operation">
       <div class="card">
         <h2>
-          {{ productPipe.transform(product, "nameProduct") }}
+          {{ productPipe.transform(product(), "nameProduct") }}
         </h2>
         <h3>
-          {{ productPipe.transform(product, "codeProduct") }}
+          {{ productPipe.transform(product(), "codeProduct") }}
         </h3>
 
         <div class="characteristic_general">
@@ -165,31 +165,31 @@
         <tbody>
           <tr>
             <td><strong>Clave</strong></td>
-            <td>{{ product?.clave }}</td>
+            <td>{{ product()?.clave }}</td>
           </tr>
 
           <tr>
             <td><strong>Marca</strong></td>
-            <td>{{ product?.brand?.nombre }}</td>
+            <td>{{ product()?.brand?.nombre }}</td>
           </tr>
           <tr>
             <td><strong>Categoría</strong></td>
-            <td>{{ product?.category?.nombre }}</td>
+            <td>{{ product()?.category?.nombre }}</td>
           </tr>
           <tr>
             <td><strong>Material</strong></td>
-            <td>{{ product?.material?.nombre }}</td>
+            <td>{{ product()?.material?.nombre }}</td>
           </tr>
 
           <tr>
             <td><strong>Unidad de medida</strong></td>
-            <td>{{ product?.messuare?.nombre }}</td>
+            <td>{{ product()?.messuare?.nombre }}</td>
           </tr>
         </tbody>
       </table>
 
       <h3>Descripción</h3>
-      <p>{{ product?.description?.detalle }}</p>
+      <p>{{ product()?.description?.detalle }}</p>
     </div>
 
     @if(productsByCategory.length != 0){
