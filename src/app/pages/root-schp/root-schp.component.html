@@ -1,59 +1,57 @@
-<mat-sidenav-container #sideNav>
-  <mat-sidenav [(opened)]="sideNavStatus" aria-hidden="true">
-    <aside><app-movil-nav></app-movil-nav></aside>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <header>
-      <app-head-nav></app-head-nav>
-    </header>
-    <main>
-      <h1>Venta de medidores de agua - Schp</h1>
-      <router-outlet></router-outlet>
-      <div class="social_networks">
-        <a
-          title="facebook medidores de agua"
-          href="https://www.facebook.com/61551873939168"
-          target="_blank"
-        >
-          <img
-            loading="lazy"
-            src="./../assets/social_networks/facebook.svg"
-            title="facebook medidores de agua"
-            alt="facebook medidores de agua"
-        /></a>
+<header>
+  <app-head-nav (statusSideNav)="statusSideNav = !statusSideNav"></app-head-nav>
+</header>
+<main>
+  <app-movil-nav
+    (statusSideNav)="statusSideNav = false"
+    [@sideNavAnimation]="statusSideNav ? 'visible' : 'hidden'"
+  ></app-movil-nav>
 
-        <a
-          title="Instagram medidores de agua"
-          href="https://www.instagram.com/soluciones_hidraulica_pereira/"
-          target="_blank"
-        >
-          <img
-            loading="lazy"
-            src="./../assets/social_networks/instagram.svg"
-            title="Instagram medidores de agua"
-            alt="Instagram medidores de agua"
-        /></a>
+  <h1>Venta de medidores de agua - Schp</h1>
+  <router-outlet></router-outlet>
+  <div class="social_networks">
+    <a
+      title="facebook medidores de agua"
+      href="https://www.facebook.com/61551873939168"
+      target="_blank"
+    >
+      <img
+        loading="lazy"
+        src="./../assets/social_networks/facebook.svg"
+        title="facebook medidores de agua"
+        alt="facebook medidores de agua"
+    /></a>
 
-        <a
-          title="whatsapp medidores de agua"
-          href="https://wa.me/524422264978"
-          target="_blank"
-        >
-          <img
-            loading="lazy"
-            src="./../assets/social_networks/whatsapp.svg"
-            title="whatsapp medidores de agua"
-            alt="whatsapp medidores de agua"
-        /></a>
-      </div>
-    </main>
-    <footer>
-      <p (click)="openPdfPrivacy()">Políticas de privacidad.</p>
-      <p>
-        Copyright © 2016-{{ currentYear }} Soluciones Comerciales Hidráulicas
-        Pereira.
-      </p>
-      <p>Algunas imágenes y textos pertenecen a las marcas mencionadas.</p>
-    </footer>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+    <a
+      title="Instagram medidores de agua"
+      href="https://www.instagram.com/soluciones_hidraulica_pereira/"
+      target="_blank"
+    >
+      <img
+        loading="lazy"
+        src="./../assets/social_networks/instagram.svg"
+        title="Instagram medidores de agua"
+        alt="Instagram medidores de agua"
+    /></a>
+
+    <a
+      title="whatsapp medidores de agua"
+      href="https://wa.me/524422264978"
+      target="_blank"
+    >
+      <img
+        loading="lazy"
+        src="./../assets/social_networks/whatsapp.svg"
+        title="whatsapp medidores de agua"
+        alt="whatsapp medidores de agua"
+    /></a>
+  </div>
+</main>
+<footer>
+  <p (click)="openPdfPrivacy()">Políticas de privacidad.</p>
+  <p>
+    Copyright © 2016-{{ currentYear }} Soluciones Comerciales Hidráulicas
+    Pereira.
+  </p>
+  <p>Algunas imágenes y textos pertenecen a las marcas mencionadas.</p>
+</footer>

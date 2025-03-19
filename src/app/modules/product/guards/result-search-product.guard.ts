@@ -1,8 +1,10 @@
 import { CanActivateFn } from '@angular/router';
 
 export const resultSearchProductGuard: CanActivateFn = (route, state) => {
-  const { data } = route.queryParams;
-  if (!data) return false;
+  const { data: queryParams } = route.queryParams;
+  const { data: params } = route.params;
+
+  if (!params && !queryParams) return false;
 
   return true;
 };

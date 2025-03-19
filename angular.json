@@ -87,7 +87,6 @@
             "production": {
               "buildTarget": "page-front:build:production",
               "headers": {"X-Frame-Options": "deny"}
-
             },
             "development": {
               "buildTarget": "page-front:build:development",

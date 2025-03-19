@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { MaterialComponents } from '../../../material/material.module';
 import { Platform } from '@angular/cdk/platform';
-import { NavigationService } from '../../../../services/navigation.service';
 import { ShareDataSearchService } from '../../../search/services/share-data-search.service';
-import { SesionStorageService } from './../../../../services/sesion-storage.service';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -54,4 +52,8 @@ export class BannerCategoryComponent {
       title: 'cajas de banqueta, geofonos, sellos',
     },
   ];
+
+  functionConvertSearch(res: string): string {
+    return encodeURIComponent(res);
+  }
 }

@@ -32,8 +32,7 @@
       <a
         [title]="itrCategory.name"
         (click)="shareDataSearchService.close$.emit()"
-        routerLink="/Productos/Busqueda"
-        [queryParams]="{ data: itrCategory.name }"
+        [routerLink]="'/Productos/' + functionConvertSearch(itrCategory.name)"
       >
         <button type="button" mat-stroked-button>Ver mas</button>
       </a>

@@ -2,7 +2,7 @@
   <ul>
     <li
       [class]="selectOption.home ? 'li_active' : ''"
-      (click)="shareInformationService.sideNav$.emit()"
+      (click)="statusSideNav.emit()"
     >
       <a title="Inicio" routerLink="/Inicio">
         <img
@@ -16,7 +16,7 @@
     </li>
     <li
       [class]="selectOption.water_meter ? 'li_active' : ''"
-      (click)="shareInformationService.sideNav$.emit()"
+      (click)="statusSideNav.emit()"
     >
       <a title="Medidor de agua" routerLink="/MedidorDeAgua">
         <img
@@ -30,7 +30,7 @@
     </li>
     <li
       [class]="selectOption.telemetry ? 'li_active' : ''"
-      (click)="shareInformationService.sideNav$.emit()"
+      (click)="statusSideNav.emit()"
     >
       <a title="telemetría" routerLink="/Telemetria">
         <img
@@ -45,7 +45,7 @@
 
     <li
       [class]="selectOption.product ? 'li_active' : ''"
-      (click)="shareInformationService.sideNav$.emit()"
+      (click)="statusSideNav.emit()"
     >
       <a title="productos" routerLink="/Productos">
         <img
@@ -59,7 +59,7 @@
     </li>
     <li
       [class]="selectOption.service ? 'li_active' : ''"
-      (click)="shareInformationService.sideNav$.emit()"
+      (click)="statusSideNav.emit()"
     >
       <a title="servicios" routerLink="/Servicios">
         <img
@@ -74,7 +74,7 @@
 
     <li
       [class]="selectOption.contact ? 'li_active' : ''"
-      (click)="shareInformationService.sideNav$.emit()"
+      (click)="statusSideNav.emit()"
     >
       <a title="contacto" routerLink="/Contacto">
         <img
@@ -87,4 +87,5 @@
       >
     </li>
   </ul>
+  <section class="empty" (click)="statusSideNav.emit()"></section>
 </nav>

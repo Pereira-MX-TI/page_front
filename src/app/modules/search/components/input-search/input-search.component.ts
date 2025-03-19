@@ -76,7 +76,7 @@ export class InputSearchComponent implements OnInit, OnDestroy {
     if (this.formControl.invalid) return;
 
     const res: string = this.formControl.value.trim();
-    this.navigationService.navigatePage('Productos/Busqueda', { data: res });
+    this.navigationService.navigatePage(`Productos/${encodeURIComponent(res)}`);
     this.shareDataSearchService.close$.emit();
   }
 }

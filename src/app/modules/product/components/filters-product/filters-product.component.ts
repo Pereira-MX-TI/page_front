@@ -80,11 +80,17 @@ export class FiltersProductComponent {
     dialogRef.afterClosed().subscribe((response) => {
       if (!(response != undefined && response != null && response)) return;
 
-      this.navigationService.navigatePage('Productos/Busqueda', {
-        data: this.productPipe.transform(response.nombre, 'name-filter'),
-      });
+      this.navigationService.navigatePage(
+        `Productos/${encodeURIComponent(
+          this.productPipe.transform(response.nombre, 'name-filter')
+        )}`
+      );
 
       this.shareDataSearchService.close$.emit();
     });
+  }
+
+  functionConvertSearch(res: string): string {
+    return encodeURIComponent(res);
   }
 }

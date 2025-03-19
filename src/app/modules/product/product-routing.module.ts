@@ -13,8 +13,18 @@ export const productRoutes: Routes = [
     component: ResultSearchProductComponent,
   },
   {
+    path: 'Vista',
+    canActivate: [viewProductGuard],
+    component: ViewProductComponent,
+  },
+  {
     path: 'Vista/:data',
     canActivate: [viewProductGuard],
     component: ViewProductComponent,
+  },
+  {
+    path: ':data',
+    canActivate: [resultSearchProductGuard],
+    component: ResultSearchProductComponent,
   },
 ];

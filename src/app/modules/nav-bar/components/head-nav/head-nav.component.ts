@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, output, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Dialog } from '@angular/cdk/dialog';
 import { SelectOptionNav } from '../../../../models/select_option_nav.model';
@@ -9,6 +9,7 @@ import { InputSearchMovilComponent } from '../../../search/components/input-sear
 import { InputSearchComponent } from '../../../search/components/input-search/input-search.component';
 import { MaterialComponents } from '../../../material/material.module';
 import { RouterModule } from '@angular/router';
+import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-head-nav',
@@ -33,6 +34,7 @@ export class HeadNavComponent implements OnInit, OnDestroy {
 
   listSubscription: Subscription[] = [new Subscription(), new Subscription()];
   viewSearch: boolean = false;
+  statusSideNav = output<void>();
 
   public constructor(
     private dialogModal: Dialog,
@@ -72,7 +74,7 @@ export class HeadNavComponent implements OnInit, OnDestroy {
   }
 
   clickSideNav(): void {
-    this.shareInformationService.sideNav$.emit();
+    this.statusSideNav.emit();
   }
 
   openModalSearch(): void {

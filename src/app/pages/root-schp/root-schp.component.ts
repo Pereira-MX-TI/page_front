@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HeadNavComponent } from '../../modules/nav-bar/components/head-nav/head-nav.component';
 import { MovilNavComponent } from '../../modules/nav-bar/components/movil-nav/movil-nav.component';
@@ -8,6 +8,13 @@ import { Subscription } from 'rxjs';
 import { ShareInformationService } from '../../services/share-information.service';
 import { SelectOptionNavObservable } from '../../observables/select_option_nav.observable';
 import { checkOptionCurrentNav } from '../../functions/check_option_current_nav.function';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-root-schp',
@@ -21,23 +28,41 @@ import { checkOptionCurrentNav } from '../../functions/check_option_current_nav.
   ],
   templateUrl: './root-schp.component.html',
   styleUrl: './root-schp.component.css',
+  animations: [
+    trigger('sideNavAnimation', [
+      state(
+        'hidden',
+        style({
+          transform: 'translateX(-100%)', // Empuja el side nav completamente fuera de la pantalla
+          opacity: 0,
+        })
+      ),
+      state(
+        'visible',
+        style({
+          transform: 'translateX(0)', // Lo mueve a la posición original
+          opacity: 1,
+        })
+      ),
+      transition('hidden <=> visible', [
+        animate('0.5s ease-in-out'), // Controla la duración y el tipo de animación
+      ]),
+    ]),
+  ],
 })
 export class RootSchpComponent {
-  @ViewChild('sideNav', { static: true }) sideNav: any;
+  statusSideNav: boolean = false;
 
   title = 'Venta de medidores de agua - Schp';
   listSubscription: Subscription[] = [new Subscription()];
-  sideNavStatus: boolean = false;
   currentYear: number = new Date().getFullYear();
 
   constructor(
     private readonly router: Router,
-    private shareInformationService: ShareInformationService,
     private selectOptionNavObservable: SelectOptionNavObservable
   ) {}
 
   ngOnInit() {
-    this.subscriptionSideNav();
     this.subscribeNavigation();
   }
 
@@ -45,12 +70,6 @@ export class RootSchpComponent {
     this.listSubscription.forEach((itrSub) => {
       itrSub.unsubscribe();
     });
-  }
-
-  private subscriptionSideNav(): void {
-    this.listSubscription[0] = this.shareInformationService.sideNav$.subscribe(
-      () => (this.sideNavStatus = !this.sideNavStatus)
-    );
   }
 
   private subscribeNavigation(): void {

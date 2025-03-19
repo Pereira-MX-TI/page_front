@@ -3,280 +3,40 @@
     <h2>Medidores de agua y todo lo relacionado.</h2>
     <div class="list_products">
       <ul>
+        @for (itrProductRow1 of products_row_1; track itrProductRow1){
         <li>
           <a
-            title="Niples"
+            [title]="itrProductRow1"
             (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Niples' }"
-            >Niples</a
+            [routerLink]="'/Productos/' + functionConvertSearch(itrProductRow1)"
+            >{{ itrProductRow1 }}</a
           >
         </li>
-        <li>
-          <a
-            title="Tees"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Tees' }"
-            >Tees</a
-          >
-        </li>
-        <li>
-          <a
-            title="Sensor de pulsos"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Sensor de pulsos' }"
-            >Sensor de pulsos</a
-          >
-        </li>
-        <li>
-          <a
-            title="Filtros"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Filtros' }"
-            >Filtros</a
-          >
-        </li>
-        <li>
-          <a
-            title="Válvula expulsora de aire"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Válvula expulsora de aire' }"
-            >Válvula expulsora de aire</a
-          >
-        </li>
-        <li>
-          <a
-            title="Pvc"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Pvc' }"
-            >Pvc</a
-          >
-        </li>
-        <li>
-          <a
-            title="Dosificadora"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Dosificadora' }"
-            >Dosificadora</a
-          >
-        </li>
-        <li>
-          <a
-            title="Emisor de pulsos"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Emisor de pulsos' }"
-            >Emisor de pulsos</a
-          >
-        </li>
-        <li>
-          <a
-            title="Abrazadera"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Abrazadera' }"
-            >Abrazadera</a
-          >
-        </li>
-        <li>
-          <a
-            title="Válvula media luna"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Válvula media luna' }"
-            >Válvula media luna</a
-          >
-        </li>
+        }
       </ul>
       <ul>
+        @for (itrProductRow2 of products_row_2; track itrProductRow2){
         <li>
           <a
-            title="Kit de conexiones"
+            [title]="itrProductRow2"
             (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Kit de conexiones' }"
-            >Kit de conexiones</a
+            [routerLink]="'/Productos/' + functionConvertSearch(itrProductRow2)"
+            >{{ itrProductRow2 }}</a
           >
         </li>
-        <li>
-          <a
-            title="Teflon"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Teflon' }"
-            >Teflon</a
-          >
-        </li>
-        <li>
-          <a
-            title="Codos"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Codos' }"
-            >Codos</a
-          >
-        </li>
-        <li>
-          <a
-            title="Adhesivo"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Adhesivo' }"
-            >Adhesivo</a
-          >
-        </li>
-        <li>
-          <a
-            title="Seguros"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Seguros' }"
-            >Seguros</a
-          >
-        </li>
-        <li>
-          <a
-            title="Estrella expansiva"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Estrella expansiva' }"
-            >Estrella expansiva</a
-          >
-        </li>
-        <li>
-          <a
-            title="Tubería"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Tubería' }"
-            >Tubería</a
-          >
-        </li>
-        <li>
-          <a
-            title="Cpvc"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Cpvc' }"
-            >Cpvc</a
-          >
-        </li>
-        <li>
-          <a
-            title="Soldadura"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Soldadura' }"
-            >Soldadura</a
-          >
-        </li>
-        <li>
-          <a
-            title="Gas"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Gas' }"
-            >Gas</a
-          >
-        </li>
+        }
       </ul>
       <ul>
+        @for (itrProductRow3 of products_row_3; track itrProductRow3){
         <li>
           <a
-            title="Empaque plano"
+            [title]="itrProductRow3"
             (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Empaque plano' }"
-            >Empaque plano</a
+            [routerLink]="'/Productos/' + functionConvertSearch(itrProductRow3)"
+            >{{ itrProductRow3 }}</a
           >
         </li>
-        <li>
-          <a
-            title="Válvula reductora"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Válvula reductora' }"
-            >Válvula reductora</a
-          >
-        </li>
-        <li>
-          <a
-            title="Adaptadores"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Adaptadores' }"
-            >Adaptadores</a
-          >
-        </li>
-        <li>
-          <a
-            title="Tuerca union"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Tuerca union' }"
-            >Tuerca union</a
-          >
-        </li>
-        <li>
-          <a
-            title="Caja para medidor"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Caja para medidor' }"
-            >Caja para medidor</a
-          >
-        </li>
-        <li>
-          <a
-            title="Válvula check"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Válvula check' }"
-            >Válvula check</a
-          >
-        </li>
-        <li>
-          <a
-            title="Tapón"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Tapón' }"
-            >Tapón</a
-          >
-        </li>
-        <li>
-          <a
-            title="Válvula media luna"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Válvula media luna' }"
-            >Válvula media luna</a
-          >
-        </li>
-        <li>
-          <a
-            title="Conexiones"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Conexiones' }"
-            >Conexiones</a
-          >
-        </li>
-        <li>
-          <a
-            title="Empaque cónico"
-            (click)="shareDataSearchService.close$.emit()"
-            routerLink="/Productos/Busqueda"
-            [queryParams]="{ data: 'Empaque cónico' }"
-            >Empaque cónico</a
-          >
-        </li>
+        }
       </ul>
     </div>
   </div>

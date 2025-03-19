@@ -95,7 +95,16 @@ export class ViewProductComponent {
 
   private subscriptionChangeUrl(): void {
     this.activatedRoute.params.subscribe(({ data }) => {
+      if (!data) return;
+
       this._id = this.decodeBase64UrlSafe(data);
+      this.refresh();
+    });
+
+    this.activatedRoute.queryParams.subscribe(({ data }) => {
+      if (!data) return;
+
+      this._id = atob(data);
       this.refresh();
     });
   }
@@ -188,9 +197,9 @@ export class ViewProductComponent {
   }
 
   viewCategory(res: Category) {
-    this.navigationService.navigatePage('Productos/Busqueda', {
-      data: res.nombre,
-    });
+    this.navigationService.navigatePage(
+      `Productos/${encodeURIComponent(res.nombre)}`
+    );
 
     this.shareDataSearchService.close$.emit();
   }

@@ -1,8 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SelectOptionNav } from '../../../../models/select_option_nav.model';
 import { SelectOptionNavObservable } from '../../../../observables/select_option_nav.observable';
-import { ShareInformationService } from '../../../../services/share-information.service';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -13,6 +12,8 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./movil-nav.component.css'],
 })
 export class MovilNavComponent implements OnInit, OnDestroy {
+  statusSideNav = output<void>();
+
   selectOption: SelectOptionNav = {
     home: false,
     product: false,
@@ -24,10 +25,7 @@ export class MovilNavComponent implements OnInit, OnDestroy {
   };
   listSubscription: Subscription[] = [new Subscription()];
 
-  constructor(
-    private selectOptionNavObservable: SelectOptionNavObservable,
-    public shareInformationService: ShareInformationService
-  ) {}
+  constructor(private selectOptionNavObservable: SelectOptionNavObservable) {}
 
   ngOnInit(): void {
     this.subscriptionSelectOptionNav();

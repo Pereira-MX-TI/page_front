@@ -74,7 +74,16 @@ export class ResultSearchProductComponent implements OnInit, OnDestroy {
 
   private subscriptionChangeUrl(): void {
     this.activatedRoute.queryParams.subscribe(({ data }) => {
-      this.dataPage.dataPaginator.search = data;
+      if (!data) return;
+
+      this.dataPage.dataPaginator.search = atob(data);
+      this.refresh();
+    });
+
+    this.activatedRoute.params.subscribe(({ data }) => {
+      if (!data || data === 'Vista') return;
+
+      this.dataPage.dataPaginator.search = decodeURIComponent(data);
       this.refresh();
     });
   }

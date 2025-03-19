@@ -1,5 +1,18 @@
 ::ng-deep app-movil-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1000;
+  overflow-y: auto;
+  transition: transform 0.5s ease-in-out;
+}
+
+nav {
+  display: flex;
   width: 100%;
+  height: 100%;
 }
 
 ul {
@@ -9,8 +22,9 @@ ul {
   flex-direction: column;
   justify-content: flex-start;
 
-  width: 100%;
-  height: 100vh;
+  width: 20rem;
+  height: 100%;
+
   padding: 0;
   margin: 0;
   outline: 0;
@@ -61,4 +75,10 @@ a {
 
 .li_active a {
   color: var(--color4-1);
+}
+
+.empty {
+  height: 100%;
+  flex-grow: 10;
+  background-color: transparent;
 }

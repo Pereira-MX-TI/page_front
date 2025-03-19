@@ -5,8 +5,7 @@
     <li>
       <a
         (click)="shareDataSearchService.close$.emit()"
-        routerLink="/Productos/Busqueda"
-        [queryParams]="{ data: itrCategory.nombre }"
+        [routerLink]="'/Productos/' + functionConvertSearch(itrCategory.nombre)"
       >
         {{ productPipe.transform(itrCategory.nombre, "name-filter") }}</a
       >
@@ -23,8 +22,7 @@
     <li>
       <a
         (click)="shareDataSearchService.close$.emit()"
-        routerLink="/Productos/Busqueda"
-        [queryParams]="{ data: itrMaterial.nombre }"
+        [routerLink]="'/Productos/' + functionConvertSearch(itrMaterial.nombre)"
       >
         {{ productPipe.transform(itrMaterial.nombre, "name-filter") }}</a
       >
@@ -40,8 +38,7 @@
     <li>
       <a
         (click)="shareDataSearchService.close$.emit()"
-        routerLink="/Productos/Busqueda"
-        [queryParams]="{ data: itrBrand.nombre }"
+        [routerLink]="'/Productos/' + functionConvertSearch(itrBrand.nombre)"
       >
         {{ productPipe.transform(itrBrand.nombre, "name-filter") }}</a
       >
