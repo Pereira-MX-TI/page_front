@@ -8,6 +8,7 @@ import { HttpService } from '../../../../services/http.service';
 import { CarouselProductsComponent } from '../../../carousel/components/carousel_product/carousel_products.component';
 import { FiltersProductComponent } from '../../components/filters-product/filters-product.component';
 import { SesionStorageService } from '../../../../services/sesion-storage.service';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-product',
@@ -47,10 +48,12 @@ export class ProductComponent {
   }
 
   private setMetaTags(): void {
-    this.seoService.setTitle('Productos | Venta de medidores de agua');
+    this.seoService.setTitle('Venta de medidores de agua | Productos');
     this.seoService.setDescription(
       'Explora nuestra variedad de productos hidráulicos. Soluciones de alta calidad para medición, control y gestión eficiente del agua.'
     );
+
+    this.seoService.setImage(environment.ogImage);
     this.seoService.setIndexingFollower(true);
     this.seoService.setCanonicalURL();
   }

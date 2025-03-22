@@ -44,7 +44,7 @@ export class QuaterComponent {
   }
 
   private setMetaTags(): void {
-    this.seoService.setTitle('Quater | Administración del agua');
+    this.seoService.setTitle('Administración del agua | Quater');
     this.seoService.setDescription(
       'Optimiza la gestión del agua con tecnología LoRaWAN e IoT. Monitorea consumo, calidad y distribución en tiempo real. Reduce desperdicios, mejora la eficiencia y toma decisiones con datos precisos.'
     );

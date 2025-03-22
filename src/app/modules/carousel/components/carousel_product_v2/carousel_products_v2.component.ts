@@ -11,6 +11,10 @@ import { ShareDataSearchService } from '../../../search/services/share-data-sear
 import { MaterialComponents } from '../../../material/material.module';
 import { Platform } from '@angular/cdk/platform';
 import { SesionStorageService } from '../../../../services/sesion-storage.service';
+import {
+  convertSearch,
+  encodeBase64UrlSafe,
+} from '../../../../functions/convert-search.function';
 
 @Component({
   selector: 'app-carousel-products-v2',
@@ -68,11 +72,8 @@ export class CarouselProductsV2Component {
   viewProduct(res: Product): void {
     this.SesionStorageService.remove(['viewProduct']);
 
-    const id: string = btoa(String(res.id))
-      .replace(/\+/g, '-')
-      .replace(/\//g, '_')
-      .replace(/=+$/, '');
-    this.navigationService.navigatePage(`Productos/Vista/${id}`);
+    const data: string = encodeBase64UrlSafe(res.nombre, String(res.id));
+    this.navigationService.navigatePage(`Productos/Vista/${data}`);
     this.shareDataSearchService.close$.emit();
   }
 }

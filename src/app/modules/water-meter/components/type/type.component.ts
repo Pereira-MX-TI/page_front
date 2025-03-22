@@ -12,4 +12,8 @@ import { RouterModule } from '@angular/router';
 })
 export class TypeComponent {
   constructor(public shareDataSearchService: ShareDataSearchService) {}
+
+  functionConvertSearch(res: string): string {
+    return encodeURIComponent(res);
+  }
 }

@@ -1,6 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { SeoService } from '../../../../services/seo.service';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-service',
@@ -107,11 +108,12 @@ export class ServiceComponent {
   }
 
   private setMetaTags(): void {
-    this.seoService.setTitle('Servicios | Venta de medidores de agua');
+    this.seoService.setTitle('Venta de medidores de agua | Servicios');
     this.seoService.setDescription(
       'Descubre nuestros servicios especializados para medidores de agua. Instalación, mantenimiento y soluciones personalizadas para un control eficiente del consumo.'
     );
 
+    this.seoService.setImage(environment.ogImage);
     this.seoService.setIndexingFollower(true);
     this.seoService.setCanonicalURL();
   }

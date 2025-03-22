@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { WhatIsComponent } from '../../components/what-is/what-is.component';
 import { TypeComponent } from '../../components/type/type.component';
-import { BrandComponent } from '../../components/brand/brand.component';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { SeoService } from '../../../../services/seo.service';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-water-meters',
   standalone: true,
-  imports: [WhatIsComponent, TypeComponent, BrandComponent],
+  imports: [WhatIsComponent, TypeComponent],
   templateUrl: './water-meters.component.html',
   styleUrl: './water-meters.component.css',
   animations: [
@@ -29,11 +29,12 @@ export class WaterMetersComponent {
   }
 
   private setMetaTags(): void {
-    this.seoService.setTitle('Medidores de agua | Venta de medidores de agua');
+    this.seoService.setTitle('Venta de medidores de agua | Medidores de agua');
     this.seoService.setDescription(
       'Venta de medidores de agua, medidores de agua potable, medidor de agua potable y medidor de agua mecánicos, ultrasonicos y electromagnéticos para uso residencial, comercial e industrial. Alta precisión y durabilidad. ¡Cotiza hoy!'
     );
 
+    this.seoService.setImage(environment.ogImage);
     this.seoService.setIndexingFollower(true);
     this.seoService.setCanonicalURL();
   }

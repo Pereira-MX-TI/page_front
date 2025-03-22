@@ -25,7 +25,9 @@
       <a
         title="Medidores de agua mecánicos"
         (click)="shareDataSearchService.close$.emit()"
-        routerLink="/Productos/medidores-de-agua"
+        [routerLink]="
+          '/Productos/' + functionConvertSearch('medidores de agua')
+        "
         >Ver mas</a
       >
     </button>
@@ -54,7 +56,9 @@
       <a
         title="Medidores de agua electromagnéticos"
         (click)="shareDataSearchService.close$.emit()"
-        routerLink="/Productos/medidores-de-agua"
+        [routerLink]="
+          '/Productos/' + functionConvertSearch('medidores de agua')
+        "
         >Ver mas</a
       >
     </button>
@@ -89,7 +93,9 @@
       <a
         title="Medidores de agua Ultrasonico"
         (click)="shareDataSearchService.close$.emit()"
-        routerLink="/Productos/medidores-de-agua"
+        [routerLink]="
+          '/Productos/' + functionConvertSearch('medidores de agua')
+        "
         >Ver mas</a
       >
     </button>

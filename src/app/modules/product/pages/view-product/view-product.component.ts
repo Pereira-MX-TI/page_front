@@ -24,6 +24,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MaintenanceModalComponent } from '../../../error-page/components/maintenance-modal/maintenance-modal.component';
 import { WindowSizeService } from '../../../../services/window-size.service';
 import { CarouselProductsV2Component } from '../../../carousel/components/carousel_product_v2/carousel_products_v2.component';
+import { decodeBase64UrlSafe } from '../../../../functions/convert-search.function';
 
 @Component({
   selector: 'app-view-product',
@@ -97,7 +98,10 @@ export class ViewProductComponent {
     this.activatedRoute.params.subscribe(({ data }) => {
       if (!data) return;
 
-      this._id = this.decodeBase64UrlSafe(data);
+      this._id = String(data).includes('~')
+        ? decodeBase64UrlSafe(String(data).split('~')[1])
+        : decodeBase64UrlSafe(data);
+
       this.refresh();
     });
 
@@ -107,18 +111,6 @@ export class ViewProductComponent {
       this._id = atob(data);
       this.refresh();
     });
-  }
-
-  private decodeBase64UrlSafe(base64Url: string) {
-    // Restaurar los caracteres problemáticos
-    let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-
-    // Agregar padding si es necesario
-    while (base64.length % 4 !== 0) {
-      base64 += '=';
-    }
-
-    return atob(base64);
   }
 
   refresh(): void {

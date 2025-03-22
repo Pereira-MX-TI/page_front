@@ -18,6 +18,7 @@ import { TableComponent } from '../../../shared/components/table/table.component
 import { MessageEmptyComponent } from '../../../shared/components/message-empty/message-empty.component';
 import { PanelComponent } from '../../../shared/components/panel/panel.component';
 import { PageEvent } from '@angular/material/paginator';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-result-search-product',
@@ -89,11 +90,12 @@ export class ResultSearchProductComponent implements OnInit, OnDestroy {
   }
 
   private setMetaTags(): void {
-    this.seoService.setTitle('Productos | Venta de medidores de agua');
+    this.seoService.setTitle('Venta de medidores de agua | Productos');
     this.seoService.setDescription(
       'Encuentra los mejores productos hidráulicos para sistemas de agua. Innovación y eficiencia en soluciones de medición, control y distribución.'
     );
 
+    this.seoService.setImage(environment.ogImage);
     this.seoService.setIndexingFollower(true);
     this.seoService.setCanonicalURL();
   }

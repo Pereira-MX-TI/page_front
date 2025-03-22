@@ -7,6 +7,10 @@ import { MaterialComponents } from '../../../material/material.module';
 import { NavigationService } from '../../../../services/navigation.service';
 import { ShareDataSearchService } from '../../../search/services/share-data-search.service';
 import { SesionStorageService } from '../../../../services/sesion-storage.service';
+import {
+  convertSearch,
+  encodeBase64UrlSafe,
+} from '../../../../functions/convert-search.function';
 
 @Component({
   selector: 'app-table',
@@ -55,11 +59,8 @@ export class TableComponent implements OnInit, OnDestroy {
   viewProduct(res: Product): void {
     this.SesionStorageService.remove(['viewProduct']);
 
-    const id: string = btoa(String(res.id))
-      .replace(/\+/g, '-')
-      .replace(/\//g, '_')
-      .replace(/=+$/, '');
-    this.navigationService.navigatePage(`Productos/Vista/${id}`);
+    const data: string = encodeBase64UrlSafe(res.nombre, String(res.id));
+    this.navigationService.navigatePage(`Productos/Vista/${data}`);
     this.shareDataSearchService.close$.emit();
   }
 

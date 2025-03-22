@@ -1,6 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { SeoService } from '../../../../services/seo.service';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-telemetry',
@@ -74,11 +75,12 @@ export class TelemetryComponent {
   }
 
   private setMetaTags(): void {
-    this.seoService.setTitle('Telemetría | Venta de medidores de agua');
+    this.seoService.setTitle('Venta de medidores de agua | Telemetría');
     this.seoService.setDescription(
       'Accede a la telemetría avanzada para medidores de agua. Monitorea y gestiona el consumo en tiempo real con precisión y eficiencia.'
     );
 
+    this.seoService.setImage(environment.ogImage);
     this.seoService.setIndexingFollower(true);
     this.seoService.setCanonicalURL();
   }

@@ -1,6 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { SeoService } from '../../../../services/seo.service';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-contact',
@@ -27,11 +28,12 @@ export class ContactComponent implements OnInit {
   }
 
   private setMetaTags(): void {
-    this.seoService.setTitle('Contacto | Venta de medidores de agua');
+    this.seoService.setTitle('Venta de medidores de agua | Contacto');
     this.seoService.setDescription(
       'Ponte en contacto con nosotros para más información sobre medidores de agua. Resolveremos tus dudas y te ayudaremos a encontrar la mejor solución.'
     );
 
+    this.seoService.setImage(environment.ogImage);
     this.seoService.setIndexingFollower(true);
     this.seoService.setCanonicalURL();
   }
