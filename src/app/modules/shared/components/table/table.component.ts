@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DataTableDTO } from '../../models/dataTableDTO';
 import { TableInformationService } from '../../services/table-information.service';
@@ -7,10 +7,7 @@ import { MaterialComponents } from '../../../material/material.module';
 import { NavigationService } from '../../../../services/navigation.service';
 import { ShareDataSearchService } from '../../../search/services/share-data-search.service';
 import { SesionStorageService } from '../../../../services/sesion-storage.service';
-import {
-  convertSearch,
-  encodeBase64UrlSafe,
-} from '../../../../functions/convert-search.function';
+import { encodeBase64UrlSafe } from '../../../../functions/convert-search.function';
 
 @Component({
   selector: 'app-table',
